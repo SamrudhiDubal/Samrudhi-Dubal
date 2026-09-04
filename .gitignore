@@ -1,0 +1,8 @@
+node_modules/
+.env
+dist/
+build/
+backend/uploads/resumes/*
+!backend/uploads/resumes/.gitkeep
+*.log
+.DS_Store
