@@ -6,3 +6,7 @@ backend/uploads/resumes/*
 !backend/uploads/resumes/.gitkeep
 *.log
 .DS_Store
+ml-service/.venv/
+ml-service/__pycache__/
+ml-service/**/__pycache__/
+ml-service/.pytest_cache/
