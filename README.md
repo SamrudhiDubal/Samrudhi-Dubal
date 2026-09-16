@@ -34,6 +34,8 @@ key required.
 - **Backend**: Node.js, Express, MongoDB (Mongoose), JWT auth, Multer file
   uploads, `pdf-parse` / `mammoth` for resume text extraction.
 - **Frontend**: React (Vite), React Router, Tailwind CSS, Axios.
+- **ML service** (`ml-service/`): a standalone Python AI matching engine
+  (FastAPI + scikit-learn) — see [`ml-service/README.md`](ml-service/README.md).
 
 ## Project Structure
 
@@ -56,6 +58,13 @@ frontend/
     components/             Navbar, JobCard, JobForm, MatchScoreBadge, PrivateRoute
     pages/                   Home, Login, Register, Jobs, JobDetails, PostJob,
                              EditJob, EmployerJobs, Applicants, CandidateApplications, Profile
+
+ml-service/                 standalone Python AI matching engine (FastAPI + scikit-learn)
+  matcher/                  core.py, skills.py, experience.py, location.py,
+                             text_similarity.py, resume_parser.py
+  app.py                    REST API (match / rank-candidates / recommend-jobs / parse-resume)
+  cli.py                    command-line interface
+  tests/test_matcher.py     pytest suite
 ```
 
 ## Getting Started
