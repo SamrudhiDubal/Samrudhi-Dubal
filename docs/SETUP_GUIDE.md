@@ -1,213 +1,135 @@
-# Complete Setup Guide: Running JobMatch AI on Your Laptop
+# Setup Guide: Running JobMatch AI on Your Laptop
 
-This guide takes you from nothing installed to the full project running on
-your laptop, then shows how to package it for submission. It is written for
-Windows; Mac/Linux differences are noted where they matter.
-
----
-
-## 0. Where your code lives
-
-| Place | What it is for |
-| --- | --- |
-| **GitHub** (`github.com/SamrudhiDubal/Samrudhi-Dubal`) | The master copy and backup. Examiners can view it online. |
-| **Your laptop** (e.g. `C:\Projects\Samrudhi-Dubal`) | Where you run, demo and edit the project. |
-| **VS Code** | The editor you open that folder in. |
-| **Google Colab** | Where you run `AI_Job_Assistance.ipynb`, optional. |
-
-The complete project is on the branch
-**`claude/job-portal-ai-resume-screening-atzfzi`**. Always pick this branch on
-GitHub (branch dropdown at the top-left of the file list) until it is merged
-into the default branch. Other branches hold older, partial versions.
-
-### What is in the folder
-
-```
-Samrudhi-Dubal/
-├── backend/        Node.js + Express REST API, AI matching engine, tests
-├── frontend/       React website (what users see)
-├── ml-service/     Python AI matching service (FastAPI + scikit-learn)
-├── ml/             Python ML classifier trained on a recruitment dataset
-├── docs/           Project report, viva guide, this guide, screenshots
-├── scripts/        One-command setup script
-├── AI_Job_Assistance.ipynb   Colab notebook (data analysis)
-├── package.json    Root commands: setup / seed / dev / test
-└── README.md       Technical overview + API reference
-```
+This takes you from nothing installed to the app running, then shows how to prepare your submission.
+It is written for Windows; Mac/Linux differences are noted.
 
 ---
 
-## 1. Install the tools (one time, about 20 minutes)
+## 1. Install the tools (one time)
 
-| Tool | Why | Download | Check it worked (in a new terminal) |
+| Tool | Why | Download | Check (in a new terminal) |
 | --- | --- | --- | --- |
-| **Node.js 20 LTS** | Runs the backend and frontend | https://nodejs.org (LTS button) | `node -v` shows v20+ |
-| **Git** | Downloads the code from GitHub | https://git-scm.com/downloads | `git --version` |
-| **VS Code** | Code editor | https://code.visualstudio.com | |
-| **MongoDB** | Database; pick ONE option below | | |
-| **Python 3.10+** *(optional)* | Only for `ml-service/` and `ml/` | https://www.python.org/downloads (tick **"Add Python to PATH"**) | `python --version` |
+| **Python 3.11 or 3.12** | Runs everything | https://www.python.org/downloads/ (tick **"Add python.exe to PATH"** during install) | `python --version` |
+| **Git** | Downloads the code | https://git-scm.com/downloads | `git --version` |
+| **VS Code** | Code editor | https://code.visualstudio.com (then install the **Python** and **Jupyter** extensions) | |
 
-### MongoDB: choose one
+> Use Python **3.11 or 3.12**. TensorFlow does not support the newest Python releases straight away; if
+> `pip install` fails on TensorFlow, a too-new Python is the usual reason.
 
-**Option A: MongoDB Atlas (cloud, free, easiest; recommended)**
-1. Sign up at https://www.mongodb.com/cloud/atlas/register.
-2. Create a **free M0 cluster**.
-3. *Database Access* → add a user with a password.
-4. *Network Access* → **Add IP Address** → *Allow access from anywhere*
-   (`0.0.0.0/0`). This is fine for a student project.
-5. *Connect* → *Drivers* → copy the connection string. It looks like
-   `mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/`
-6. You will paste it into `backend/.env` in step 3. Add `job_portal` after
-   the final `/`.
-
-**Option B: MongoDB Community Server (installed on your laptop)**
-1. Download from https://www.mongodb.com/try/download/community and install
-   with "Install MongoDB as a Service" ticked.
-2. It then runs automatically at `mongodb://127.0.0.1:27017`. That is
-   already the default in `backend/.env`, so there is nothing to change.
-
-> Atlas needs internet during the demo. If the exam room's Wi-Fi is
-> unreliable, use Option B.
+No database server is needed. The app uses **SQLite**, which is built into Python.
 
 ---
 
-## 2. Get the code onto your laptop
+## 2. Get the code
 
-Open **VS Code → Terminal → New Terminal** and run:
+Open **VS Code → Terminal → New Terminal**:
 
 ```bash
-cd C:\                      # or wherever you keep projects (Mac: cd ~)
+cd C:\                 # Mac: cd ~
 mkdir Projects
 cd Projects
 git clone -b claude/job-portal-ai-resume-screening-atzfzi https://github.com/SamrudhiDubal/Samrudhi-Dubal.git
 cd Samrudhi-Dubal
-code .                      # opens the folder in VS Code
+code .
 ```
 
-*No Git?* On GitHub, select the branch above, then **Code → Download ZIP**,
-and extract it to `C:\Projects\Samrudhi-Dubal`.
+No Git? On GitHub choose the branch `claude/job-portal-ai-resume-screening-atzfzi` in the branch dropdown,
+click **Code → Download ZIP** and extract it.
 
 ---
 
-## 3. Set up and run the web app (3 commands)
-
-From the `Samrudhi-Dubal` folder:
+## 3. Install the Python libraries (one time, about 5 minutes)
 
 ```bash
-npm install          # installs the root helper (one time)
-npm run setup        # installs backend + frontend, creates .env files (one time)
+python -m venv .venv
+.venv\Scripts\activate          # Mac/Linux: source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-**If you chose Atlas:** open `backend/.env` and replace the `MONGO_URI` line:
+Your terminal prompt now starts with `(.venv)`. Activate it again whenever you open a new terminal.
 
-```
-MONGO_URI=mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/job_portal
-```
+> PowerShell says scripts are disabled? Run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 
-Also change `JWT_SECRET` to any long random text.
+---
 
-Then:
+## 4. Run the app
 
 ```bash
-npm run seed         # loads demo users, jobs and applications (re-run any time)
-npm run dev          # starts backend (port 5000) + frontend (port 5173)
+streamlit run app.py
 ```
 
-Open **http://localhost:5173** in your browser. Log in with any demo account;
-the password is `demo1234`:
+Your browser opens **http://localhost:8501**. On the first start the app creates its database and loads
+demo data (about 20 seconds). The trained models are already included in `models/`, so there is no need
+to train first.
+
+**Demo accounts** (password `demo1234` for all):
 
 | Role | Email |
 | --- | --- |
-| Admin | `admin@demo.jobmatch` |
-| Employer | `techcorp@demo.jobmatch` |
-| Candidate | `ananya@demo.jobmatch` |
+| Candidate | `ananya@example.com`, `rahul@example.com`, `sneha@example.com` |
+| Employer | `talent@nimbus.example.com`, `hiring@crestview.example.com` |
+| Admin | `admin@example.com` |
 
-Press **Ctrl + C** in the terminal to stop the servers. Next time, you only
-need `npm run dev`.
+Stop the app with **Ctrl + C**.
 
-Run all automated tests with `npm test`.
-
----
-
-## 4. Run the Python parts (optional, but good to show)
-
-### 4a. Python AI matching service (`ml-service/`)
-
-```bash
-cd ml-service
-python -m venv .venv
-.venv\Scripts\activate          # Mac/Linux: source .venv/bin/activate
-pip install -r requirements-dev.txt
-python -m pytest tests/ -v      # 18 tests should pass
-uvicorn app:app --reload --port 8000
-```
-
-Open **http://localhost:8000/docs**. FastAPI generates an interactive page
-where you can try `/api/match` live in front of the examiner.
-
-### 4b. Talent suitability classifier (`ml/`)
-
-```bash
-cd ml\talent-suitability-classifier
-pip install -r requirements.txt
-python talent_suitability_classifier.py
-```
-
-This trains Logistic Regression, Random Forest and Gradient Boosting models,
-saves charts as PNGs and saves the best model.
-
-> **Be ready to explain the accuracy.** All three models score about **33%**
-> on this dataset, which is chance level for 3 classes. The dataset's labels
-> do not correlate with its features; it appears to be synthetic or randomly
-> labelled. Present this honestly as a finding: "the pipeline works, but this
-> dataset has no learnable signal, which is why the main portal uses an
-> explainable rule-plus-similarity engine instead." Do not claim the
-> classifier is accurate.
-
-### 4c. Colab notebook
-
-Open `AI_Job_Assistance.ipynb` on GitHub and click **Open in Colab** at the
-top, or upload it at https://colab.research.google.com.
+To start again with fresh demo data: `python -m jobmatch.seed --reset`
 
 ---
 
-## 5. Prepare your submission
+## 5. Retrain the models (optional, for the demo or to show you can)
 
-### Checklist
-- [ ] Fill in your register number, department, guide and year at the top of
-      `docs/PROJECT_REPORT.md`.
-- [ ] Take your own screenshots if you change anything; the current ones are
-      in `docs/screenshots/`.
-- [ ] Convert the report to PDF/Word. In VS Code, install the **Markdown PDF**
-      extension, open `PROJECT_REPORT.md`, right-click → *Markdown PDF:
-      Export (pdf)*. For the diagrams, paste each ```` ```mermaid ```` block
-      into https://mermaid.live and download a PNG.
-- [ ] Prepare a 10–12 slide presentation: problem, objectives, architecture,
-      AI algorithm, demo screenshots, testing, results, limitations, future
-      work.
-- [ ] Practise the 5-minute demo in `docs/VIVA_GUIDE.md`.
+```bash
+python train.py              # all 7 models, 3 seeds each: about 10–15 minutes
+python train.py --quick      # faster version: about 4 minutes
+python evaluate_matching.py  # matching evaluation (about 1 minute)
+```
 
-### Making a ZIP for upload
-Never include `node_modules` (hundreds of MB, and examiners reinstall it
-anyway). The easiest clean ZIP is GitHub's: select the branch → **Code →
-Download ZIP**. It contains only the source code.
+This rewrites `models/`, `reports/metrics.json` and the charts in `reports/figures/`. Numbers may differ
+very slightly between computers because of floating-point differences in TensorFlow.
+
+Run the tests with `python -m pytest`.
+
+---
+
+## 6. The notebook
+
+Open `notebooks/Resume_Screening_ML_DL.ipynb` in VS Code (select the `.venv` kernel) or in Jupyter
+(`jupyter notebook`). It already contains outputs, so you can read it without running anything.
+
+**In Google Colab:** go to https://colab.research.google.com → **GitHub** tab → paste
+`SamrudhiDubal/Samrudhi-Dubal`, choose the branch above and open the notebook. Run the first cell; it
+downloads the project and installs the libraries.
+
+---
+
+## 7. Prepare your submission
+
+- [ ] Fill in your register number, guide and academic year at the top of `docs/PROJECT_REPORT.md`.
+- [ ] Convert the report to PDF: in VS Code install **Markdown PDF**, open the report, right-click →
+      *Markdown PDF: Export (pdf)*. Charts are in `reports/figures/`; for the diagrams, paste each
+      `mermaid` block into https://mermaid.live and download a PNG.
+- [ ] Make your slides (problem, dataset, models, results table, charts, app screenshots, limitations).
+- [ ] Practise the demo in `docs/VIVA_GUIDE.md`.
+- [ ] For a ZIP upload, use GitHub's **Code → Download ZIP** on the branch. It leaves out `.venv/`, which
+      you should never include.
 
 ### On demo day
-1. Start MongoDB (Option B starts automatically; Atlas needs internet).
-2. `npm run seed`, then `npm run dev`.
-3. Open http://localhost:5173 *before* the examiner arrives.
-4. Keep `backend/utils/aiMatcher.js` open in VS Code to explain the algorithm.
+
+1. Open the project folder, activate `.venv`, run `streamlit run app.py` **before** the examiner arrives
+   (the first model load takes a few seconds).
+2. Keep `jobmatch/matcher.py` and the notebook open to explain the method.
+3. The app works fully offline.
 
 ---
 
-## 6. Troubleshooting
+## 8. Troubleshooting
 
 | Problem | Fix |
 | --- | --- |
-| `'npm' is not recognized` | Reinstall Node.js, then **close and reopen** VS Code |
-| `MongooseServerSelectionError` / `ECONNREFUSED 127.0.0.1:27017` | MongoDB isn't running. Option B: open *Services* and start "MongoDB Server". Atlas: check `MONGO_URI`, your password, and that Network Access allows your IP |
-| `bad auth : authentication failed` | Wrong Atlas username/password in `MONGO_URI`. Special characters in the password must be URL-encoded (`@` → `%40`) |
-| `Port 5000 already in use` | Change `PORT=5001` in `backend/.env` and `VITE_API_URL=http://localhost:5001/api` in `frontend/.env` (macOS often uses port 5000 for AirPlay) |
-| Login fails right after seeding | Make sure you ran `npm run seed` against the same database the server uses |
-| PowerShell blocks `.venv\Scripts\activate` | Run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once |
-| Emails aren't arriving | Expected. Without SMTP settings they are printed in the backend terminal instead |
+| `'python' is not recognized` | Reinstall Python with "Add to PATH" ticked, then reopen VS Code. On Mac use `python3` |
+| `No matching distribution found for tensorflow` | Your Python is too new or 32-bit. Install 64-bit Python 3.11 or 3.12 |
+| `streamlit: command not found` | The virtual environment isn't active: run the activate command from step 3 |
+| Error loading `ml_model.joblib` / `InconsistentVersionWarning` | Different scikit-learn version. Run `pip install -r requirements.txt` again, or retrain with `python train.py` |
+| App says models are not trained | `models/` is missing. Re-download the project or run `python train.py` |
+| Port 8501 in use | `streamlit run app.py --server.port 8502` |
+| Wrong or stale demo data | `python -m jobmatch.seed --reset` |

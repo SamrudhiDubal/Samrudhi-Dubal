@@ -1,0 +1,415 @@
+[
+ {
+  "category": "ACCOUNTANT",
+  "title": "Staff Accountant",
+  "company": "Ledgerline Finance Services",
+  "location": "Chennai",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹5–8 LPA",
+  "skills": [
+   "accounting",
+   "general ledger",
+   "accounts payable",
+   "reconciliation",
+   "gaap",
+   "excel"
+  ],
+  "description": "Maintain the general ledger, process accounts payable and receivable, prepare month-end journal entries and bank reconciliations, and support the annual audit. Strong knowledge of GAAP and advanced Excel required."
+ },
+ {
+  "category": "ADVOCATE",
+  "title": "Legal Associate (Litigation)",
+  "company": "Veritas Legal Partners",
+  "location": "New Delhi",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹7–12 LPA",
+  "skills": [
+   "litigation",
+   "legal research",
+   "contracts",
+   "case management",
+   "writing"
+  ],
+  "description": "Draft pleadings, motions and contracts, conduct legal research, manage case files and represent clients in hearings. Excellent legal writing and client communication skills."
+ },
+ {
+  "category": "AGRICULTURE",
+  "title": "Farm Operations Manager",
+  "company": "GreenFurrow Agritech",
+  "location": "Pune",
+  "job_type": "Full-time",
+  "min_experience": 4,
+  "salary": "₹6–10 LPA",
+  "skills": [
+   "agriculture",
+   "crop management",
+   "farming",
+   "inventory management",
+   "leadership"
+  ],
+  "description": "Manage day-to-day farm operations, crop planning, irrigation schedules and harvest logistics. Supervise field staff, track inventory of seeds and fertiliser, and ensure food safety compliance."
+ },
+ {
+  "category": "APPAREL",
+  "title": "Apparel Merchandiser",
+  "company": "Threadcraft Fashions",
+  "location": "Tiruppur",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹5–9 LPA",
+  "skills": [
+   "merchandising",
+   "textile",
+   "fashion design",
+   "vendor management",
+   "negotiation"
+  ],
+  "description": "Coordinate apparel product development from sampling to shipment. Work with designers and factories on fabric, trims and costing, manage vendor timelines and negotiate pricing with suppliers."
+ },
+ {
+  "category": "ARTS",
+  "title": "Arts Program Coordinator",
+  "company": "Kalakshetra Arts Foundation",
+  "location": "Bengaluru",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹4–6 LPA",
+  "skills": [
+   "event planning",
+   "teaching",
+   "writing",
+   "communication",
+   "art direction"
+  ],
+  "description": "Plan and run community arts programs, exhibitions and workshops. Coordinate artists and volunteers, write grant applications and program descriptions, and manage event budgets."
+ },
+ {
+  "category": "AUTOMOBILE",
+  "title": "Automotive Service Technician",
+  "company": "DriveCare Motors",
+  "location": "Chennai",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹4–7 LPA",
+  "skills": [
+   "automotive",
+   "diagnostics",
+   "maintenance",
+   "inspection",
+   "safety"
+  ],
+  "description": "Diagnose and repair vehicles, perform scheduled maintenance and inspections, use diagnostic tools to troubleshoot engine and electrical faults, and follow workshop safety procedures."
+ },
+ {
+  "category": "AVIATION",
+  "title": "Aircraft Maintenance Engineer",
+  "company": "SkyBridge Aviation Services",
+  "location": "Hyderabad",
+  "job_type": "Full-time",
+  "min_experience": 4,
+  "salary": "₹8–14 LPA",
+  "skills": [
+   "aircraft maintenance",
+   "aviation",
+   "faa",
+   "inspection",
+   "safety"
+  ],
+  "description": "Perform scheduled and unscheduled maintenance on commercial aircraft, carry out inspections, maintain maintenance records and ensure compliance with aviation regulations and FAA/DGCA standards."
+ },
+ {
+  "category": "BANKING",
+  "title": "Relationship Manager, Retail Banking",
+  "company": "Unity Trust Bank",
+  "location": "Mumbai",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹6–10 LPA",
+  "skills": [
+   "banking",
+   "customer service",
+   "sales",
+   "loan processing",
+   "compliance"
+  ],
+  "description": "Build relationships with retail banking customers, cross-sell loans, deposits and investment products, process loan applications, and ensure KYC and compliance standards are met."
+ },
+ {
+  "category": "BPO",
+  "title": "Customer Support Team Lead",
+  "company": "Clearvoice BPO Solutions",
+  "location": "Noida",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹4–6 LPA",
+  "skills": [
+   "call center",
+   "customer service",
+   "team management",
+   "communication",
+   "scheduling"
+  ],
+  "description": "Lead a team of customer support agents in an inbound call center. Monitor call quality and service levels, coach agents, handle escalations and prepare daily performance reports."
+ },
+ {
+  "category": "BUSINESS-DEVELOPMENT",
+  "title": "Business Development Manager",
+  "company": "Orbitline Solutions",
+  "location": "Bengaluru",
+  "job_type": "Full-time",
+  "min_experience": 5,
+  "salary": "₹12–18 LPA",
+  "skills": [
+   "business development",
+   "lead generation",
+   "negotiation",
+   "crm",
+   "strategic planning"
+  ],
+  "description": "Identify new business opportunities, generate leads, build partnerships and negotiate contracts. Develop strategic growth plans and manage the sales pipeline in CRM."
+ },
+ {
+  "category": "CHEF",
+  "title": "Sous Chef",
+  "company": "Saffron Table Restaurants",
+  "location": "Goa",
+  "job_type": "Full-time",
+  "min_experience": 4,
+  "salary": "₹5–8 LPA",
+  "skills": [
+   "culinary",
+   "menu development",
+   "food safety",
+   "food preparation",
+   "team management"
+  ],
+  "description": "Support the head chef in running a busy kitchen: menu development, food preparation, kitchen staff supervision, inventory and strict food safety and hygiene standards."
+ },
+ {
+  "category": "CONSTRUCTION",
+  "title": "Construction Project Manager",
+  "company": "Stonebridge Infra Projects",
+  "location": "Hyderabad",
+  "job_type": "Full-time",
+  "min_experience": 6,
+  "salary": "₹12–20 LPA",
+  "skills": [
+   "construction management",
+   "project management",
+   "estimating",
+   "osha",
+   "blueprints",
+   "safety"
+  ],
+  "description": "Manage residential and commercial construction projects from planning to handover. Prepare cost estimates, read blueprints, coordinate subcontractors and enforce site safety standards."
+ },
+ {
+  "category": "CONSULTANT",
+  "title": "Management Consultant",
+  "company": "Northstar Advisory",
+  "location": "Gurugram",
+  "job_type": "Full-time",
+  "min_experience": 4,
+  "salary": "₹14–22 LPA",
+  "skills": [
+   "consulting",
+   "process improvement",
+   "stakeholder management",
+   "data analysis",
+   "presentation"
+  ],
+  "description": "Advise clients on operations and strategy. Analyse business data, identify process improvement opportunities, present recommendations to senior stakeholders and support implementation."
+ },
+ {
+  "category": "DESIGNER",
+  "title": "Graphic Designer",
+  "company": "Pixelnest Studio",
+  "location": "Mumbai",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹4–7 LPA",
+  "skills": [
+   "graphic design",
+   "adobe photoshop",
+   "adobe illustrator",
+   "indesign",
+   "ui/ux"
+  ],
+  "description": "Create visual designs for print and digital campaigns, brand identities and marketing materials using Photoshop, Illustrator and InDesign. Collaborate with the marketing team on creative concepts."
+ },
+ {
+  "category": "DIGITAL-MEDIA",
+  "title": "Digital Media Specialist",
+  "company": "Brightwave Media",
+  "location": "Bengaluru",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹5–8 LPA",
+  "skills": [
+   "digital marketing",
+   "social media",
+   "seo",
+   "content marketing",
+   "video editing"
+  ],
+  "description": "Plan and run digital campaigns across social media and search. Create and edit video and written content, optimise SEO, and report on engagement and audience growth."
+ },
+ {
+  "category": "ENGINEERING",
+  "title": "Mechanical Design Engineer",
+  "company": "Axion Engineering Works",
+  "location": "Pune",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹6–10 LPA",
+  "skills": [
+   "mechanical engineering",
+   "autocad",
+   "solidworks",
+   "manufacturing",
+   "quality control"
+  ],
+  "description": "Design mechanical components and assemblies in AutoCAD and SolidWorks, support manufacturing and testing, and work with quality control on design improvements."
+ },
+ {
+  "category": "FINANCE",
+  "title": "Financial Analyst",
+  "company": "Crestview Capital",
+  "location": "Mumbai",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹8–13 LPA",
+  "skills": [
+   "financial analysis",
+   "financial reporting",
+   "budgeting",
+   "forecasting",
+   "excel"
+  ],
+  "description": "Build financial models, prepare budgets and forecasts, analyse variances and produce monthly financial reports for management. Advanced Excel and strong analytical skills required."
+ },
+ {
+  "category": "FITNESS",
+  "title": "Personal Fitness Trainer",
+  "company": "Peak Form Fitness",
+  "location": "Chennai",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹3–5 LPA",
+  "skills": [
+   "personal training",
+   "fitness",
+   "nutrition",
+   "cpr",
+   "wellness"
+  ],
+  "description": "Design personalised training programs, coach clients one-on-one and in groups, advise on nutrition and wellness, and maintain CPR certification."
+ },
+ {
+  "category": "HEALTHCARE",
+  "title": "Clinical Nurse",
+  "company": "CarePoint Hospitals",
+  "location": "Bengaluru",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹5–8 LPA",
+  "skills": [
+   "patient care",
+   "nursing",
+   "ehr",
+   "medical terminology",
+   "cpr",
+   "hipaa"
+  ],
+  "description": "Provide direct patient care, administer medication, maintain electronic health records, coordinate with physicians and follow clinical and patient-privacy protocols."
+ },
+ {
+  "category": "HR",
+  "title": "HR Generalist",
+  "company": "Peoplefirst Consulting",
+  "location": "Chennai",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹6–9 LPA",
+  "skills": [
+   "recruiting",
+   "onboarding",
+   "employee relations",
+   "benefits administration",
+   "hris",
+   "payroll"
+  ],
+  "description": "Manage end-to-end recruiting and onboarding, employee relations, benefits administration and payroll coordination. Maintain HRIS records and support performance management cycles."
+ },
+ {
+  "category": "INFORMATION-TECHNOLOGY",
+  "title": "IT Systems Administrator",
+  "company": "Nimbus Technologies",
+  "location": "Bengaluru",
+  "job_type": "Full-time",
+  "min_experience": 3,
+  "salary": "₹7–12 LPA",
+  "skills": [
+   "networking",
+   "active directory",
+   "linux",
+   "troubleshooting",
+   "vmware",
+   "technical support"
+  ],
+  "description": "Administer servers, networks and user accounts. Manage Active Directory, Linux and VMware environments, troubleshoot hardware and software issues and provide technical support."
+ },
+ {
+  "category": "PUBLIC-RELATIONS",
+  "title": "Public Relations Executive",
+  "company": "Echo PR & Communications",
+  "location": "New Delhi",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹5–8 LPA",
+  "skills": [
+   "public relations",
+   "media relations",
+   "writing",
+   "social media",
+   "event planning"
+  ],
+  "description": "Write press releases, build media relations, manage the social media presence of clients and organise press events and launches."
+ },
+ {
+  "category": "SALES",
+  "title": "Sales Executive",
+  "company": "Vertex Retail Solutions",
+  "location": "Hyderabad",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹4–7 LPA plus incentives",
+  "skills": [
+   "sales",
+   "account management",
+   "negotiation",
+   "crm",
+   "customer service"
+  ],
+  "description": "Achieve monthly sales targets by prospecting and managing client accounts, negotiating deals, maintaining CRM records and delivering excellent customer service."
+ },
+ {
+  "category": "TEACHER",
+  "title": "High School Mathematics Teacher",
+  "company": "Bright Minds International School",
+  "location": "Chennai",
+  "job_type": "Full-time",
+  "min_experience": 2,
+  "salary": "₹4–7 LPA",
+  "skills": [
+   "teaching",
+   "lesson planning",
+   "classroom management",
+   "curriculum development",
+   "tutoring"
+  ],
+  "description": "Teach mathematics to grades 9–12, plan lessons aligned with the curriculum, manage the classroom, assess student progress and provide additional tutoring support."
+ }
+]

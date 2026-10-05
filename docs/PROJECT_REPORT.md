@@ -1,4 +1,4 @@
-# JobMatch AI: A Full-Stack Job Portal with AI-Based Resume Screening and Candidate Matching
+# AI-Based Resume Screening and Candidate Matching using Machine Learning and Deep Learning
 
 **Final Year Project Report**
 
@@ -6,7 +6,7 @@
 | --- | --- |
 | Student | Samrudhi Dubal |
 | Register No. | _[fill in]_ |
-| Department | _[fill in, e.g. Computer Science and Engineering]_ |
+| Programme | MBA (AI & Data Science) |
 | Institution | SRM Institute of Science and Technology |
 | Guide | _[fill in]_ |
 | Academic Year | _[fill in]_ |
@@ -15,512 +15,387 @@
 
 ## Abstract
 
-Recruiters routinely receive hundreds of applications for a single opening and
-spend most of their time manually reading resumes that do not fit the role.
-Candidates, in turn, apply blindly without knowing which openings actually
-match their profile. **JobMatch AI** is a full-stack web application (MongoDB,
-Express, React, Node.js) that addresses both problems. Employers post jobs
-with required skills and an experience level; candidates apply by uploading a
-resume (PDF, DOCX, DOC or TXT). The server extracts the resume text and an
-explainable AI matching engine scores the candidate from 0 to 100 using three
-signals: **skill overlap** (with a synonym/alias table, e.g. "js" →
-"javascript", "k8s" → "kubernetes"), **TF cosine text similarity** between
-resume and job description, and **experience fit** derived from years of
-experience detected in the resume. Applicants are ranked automatically, with
-matched and missing skills shown to the employer. The same engine powers
-**two-way candidate matching**: candidates get a ranked "Recommended for You"
-list of open jobs with a skill-gap analysis, and employers can search the
-whole candidate pool, including people who have not applied. An optional
-LLM layer (Anthropic Claude) can be enabled to add a qualitative fit summary.
-The system includes role-based access control (candidate, employer, admin),
-email notifications, an admin dashboard and an automated test suite
-(unit, integration and UI component tests).
+Recruiters spend most of their screening time reading resumes that do not fit the role, while candidates
+apply blindly without knowing which openings suit them. This project builds **JobMatch AI**, a Python web
+application that screens resumes and matches candidates to jobs using machine learning (ML) and deep
+learning (DL). Using 2,481 real resumes in 24 job categories (LiveCareer dataset,
+CC0 licence), four ML classifiers (TF-IDF with Logistic Regression, Linear SVM, Naive Bayes and Random
+Forest) and three DL architectures (a multilayer perceptron, a 1D convolutional neural network and a
+bidirectional LSTM, built with Keras) were trained and compared under a leakage-free protocol: a held-out
+test set, 5-fold cross-validation, and model selection on validation data only. The 1D-CNN was the best
+single model (81.9% test accuracy, mean of 3 seeds) and an ensemble of the CNN and Linear SVM was
+deployed, reaching **86.1% accuracy, 80.9% macro-F1 and 95.2% top-3 accuracy** on
+497 unseen resumes. The models drive an explainable 0–100 match score that combines category
+probability, skill overlap, CNN embedding similarity and experience. On unseen resumes, 87.1% of
+each job's top-10 candidates come from the job's own category. The system is delivered as a Streamlit app
+with candidate, employer and admin roles, a SQLite database, and an automated test suite.
 
-**Keywords:** resume screening, candidate matching, job recommendation, NLP,
-cosine similarity, MERN stack, explainable AI.
+**Keywords:** resume classification, candidate matching, NLP, TF-IDF, Linear SVM, convolutional neural
+network, word embeddings, ensemble learning, Streamlit.
 
 ---
 
 ## 1. Introduction
 
 ### 1.1 Background
-Online job portals have made applying easy, which has made screening hard.
-Applicant Tracking Systems (ATS) used by large companies are expensive and
-often opaque: a candidate is rejected by a keyword filter without knowing why.
-Smaller organisations and campus placement cells usually screen manually.
+Online job portals have made applying easy and screening hard. A single opening can attract hundreds of
+applications, and keyword-based Applicant Tracking Systems (ATS) are expensive and opaque: candidates are
+filtered out without knowing why, and recruiters cannot see why a resume ranked where it did.
 
-### 1.2 Problem Statement
-Design and build a job portal that (a) automatically screens and ranks
-applicants against a job's requirements, (b) explains each score so the
-decision is transparent, and (c) recommends suitable jobs to candidates and
-suitable candidates to employers, without depending on a paid external AI
-service.
+### 1.2 Problem statement
+Build a system that (a) automatically identifies what kind of role a resume fits, (b) ranks candidates for
+a job and jobs for a candidate with a score that can be explained, and (c) is evaluated honestly on data it
+has never seen.
 
 ### 1.3 Objectives
-1. Provide secure, role-based access for candidates, employers and admins.
-2. Let employers create, edit, close and delete job postings with required
-   skills and experience level.
-3. Let candidates search and filter jobs and apply with a resume upload.
-4. Extract text from PDF/DOCX/DOC/TXT resumes on the server.
-5. Score every application 0–100 with an explainable, locally-running AI
-   engine and rank applicants by score.
-6. Recommend jobs to candidates and matching candidates to employers.
-7. Notify users by email on key events.
-8. Give administrators platform-wide statistics and moderation tools.
-9. Verify the system with automated unit, integration and UI tests.
+1. Collect a real, legally usable resume dataset and check its quality.
+2. Pre-process resume text (cleaning, removal of personal data, feature engineering).
+3. Train and compare classical ML classifiers on TF-IDF features.
+4. Train and compare deep-learning text classifiers (MLP, 1D-CNN, BiLSTM).
+5. Select and deploy the best model without using the test set for selection.
+6. Design an explainable job–candidate matching score and evaluate it quantitatively.
+7. Deliver a working web application for candidates, employers and administrators.
 
 ### 1.4 Scope
-The project targets small-to-medium recruiters and university placement
-cells. It runs fully offline (no API keys required). Video interviews,
-payments and chat are out of scope.
+The system classifies resumes into 24 industry categories and matches them to job postings. It does not
+make hiring decisions; it supports a recruiter's first screening pass and helps candidates find relevant
+jobs.
 
 ---
 
-## 2. Literature Survey / Existing Systems
+## 2. Literature Review
 
-| System | Approach | Limitation addressed by JobMatch AI |
-| --- | --- | --- |
-| Generic job boards (Naukri, Indeed) | Keyword search, manual screening by recruiter | No per-application fit score visible to small recruiters |
-| Enterprise ATS (Workday, Taleo) | Keyword/boolean filters | Expensive; rejections are opaque to candidates and recruiters |
-| Pure keyword matching | Exact string match of skills | Misses synonyms ("JS" vs "JavaScript"), ignores context |
-| Black-box ML/LLM ranking | Learned embeddings or LLM prompts | Hard to explain; needs training data or paid APIs |
+| Approach | Typical method | Strength | Weakness |
+| --- | --- | --- | --- |
+| Keyword ATS filters | Boolean search on skills | Simple, fast | Misses synonyms; opaque rejections |
+| Bag-of-words + linear models | TF-IDF + Logistic Regression / SVM (Joachims, 1998) | Strong baseline for text; fast; interpretable | Ignores word order and phrase meaning |
+| Naive Bayes | Word-probability model | Very fast; good with little data | Independence assumption hurts accuracy |
+| Tree ensembles | Random Forest (Breiman, 2001) | Non-linear; robust | Slow and memory-hungry on sparse text |
+| CNNs for text | Word embeddings + convolution (Kim, 2014) | Learns local phrase patterns; strong on classification | Needs more data; less interpretable |
+| Recurrent networks | (Bi)LSTM (Hochreiter & Schmidhuber, 1997) | Models long-range order | Slow; hard to train on long documents |
+| Pre-trained transformers | BERT / Sentence-BERT | State of the art semantics | Large models; need GPU or download of pre-trained weights |
 
-**Techniques used in this project and why:**
-- **Bag-of-words + TF cosine similarity** is a classic information-retrieval
-  method (Salton's Vector Space Model). It is fast, needs no training data
-  and is easy to explain in terms of shared vocabulary.
-- **Dictionary-based skill extraction with an alias table** gives
-  deterministic, auditable skill detection and handles common synonyms.
-- **Rule-based experience extraction** (regular expressions over phrases like
-  "5 years of experience") gives a transparent experience signal.
-- **Optional LLM scoring** is kept as an additive, opt-in layer so the core
-  system stays explainable and free to run.
+**Data quality in published resume projects.** The most widely used Kaggle resume dataset (962 rows,
+25 categories) contains only **166 unique resumes**; we verified this ourselves. Random splits put
+copies of the same resume in training and test sets, which explains the ~99% accuracies often reported.
+This project uses a different dataset with no meaningful duplication.
 
 ---
 
-## 3. System Requirements
+## 3. Dataset
 
-### 3.1 Functional Requirements
-| ID | Requirement |
+| Property | Value |
 | --- | --- |
-| FR1 | Users register as candidate or employer and log in with email/password |
-| FR2 | Employers create, update, close/reopen and delete their job postings |
-| FR3 | Anyone can browse and filter open jobs by keyword, location, type, level, skill |
-| FR4 | Candidates apply to an open job by uploading a resume and optional cover letter |
-| FR5 | The system extracts resume text and computes an AI match score with a breakdown |
-| FR6 | Employers see applicants ranked by match score and update application status |
-| FR7 | Candidates see their applications, scores and statuses |
-| FR8 | Candidates see recommended jobs with matched and missing skills |
-| FR9 | Employers see all platform candidates ranked for a job, flagged applied/not applied |
-| FR10 | Candidates upload a profile resume independently of applying |
-| FR11 | Email notifications on application submitted, status change, new applicant |
-| FR12 | Admins view statistics, manage users (activate/deactivate/delete) and moderate jobs |
+| Source | LiveCareer resume dataset, published on Kaggle and Hugging Face (`opensporks/resumes`) |
+| Licence | CC0 1.0 (public domain) |
+| Size | 2,483 resumes, 2 exact duplicates removed → 2,481 |
+| Labels | 24 categories (Accountant, Advocate, Agriculture, …, Teacher) |
+| Text length | median 757 words |
+| Personal data | Emails, links and phone numbers removed by the publisher and again by our cleaning |
 
-### 3.2 Non-Functional Requirements
-- **Security:** bcrypt password hashing, JWT authentication, role-based
-  authorisation, deactivated accounts blocked, resumes never served publicly.
-- **Explainability:** every score shows its component percentages and the
-  matched/missing skills.
-- **Performance:** scoring is in-memory and runs in milliseconds per resume.
-- **Portability:** runs on any OS with Node.js 18+ and MongoDB.
-- **Testability:** automated unit, integration and UI tests.
+![Resumes per category](../reports/figures/class_distribution.png)
 
-### 3.3 Hardware / Software
-- **Software:** Node.js 18+, MongoDB 6+, a modern browser.
-- **Hardware:** any machine with 4 GB RAM.
+Most categories have 100–120 resumes; **BPO (22)**, **Automobile (36)** and **Agriculture (63)** are
+under-represented. Several categories overlap in vocabulary (e.g. Finance, Accountant, Banking), which
+caps achievable accuracy.
+
+**First iteration (documented in `experiments/`).** The project first used a 12,000-row synthetic
+"talent recruitment" table. Every model, including Random Forest, scored ~33% on its three balanced
+classes (chance level), and per-class feature distributions were identical: the labels carried no
+signal. Recognising this and switching to real resume text was a key decision of the project.
 
 ---
 
-## 4. System Design
+## 4. Methodology
 
-### 4.1 Architecture
+### 4.1 System architecture
 
 ```mermaid
 flowchart LR
-    subgraph Client["React SPA (Vite + Tailwind)"]
-        UI[Pages: Jobs, Apply, Recommended,<br/>Applicants, Admin]
-        AX[Axios client + JWT]
+    subgraph Offline["Offline: train.py"]
+        D[(resumes.csv)] --> P[Pre-processing]
+        P --> ML[TF-IDF + 4 ML models]
+        P --> DL[Embeddings + MLP / 1D-CNN / BiLSTM]
+        ML --> S{Select on validation}
+        DL --> S
+        S --> M[(models/: SVM + CNN ensemble)]
+        S --> R[(reports/: metrics, charts)]
     end
-    subgraph Server["Node.js + Express REST API"]
-        MW[Auth middleware<br/>JWT + role guard]
-        CT[Controllers<br/>auth / jobs / applications / users / admin]
-        RP[Resume parser<br/>pdf-parse, mammoth]
-        AI[AI matching engine<br/>aiMatcher + recommender]
-        ML[Mailer<br/>nodemailer]
-        LLM[Optional semantic layer<br/>Claude API]
+    subgraph Online["Online: streamlit run app.py"]
+        U[Candidate / Employer / Admin] --> UI[Streamlit pages]
+        UI --> PR[Resume parser PDF/DOCX/TXT]
+        PR --> C[Classifier + embeddings]
+        C --> MT[Matching engine]
+        MT --> UI
+        UI <--> DB[(SQLite)]
     end
-    DB[(MongoDB<br/>Users, Jobs, Applications)]
-    UI --> AX -->|HTTPS / JSON| MW --> CT
-    CT --> RP --> AI
-    CT --> AI
-    CT --> ML
-    AI -. if API key set .-> LLM
-    CT <--> DB
+    M --> C
 ```
 
-The application follows a three-tier architecture: a React single-page
-application (presentation), an Express REST API (business logic) and MongoDB
-(data). The AI engine is a set of pure functions inside the API, which makes
-it easy to unit-test.
+### 4.2 Pre-processing (`jobmatch/text.py`)
+1. **Personal-data removal:** URLs, email addresses and phone numbers are deleted.
+2. **Normalisation:** lowercase; symbols removed except `+ # .` inside tokens (keeps *c++*, *c#*, *node.js*).
+3. **Headline emphasis (feature engineering):** the first 8 words, which are usually the person's job
+   title, are repeated three times. This raised Linear SVM accuracy from about 68% to 74% in development.
 
-### 4.2 Data Model (ER Diagram)
+The same `prepare()` function is used in training and in the app, so predictions match training exactly
+(verified by a unit test that reproduces the reported test accuracy from the saved models).
+
+### 4.3 Evaluation protocol
+
+```
+2,481 resumes
+├── test 20% (497)          touched once, for the reported numbers
+└── train 80% (1,984)
+    ├── 5-fold stratified cross-validation   compares the ML models
+    └── fit 85% / validation 15%             early stopping for DL, choice of deployed model
+```
+
+Metrics: **accuracy**; **macro-F1** (the unweighted mean F1 over categories, so small categories count
+equally); **weighted-F1**; **top-3 accuracy** (true category among the three most probable). Deep models
+are trained with 3 random seeds and reported as mean ± standard deviation.
+
+### 4.4 Machine-learning models
+Features: TF-IDF over unigrams and bigrams (min document frequency 2, max 90%, sub-linear TF, English stop
+words removed, up to 50,000 features).
+
+| Model | Key settings |
+| --- | --- |
+| Logistic Regression | C = 10, multinomial |
+| Linear SVM | C = 0.5, wrapped in 3-fold `CalibratedClassifierCV` to output probabilities |
+| Complement Naive Bayes | α = 0.3 |
+| Random Forest | 400 trees |
+
+### 4.5 Deep-learning models (Keras 3 / TensorFlow)
+
+| Model | Input | Architecture |
+| --- | --- | --- |
+| MLP | TF-IDF vector (20,000) | Dropout 0.3 → Dense 256 ReLU → Dropout 0.5 → Dense 128 ReLU → Dropout 0.3 → Softmax 24 |
+| **1D-CNN** | 600 word IDs | Embedding 20,000×128 → Conv1D 128 filters, width 5, ReLU → Global max pooling → Dropout 0.5 → Dense 64 ReLU ("resume vector") → Softmax 24 |
+| BiLSTM | 600 word IDs | Embedding 20,000×128 (masked) → Bidirectional LSTM 64 → Dropout 0.5 → Dense 64 ReLU → Softmax 24 |
+
+Training: Adam optimiser, sparse categorical cross-entropy, batch size 32, up to 40 epochs, early stopping
+on validation loss (patience 4, best weights restored).
+
+**Why a CNN works well here:** each convolution filter learns to detect a 5-word phrase (e.g. *"accounts
+payable and receivable"*, *"lesson plans for students"*) wherever it appears; max pooling keeps the
+strongest match. Resume categories are signalled by such local phrases more than by long-range word order,
+which is why the CNN beats the slower BiLSTM.
+
+### 4.6 Ensemble and deployment choice
+The probabilities of the best ML model (chosen by cross-validated macro-F1) and the best CNN (chosen by
+validation macro-F1) are averaged. The deployed option, ML alone, DL alone or the ensemble, is whichever has
+the highest **validation** macro-F1. Validation scores: ML 0.660, DL 0.745, ensemble 0.756 → **the ensemble** deployed.
+
+### 4.7 Matching engine (`jobmatch/matcher.py`)
+
+| Signal | Weight | Definition |
+| --- | --- | --- |
+| Category fit | 40% | Ensemble probability that the resume belongs to the job's category |
+| Skill match | 30% | Required skills found in the resume ÷ required skills (word-boundary match with aliases, e.g. *MS Excel → excel*) |
+| Semantic similarity | 20% | Cosine similarity between CNN "resume vectors" of resume and job text, rescaled from [0.40, 0.95] to [0, 1] |
+| Experience fit | 10% | min(1, detected years ÷ job minimum); if no years are found, this weight is spread over the other signals |
+
+```
+score = 100 × Σ wᵢ·sᵢ / Σ wᵢ      (sum over available signals)
+```
+
+Every score is shown with its four components and the matched/missing skills, so recruiters can see why a
+candidate ranks where they do. The same function ranks candidates for a job and jobs for a candidate.
+
+### 4.8 Application (`app.py`, `ui/`)
+- **Resume Analyzer** (no login): upload PDF/DOCX/TXT or paste text → predicted category with the top-5
+  probabilities, the ML and DL models' individual views, detected skills and experience, and best-matching jobs.
+- **Candidate:** upload a resume once; see all jobs ranked with explanations; apply; track applications.
+- **Employer:** post jobs; see applicants ranked by match score with breakdown; change status
+  (applied/shortlisted/rejected/hired); search the whole candidate pool for a job.
+- **Admin:** platform statistics, candidate categories chart, activate/deactivate users, job list.
+- **Model Performance:** all metrics and charts from training, inside the app.
+
+### 4.9 Data model
 
 ```mermaid
 erDiagram
-    USER ||--o{ JOB : "posts (employer)"
-    USER ||--o{ APPLICATION : "submits (candidate)"
-    JOB ||--o{ APPLICATION : receives
-
-    USER {
-        ObjectId _id
-        string name
-        string email UK
-        string password "bcrypt hash"
-        enum role "candidate | employer | admin"
-        boolean isActive
-        string company
-        string title
-        string[] skills
-        string resumeText "latest resume, powers recommendations"
-    }
-    JOB {
-        ObjectId _id
-        string title
-        string description
-        string company
-        string location
-        enum jobType "full-time | part-time | contract | internship"
-        enum experienceLevel "entry | mid | senior | lead"
-        string[] skillsRequired
-        enum status "open | closed"
-        number applicationsCount
-        ObjectId employer FK
-    }
-    APPLICATION {
-        ObjectId _id
-        ObjectId job FK
-        ObjectId candidate FK
-        string resumeText
-        string coverLetter
-        number matchScore "0-100"
-        object matchDetails "breakdown + matched/missing skills"
-        enum status "applied | shortlisted | rejected | hired"
-    }
+    USERS ||--o| RESUMES : uploads
+    USERS ||--o{ JOBS : "posts (employer)"
+    USERS ||--o{ APPLICATIONS : "submits (candidate)"
+    JOBS ||--o{ APPLICATIONS : receives
+    USERS { int id PK
+            text email UK
+            text password_hash "PBKDF2-SHA256, salted"
+            text role "candidate | employer | admin"
+            int is_active }
+    RESUMES { int user_id PK
+              text text
+              text predicted_category
+              json category_probs
+              json skills
+              real experience_years }
+    JOBS { int id PK
+           int employer_id FK
+           text title
+           text category
+           real min_experience
+           json skills
+           text status "open | closed" }
+    APPLICATIONS { int id PK
+                   int job_id FK
+                   int candidate_id FK
+                   int score "0-100"
+                   json breakdown
+                   text status }
 ```
 
-A compound unique index on `(job, candidate)` prevents duplicate applications.
-A text index on job title, description and company powers keyword search.
-
-### 4.3 Use Cases
-
-```mermaid
-flowchart LR
-    C([Candidate]) --- U1[Register / Login]
-    C --- U2[Search & filter jobs]
-    C --- U3[Apply with resume]
-    C --- U4[View recommended jobs]
-    C --- U5[Track applications]
-    E([Employer]) --- U1
-    E --- U6[Post / edit / close jobs]
-    E --- U7[View ranked applicants]
-    E --- U8[Find matching candidates]
-    E --- U9[Update application status]
-    A([Admin]) --- U10[View platform stats]
-    A --- U11[Manage users]
-    A --- U12[Moderate jobs]
-```
-
-### 4.4 Application Flow (Sequence)
-
-```mermaid
-sequenceDiagram
-    actor Cand as Candidate
-    participant FE as React App
-    participant API as Express API
-    participant P as Resume Parser
-    participant AI as AI Matcher
-    participant DB as MongoDB
-    participant M as Mailer
-    Cand->>FE: Choose resume, click Apply
-    FE->>API: POST /api/applications/:jobId (multipart, JWT)
-    API->>API: Verify JWT, role = candidate, job open, not already applied
-    API->>P: extractResumeText(file)
-    P-->>API: plain text
-    API->>AI: computeMatchScore(text, job, profileSkills)
-    AI-->>API: score + breakdown
-    API->>DB: save Application, update job count, save resume to profile
-    API->>M: notify employer + candidate
-    API-->>FE: 201 { application, matchScore }
-    FE-->>Cand: Show AI match score
-```
+A unique constraint on (job, candidate) prevents duplicate applications; deleting a job or user cascades
+to its applications.
 
 ---
 
-## 5. The AI Matching Engine
+## 5. Results
 
-Source: `backend/utils/aiMatcher.js`, `backend/utils/recommender.js`.
+### 5.1 Classification
 
-### 5.1 Pre-processing
-1. **Text extraction:** `pdf-parse` for PDF, `mammoth` for DOCX, UTF-8 read
-   for TXT/DOC.
-2. **Tokenisation:** lowercase, strip punctuation (keeping `+ . #` so that
-   `c++`, `node.js`, `c#` survive), split on whitespace.
-3. **Stopword removal:** common English words ("the", "and", "with", …) are
-   dropped.
+| Model | Type | 5-fold CV accuracy | Test accuracy | Test macro-F1 | Test top-3 accuracy |
+| --- | --- | --- | --- | --- | --- |
+| Logistic Regression | Machine learning | 70.1% | 73.0% | 68.2% | 90.3% |
+| Linear SVM | Machine learning | 70.9% | 75.6% | 71.0% | 94.4% |
+| Naive Bayes | Machine learning | 61.2% | 61.0% | 53.7% | 87.9% |
+| Random Forest | Machine learning | 71.4% | 73.2% | 65.5% | 92.6% |
+| MLP | Deep learning (3 seeds) | — | 68.1% ± 0.1% | 64.1% ± 0.6% | 85.9% ± 0.8% |
+| 1D-CNN | Deep learning (3 seeds) | — | 81.9% ± 1.0% | 75.8% ± 1.3% | 91.5% ± 0.4% |
+| BiLSTM | Deep learning (3 seeds) | — | 66.0% ± 1.8% | 57.1% ± 1.8% | 76.7% ± 1.3% |
+| **Ensemble (Linear SVM + 1D-CNN)** | Ensemble | — | **86.1%** | 80.9% | 95.2% |
 
-### 5.2 Signal 1: Skill Match (weight 50%)
-Skills are detected in the resume by matching a curated dictionary of 150+
-technical skills with word-boundary regular expressions. Every skill,
-both detected and required, is mapped to a canonical name through an
-alias table (`js → javascript`, `react → react.js`, `aws → amazon web
-services`, `k8s → kubernetes`, …). The candidate's declared profile skills are
-merged in.
+![Model comparison](../reports/figures/model_comparison.png)
 
-```
-skillMatch% = |required ∩ candidate| / |required| × 100
-```
+**Findings**
+- The **1D-CNN is the best single model**, ahead of every classical ML model.
+- **Linear SVM** is the best ML model (by cross-validated macro-F1 and on the test set) and trains in
+  seconds; Naive Bayes is the weakest model overall.
+- The **BiLSTM** underperforms the CNN while being much slower: long resumes (600 tokens) make recurrent
+  training harder, and phrase detection matters more than word order for this task.
+- The **MLP on TF-IDF** does not beat linear models on the same features: with ~1,700 training resumes,
+  extra layers mostly add variance.
+- The **ensemble** improves on both of its members because the SVM and CNN make different mistakes.
+- **Top-3 accuracy of 95.2%** shows the right category is almost always among the first three guesses.
 
-### 5.3 Signal 2: Text Similarity (weight 25%)
-Resume and job text (title + description + skills) are converted to term
-frequency vectors **A** and **B** over their combined vocabulary:
+### 5.2 Error analysis
 
-```
-cosine(A, B) = (A · B) / (‖A‖ × ‖B‖)
-textSimilarity% = cosine × 100
-```
+![Confusion matrix](../reports/figures/confusion_matrix.png)
 
-This rewards resumes that are topically aligned with the job even when the
-skill keywords differ.
+![Per-category F1](../reports/figures/per_class_f1.png)
 
-### 5.4 Signal 3: Experience Fit (weight 25%)
-Regular expressions detect phrases like "5 years of experience" or "3+ yrs"
-and take the largest figure. Each level has a minimum: entry 0, mid 2,
-senior 5, lead 8 years.
+The most frequent confusions on the test set are **Apparel → Sales**, **Fitness → Sales**, **Finance →
+Accountant**, **Automobile → Advocate**, **Arts → Teacher** and **Digital Media → Public Relations /
+Consultant**. Many of these resumes describe genuinely mixed careers (for example, retail apparel staff
+whose work is mostly selling; artists who teach). The smallest categories suffer most: **BPO** (22 resumes
+in total, only 4 in the test set) is never predicted correctly (F1 = 0) and **Automobile** reaches only
+F1 = 0.44. More examples of these categories, or merging BPO into a broader customer-service category,
+would be needed. Because a resume can fit several categories, the matcher uses the full probability
+distribution rather than a single predicted label.
 
-```
-experienceFit% = 100                          if years ≥ minimum
-               = years / minimum × 100        otherwise
-               = unknown (null)               if no years are mentioned
-```
+![Training curves](../reports/figures/training_curves.png)
 
-### 5.5 Final Score
+Training accuracy climbs to about 99% while validation accuracy levels off near 80%, and validation loss
+stops improving after about 12 epochs even though training loss keeps falling towards zero. This gap is
+overfitting: the network starts memorising the training resumes. Early stopping ends training once
+validation loss stops improving and restores the best weights; dropout (50%) limits the gap.
 
-```
-score = 0.50 × skillMatch + 0.25 × textSimilarity + 0.25 × experienceFit
-```
+### 5.3 Matching
 
-If experience is unknown, its 25% is redistributed proportionally across the
-other two signals (≈ 66.7% skill, 33.3% text), so candidates are not penalised
-for omitting it. Education level (PhD, Master's, Bachelor's, …) is detected
-and shown to the employer but is deliberately **not** scored.
+There are no human relevance labels for (job, resume) pairs, so a resume is treated as relevant to a job
+when it is from the job's category. All 497 test resumes are ranked for each of the 24 jobs.
 
-**Optional LLM layer:** if `ANTHROPIC_API_KEY` is set, Claude returns a 0–100
-fit score and a one-paragraph summary. The stored score becomes
-`0.7 × local + 0.3 × LLM`. If the call fails or no key is set, the local score
-is used unchanged.
+| Ranking signal | Precision@10 | Precision@20 | MAP |
+| --- | --- | --- | --- |
+| Skill keywords only | 46.7% | 37.1% | 0.349 |
+| TF-IDF similarity only (ML) | 58.3% | 51.2% | 0.512 |
+| CNN embedding similarity only (DL) | 71.2% | 62.1% | 0.648 |
+| Category probability only (ensemble classifier) | 92.5% | 83.3% | 0.876 |
+| Final blend (40/30/20/10) | 87.1% | 77.9% | 0.801 |
 
-### 5.6 Worked Example (from the demo data)
-Job: **Senior DevOps Engineer**, level senior, skills `aws, docker,
-kubernetes, terraform, jenkins`. Candidate **Karthik Nair** resume mentions
-all five skills and "6 years of experience".
+![Matching precision](../reports/figures/matching_precision.png)
 
-| Signal | Value | Weighted |
+- The **deep-learning embedding** ranks candidates far better than classical **TF-IDF** similarity.
+- Skill keywords alone are the weakest signal (many resumes phrase skills differently), but they are the
+  most transparent, so they keep a 30% weight.
+- The final blend keeps most of the category signal's precision while adding verifiable skills and
+  experience. Average final score: 60 for resumes from the job's category vs. 22
+  for others.
+- Weight sensitivity (computed on validation resumes, not the test set):
+
+| Category / Skills / Semantic / Experience | Precision@10 | MAP |
 | --- | --- | --- |
-| Skill match | 5/5 = 100% | 50.0 |
-| Text similarity | 42% | 10.5 |
-| Experience fit | 6 ≥ 5 → 100% | 25.0 |
-| **Score** | | **86%** |
+| 40% / 30% / 20% / 10% | 87.1% | 0.885 |
+| 50% / 20% / 20% / 10% | 89.2% | 0.956 |
+| 30% / 40% / 20% / 10% | 79.6% | 0.803 |
+| 30% / 30% / 30% / 10% | 83.3% | 0.840 |
+| 25% / 25% / 25% / 25% | 83.3% | 0.816 |
 
-### 5.7 Two-Way Candidate Matching
-`recommender.js` reuses the same engine in bulk:
-- **Recommended jobs (candidate):** scores every open job against the
-  candidate's saved resume, or, if they have not uploaded one, a profile
-  document built from headline, bio and skills. Results are sorted by score
-  and show "You have" / "To learn" skill lists, a simple skill-gap analysis.
-- **Matching candidates (employer):** scores every active candidate for a job
-  and flags whether each one has already applied, so recruiters can reach
-  out to strong candidates proactively. Candidates with an empty profile are
-  skipped; raw resume text is never sent to the employer through this
-  endpoint.
+  A higher category weight scores better here, but this benchmark defines relevance *as* category
+  membership, so it always favours the category signal; taken to the limit it would recommend ignoring
+  skills entirely. The weights were therefore set by design (category strongest, then concrete skills,
+  then semantic similarity, then experience), not tuned to this proxy.
 
-### 5.8 Why this design
-- **Explainable:** each score decomposes into understandable parts.
-- **No training data needed:** works from day one.
-- **Free and private:** runs locally; resumes never leave the server unless
-  the optional LLM layer is enabled.
-- **Fair by default:** education is informational only, and missing
-  experience is neutral.
+> *Caveat:* the relevance proxy rewards the category signal by construction. Within a category, ranking
+> depends on skills and experience, which this proxy cannot measure; a study with recruiter judgements
+> would be needed.
 
 ---
 
-### 5.9 Supplementary Python ML Components
-Two Python components extend the project for AI/data-science evaluation:
+## 6. Testing
 
-- **`ml-service/`: Python matching microservice (FastAPI + scikit-learn).**
-  An independent implementation of the matching engine with five signals:
-  required skills 40%, preferred skills 10%, experience 15%, location 10%
-  and **TF-IDF** cosine similarity 25%. Every score comes with a
-  plain-English explanation list. It exposes `/api/match`,
-  `/api/rank-candidates`, `/api/recommend-jobs` and `/api/parse-resume`,
-  plus a CLI. It is covered by 18 pytest tests and could replace or
-  complement the JavaScript engine through an HTTP call.
-- **`ml/talent-suitability-classifier/`: supervised learning experiment.**
-  Trains Logistic Regression, Random Forest and Gradient Boosting (5-fold
-  cross-validation) on a 12,000-candidate recruitment dataset to predict
-  *Highly / Moderately / Less Suitable*. Features include multi-hot skills
-  and certifications, counts, salary gap, one-hot categoricals and scaled
-  numerics.
+| Suite | Tests | Covers |
+| --- | --- | --- |
+| `tests/test_text_skills_experience.py` | 10 | Personal-data removal, headline emphasis, multi-industry skills, aliases, word boundaries, experience extraction |
+| `tests/test_db_auth.py` | 5 | Password hashing, registration, login, deactivation, duplicate prevention, cascading deletes, statistics |
+| `tests/test_matcher.py` | 6 | Score formula, weight redistribution, missing signals, bounds |
+| `tests/test_models.py` | 3 | Obvious resumes classified correctly; saved models reproduce the reported test accuracy; embeddings are meaningful |
+| `tests/test_app.py` | 15 | The Streamlit app runs headlessly and predicts a pasted resume; all 11 pages render for their role; role pages are blocked for other users |
 
-  **Finding:** all models reach about 33% accuracy, which is chance level
-  for three balanced classes, and the feature distributions are nearly
-  identical across classes. The dataset's labels therefore carry no
-  learnable signal; it appears to be synthetic. This negative result
-  supports the project's design choice: without trustworthy labelled hiring
-  data, a transparent rule-plus-similarity engine is more reliable than a
-  trained classifier. The pipeline is reusable as-is on a real labelled
-  dataset (for example, past shortlisting decisions).
-
-## 6. Implementation
-
-### 6.1 Technology Stack
-| Layer | Technology |
-| --- | --- |
-| Frontend | React 18, Vite, React Router, Tailwind CSS, Axios |
-| Backend | Node.js, Express 4 |
-| Database | MongoDB with Mongoose ODM |
-| Auth | JSON Web Tokens, bcryptjs |
-| File upload / parsing | Multer (5 MB limit, extension whitelist), pdf-parse, mammoth |
-| Email | Nodemailer (SMTP or console fallback) |
-| Optional AI | Anthropic Claude via `@anthropic-ai/sdk` |
-| Python ML | FastAPI, scikit-learn (TF-IDF, Logistic Regression, Random Forest, Gradient Boosting), pandas, matplotlib/seaborn |
-| Testing | Jest, Supertest, mongodb-memory-server, Vitest, React Testing Library |
-
-### 6.2 Modules
-1. **Authentication & authorisation:** `authController`, `middleware/auth.js`
-   (`protect` verifies the JWT and that the account is active; `authorize`
-   restricts by role).
-2. **Job management:** `jobController`, CRUD with ownership checks,
-   search/filter with pagination.
-3. **Application & screening:** `applicationController`, upload → parse →
-   score → store → notify.
-4. **Recommendation & matching:** `recommender.js`,
-   `GET /api/jobs/recommended`, `GET /api/jobs/:id/matching-candidates`.
-5. **Profile:** `userController`, profile edits and profile resume upload.
-6. **Notifications:** `mailer.js`.
-7. **Administration:** `adminController`, stats, user and job moderation,
-   cascading deletes.
-
-### 6.3 REST API Summary
-See the API Overview table in the root `README.md` for every endpoint, its method and the role allowed to call it.
-
-### 6.4 Security Measures
-- Passwords hashed with bcrypt (10 salt rounds) and excluded from queries by
-  default (`select: false`).
-- Stateless JWT auth; every protected request re-checks that the user still
-  exists and is active.
-- Admins cannot self-register; the first admin is created by a seed script.
-- Ownership checks on every job/application mutation.
-- Upload whitelist (`.pdf .docx .doc .txt`) and a 5 MB size limit;
-  filenames sanitised.
-- Resume files are not exposed as static files (PII).
+39 tests in total. Run with `python -m pytest`.
 
 ---
 
-## 7. Testing
-
-| Suite | Tool | Count | What it covers |
-| --- | --- | --- | --- |
-| Backend unit | Jest | 44 | Matching engine, skill aliasing, experience/education parsing, recommender, auth middleware, mailer, LLM layer (mocked) |
-| Backend integration | Jest + Supertest + in-memory MongoDB | 25 | Full HTTP API: register/login, role guards, job CRUD, apply + scoring, duplicate prevention, ranking, status updates, recommendations, candidate matching, profile resume upload, admin actions |
-| Frontend | Vitest + React Testing Library | 22 | MatchScoreBadge, JobCard, PrivateRoute, AuthContext, Login, RecommendedJobs |
-| Python ML service | pytest | 18 | Skill extraction, experience parsing, location fit, score bounds and explanations, ranking and recommendation |
-
-Run with `npm test` from the project root (backend + frontend) and
-`python -m pytest` inside `ml-service/`.
-
-### Sample Test Cases
-| # | Test case | Input | Expected | Result |
-| --- | --- | --- | --- | --- |
-| 1 | Candidate cannot post job | POST /api/jobs with candidate token | 403 | Pass |
-| 2 | Apply computes score | Upload sample resume to job | 201, score 0–100 with breakdown | Pass |
-| 3 | Duplicate application | Apply twice | 409 | Pass |
-| 4 | Ranked applicants | GET applicants as owner | Sorted by score desc | Pass |
-| 5 | Non-owner blocked | Other employer views applicants | 403 | Pass |
-| 6 | Alias resolution | Resume says "JS", job needs "javascript" | Counted as match | Pass |
-| 7 | Unknown experience is neutral | No years in resume | Weight redistributed | Pass |
-| 8 | Recommendations | Candidate with saved resume | Best-fitting job first | Pass |
-| 9 | Matching candidates | Employer for own job | Ranked list, applicants flagged, no resume text leaked | Pass |
-| 10 | Deactivated user | Admin deactivates, user logs in | 403 | Pass |
-
----
-
-## 8. Results
-
-Demo data (`npm run seed:demo`) produces the following scores, which line up
-with what a human recruiter would judge:
-
-| Candidate | Job | Score | Notes |
-| --- | --- | --- | --- |
-| Ananya (MERN, 3 yrs) | MERN Stack Developer (mid) | 86% | All 5 skills, experience fits |
-| Sneha (fresher, frontend) | Frontend Developer Intern | 81% | All skills, entry level |
-| Sneha (fresher, frontend) | MERN Stack Developer (mid) | 37% | Missing backend skills, under-experienced |
-| Rahul (Data Scientist, 5 yrs) | Machine Learning Engineer | 83% | Strong skill + text match |
-| Karthik (DevOps, 6 yrs) | Senior DevOps Engineer | 86% | All skills, exceeds seniority |
-
-### Screenshots
-| | |
-| --- | --- |
-| ![Home](screenshots/01-home.png) Home | ![Browse](screenshots/02-browse-jobs.png) Browse jobs |
-| ![Recommended](screenshots/03-candidate-recommended.png) Candidate: recommended jobs | ![Applications](screenshots/04-candidate-applications.png) Candidate: my applications |
-| ![Profile](screenshots/05-candidate-profile.png) Candidate: profile + resume upload | ![Postings](screenshots/06-employer-postings.png) Employer: my postings |
-| ![Ranked](screenshots/07-employer-ranked-applicants.png) Employer: ranked applicants with AI breakdown | ![Matching](screenshots/08-employer-matching-candidates.png) Employer: find matching candidates |
-| ![Admin](screenshots/09-admin-dashboard.png) Admin dashboard | |
-
----
-
-## 9. Limitations and Future Enhancements
+## 7. Limitations and Future Work
 
 **Limitations**
-- Skill detection is dictionary-based; skills absent from the dictionary are
-  only captured through text similarity.
-- TF cosine similarity does not understand meaning ("ML" vs "statistical
-  modelling" share no tokens).
-- Scanned (image-only) PDFs have no extractable text.
-- Bulk matching scores every candidate per request, which is fine for
-  thousands of profiles but would need caching or a vector index at larger
-  scale.
+- Categories are broad industries, not specific roles; several overlap.
+- The dataset is US-centric (LiveCareer); Indian resumes may use different vocabulary.
+- Matching quality is measured with a category proxy rather than recruiter judgements.
+- Skill matching is lexical and misses paraphrases not in the alias table.
+- Scanned (image-only) PDFs contain no extractable text.
+- Like any model trained on historical data, it could reflect biases in that data; it should support, not
+  replace, human decisions.
 
 **Future work**
-- Sentence embeddings (e.g. Sentence-BERT) with a vector database for
-  semantic search.
-- TF-IDF weighting and learning the signal weights from recruiter decisions
-  (shortlisted/hired as labels).
-- OCR (Tesseract) for scanned resumes.
-- Interview scheduling, in-app messaging, and resume improvement tips
-  generated from the skill gap.
-- Bias auditing dashboard comparing score distributions.
+- Fine-tune a pre-trained transformer (BERT / Sentence-BERT) for classification and semantic matching.
+- Learn matching weights from recruiter outcomes (shortlisted / hired) with learning-to-rank.
+- Named-entity recognition for skills, degrees and employers instead of dictionaries.
+- OCR for scanned resumes; multilingual support.
+- Fairness audit of scores across demographic groups.
 
 ---
 
-## 10. Conclusion
+## 8. Conclusion
 
-JobMatch AI shows that a transparent, rule-plus-statistics AI engine can
-meaningfully automate first-round resume screening without a paid AI service
-or training data. Every score is explainable: employers see exactly which
-skills matched and why, and candidates see which skills to learn to qualify
-for a job. Reusing one engine for screening, job recommendation and
-candidate search keeps the system consistent, and the automated test suite
-checks that each feature works as specified.
+The project shows that deep learning improves resume screening over classical ML on real data: a 1D-CNN
+with learned word embeddings beat four ML models, and an ensemble of the CNN and a Linear SVM reached
+86.1% accuracy and 95.2% top-3 accuracy on unseen resumes. Equally important were the data
+decisions: rejecting a synthetic dataset with no signal, avoiding a duplicated dataset that inflates
+accuracy, and selecting models on validation data only. The trained models power an explainable matching
+engine and a complete Streamlit application that candidates, employers and administrators can use today.
 
 ---
 
 ## References
-1. G. Salton, A. Wong, C. S. Yang, "A Vector Space Model for Automatic
-   Indexing," *Communications of the ACM*, 18(11), 1975.
-2. C. D. Manning, P. Raghavan, H. Schütze, *Introduction to Information
-   Retrieval*, Cambridge University Press, 2008.
-3. MongoDB Documentation: https://www.mongodb.com/docs/
-4. Express.js Documentation: https://expressjs.com/
-5. React Documentation: https://react.dev/
-6. RFC 7519, JSON Web Token (JWT): https://datatracker.ietf.org/doc/html/rfc7519
-7. Anthropic API Documentation: https://docs.anthropic.com/
+
+1. T. Joachims, "Text categorization with Support Vector Machines," *ECML*, 1998.
+2. Y. Kim, "Convolutional Neural Networks for Sentence Classification," *EMNLP*, 2014.
+3. S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," *Neural Computation*, 9(8), 1997.
+4. L. Breiman, "Random Forests," *Machine Learning*, 45, 2001.
+5. G. Salton and C. Buckley, "Term-weighting approaches in automatic text retrieval," *Information Processing & Management*, 24(5), 1988.
+6. F. Pedregosa et al., "Scikit-learn: Machine Learning in Python," *JMLR*, 12, 2011.
+7. F. Chollet et al., Keras, https://keras.io
+8. LiveCareer resume dataset (CC0 1.0): https://huggingface.co/datasets/opensporks/resumes
+9. Streamlit documentation: https://docs.streamlit.io

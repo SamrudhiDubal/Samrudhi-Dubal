@@ -1,0 +1,85 @@
+{
+ "test_resumes": 497,
+ "jobs": 24,
+ "signals": {
+  "Skill keywords only": {
+   "precision_at_10": 0.4667,
+   "precision_at_20": 0.3708,
+   "map": 0.3491
+  },
+  "TF-IDF similarity only (ML)": {
+   "precision_at_10": 0.5833,
+   "precision_at_20": 0.5125,
+   "map": 0.5121
+  },
+  "CNN embedding similarity only (DL)": {
+   "precision_at_10": 0.7125,
+   "precision_at_20": 0.6208,
+   "map": 0.6481
+  },
+  "Category probability only (ensemble classifier)": {
+   "precision_at_10": 0.925,
+   "precision_at_20": 0.8333,
+   "map": 0.8759
+  },
+  "Final blend (40/30/20/10)": {
+   "precision_at_10": 0.8708,
+   "precision_at_20": 0.7792,
+   "map": 0.8015
+  }
+ },
+ "mean_score_same_category": 60.5,
+ "mean_score_other_category": 21.8,
+ "validation_weight_sensitivity": [
+  {
+   "weights": {
+    "category": 0.4,
+    "skills": 0.3,
+    "semantic": 0.2,
+    "experience": 0.1
+   },
+   "precision_at_10": 0.8708,
+   "map": 0.8855
+  },
+  {
+   "weights": {
+    "category": 0.5,
+    "skills": 0.2,
+    "semantic": 0.2,
+    "experience": 0.1
+   },
+   "precision_at_10": 0.8917,
+   "map": 0.9563
+  },
+  {
+   "weights": {
+    "category": 0.3,
+    "skills": 0.4,
+    "semantic": 0.2,
+    "experience": 0.1
+   },
+   "precision_at_10": 0.7958,
+   "map": 0.8035
+  },
+  {
+   "weights": {
+    "category": 0.3,
+    "skills": 0.3,
+    "semantic": 0.3,
+    "experience": 0.1
+   },
+   "precision_at_10": 0.8333,
+   "map": 0.8399
+  },
+  {
+   "weights": {
+    "category": 0.25,
+    "skills": 0.25,
+    "semantic": 0.25,
+    "experience": 0.25
+   },
+   "precision_at_10": 0.8333,
+   "map": 0.8159
+  }
+ ]
+}

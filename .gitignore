@@ -1,15 +1,15 @@
-node_modules/
-.env
-dist/
-build/
-backend/uploads/resumes/*
-!backend/uploads/resumes/.gitkeep
-*.log
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
 .DS_Store
-ml/talent-suitability-classifier/*.png
-ml/talent-suitability-classifier/*.joblib
-ml/talent-suitability-classifier/__pycache__/
-ml-service/.venv/
-ml-service/__pycache__/
-ml-service/**/__pycache__/
-ml-service/.pytest_cache/
+*.log
+
+# App database (recreated with demo data on first run)
+data/jobmatch.db
+
+# Outputs of the earlier experiment
+experiments/talent-suitability-dataset/*.png
+experiments/talent-suitability-dataset/*.joblib

@@ -1,284 +1,109 @@
-# JobMatch AI — Full-Stack Job Portal with AI-Based Resume Screening
+# JobMatch AI: Resume Screening and Candidate Matching with Machine Learning and Deep Learning
 
-A full-stack job portal (MERN-style: MongoDB, Express, React, Node.js) where
-candidates apply to jobs and an AI resume-screening engine automatically
-scores every application against the job's requirements — fully functional
-with no external API key required, with an optional LLM-based layer for
-richer semantic scoring.
+A Python project that reads resumes, predicts the job category they fit with machine learning and deep
+learning, and ranks candidates for jobs (and jobs for candidates) with an explainable match score.
+Delivered as a Streamlit web app with candidate, employer and admin roles.
 
-## Features
+**Final-year project: MBA (AI & Data Science), SRM Institute of Science and Technology.**
 
-- **Auth & roles** — JWT-based auth with `candidate`, `employer`, and `admin`
-  roles. Deactivated accounts are blocked from logging in or making
-  authenticated requests.
-- **Job postings** — Employers create, edit, close/reopen, and delete job
-  listings. Candidates search/filter jobs by keyword, location, job type,
-  experience level, and required skill.
-- **Resume upload & parsing** — Candidates upload a resume (`PDF`, `DOCX`,
-  `DOC`, or `TXT`); the server extracts plain text server-side.
-- **AI-based resume screening & candidate matching** — Every application is
-  scored 0–100 by a matching engine (`backend/utils/aiMatcher.js`) that
-  blends:
-  1. **Skill overlap (50%)** — skills detected in the resume (via a curated
-     skills dictionary **and an alias/synonym table**, e.g. "js" →
-     "javascript", "k8s" → "kubernetes") plus the candidate's declared
-     profile skills, compared against the job's required skills.
-  2. **Semantic text similarity (25%)** — TF cosine similarity between the
-     resume text and the job description, rewarding resumes that are
-     topically aligned even without exact keyword matches.
-  3. **Experience fit (25%)** — years of experience detected in the resume
-     (e.g. "6 years of experience") compared against the job's experience
-     level (entry/mid/senior/lead). Unknown is scored neutrally, not
-     penalized.
-  Education level (PhD/Master's/Bachelor's/Associate/High School) is also
-  detected and surfaced to employers, informationally.
-- **Optional LLM-based semantic layer** — If `ANTHROPIC_API_KEY` is set,
-  each application also gets a qualitative fit score + plain-language
-  summary from Claude (`backend/utils/semanticMatcher.js`), blended 70/30
-  with the local score. Unset by default — the engine runs fully locally
-  with zero external calls unless you opt in.
-- **Two-way candidate matching** — The same engine runs in bulk
-  (`backend/utils/recommender.js`): candidates get a **Recommended for You**
-  page ranking every open job against their resume (or profile, if no resume
-  is uploaded) with a "you have / to learn" skill-gap breakdown, and
-  employers get a **Find Matching Candidates** tab ranking every candidate
-  on the platform for a job, including people who haven't applied yet.
-  Candidates can upload a profile resume without applying.
-- **Ranked applicant view** — Employers see every applicant for a job
-  sorted by AI match score, with matched/missing skills, experience fit,
-  detected education, and (if enabled) the LLM summary, and can update
-  each applicant's status (`applied` → `shortlisted` / `rejected` / `hired`).
-- **Email notifications** — Candidates get an email when their application
-  is submitted and when its status changes; employers get an email when a
-  new candidate applies. Uses real SMTP when configured, otherwise logs the
-  email to the console so the app works out of the box in development.
-- **Admin dashboard** — Platform-wide stats, user management (search,
-  filter by role, activate/deactivate, delete with cascading cleanup), job
-  moderation (force close/reopen/delete any job), and a view of every
-  application platform-wide.
-- **Candidate dashboard** — Track submitted applications and see your own
-  match score per job.
-- **Automated tests** — Backend unit tests (matching engine, skill
-  aliasing, experience/education parsing, auth middleware, mailer,
-  semantic layer) plus an integration suite exercising the full HTTP API
-  against an in-memory MongoDB; frontend component/page tests with Vitest
-  + React Testing Library.
+![Resume analyzer](docs/screenshots/01-resume-analyzer.png)
 
-## Tech Stack
+## Results
 
-- **Backend**: Node.js, Express, MongoDB (Mongoose), JWT auth, Multer file
-  uploads, `pdf-parse` / `mammoth` for resume text extraction, `nodemailer`
-  for email, optional `@anthropic-ai/sdk` for LLM-based scoring.
-- **Frontend**: React (Vite), React Router, Tailwind CSS, Axios.
-- **Testing**: Jest + Supertest + mongodb-memory-server (backend), Vitest +
-  React Testing Library (frontend).
-- **ML service** (`ml-service/`): a standalone Python AI matching engine
-  (FastAPI + scikit-learn) — see [`ml-service/README.md`](ml-service/README.md).
-- **ML classifier** (`ml/talent-suitability-classifier/`): a supervised
-  talent-suitability model trained on a 12,000-row recruitment dataset — see
-  [its README](ml/talent-suitability-classifier/README.md).
-- **Data analysis notebook** (`AI_Job_Assistance.ipynb`): Colab notebook
-  exploring job assistance and candidate matching.
+Trained on **2,481 real resumes in 24 job categories** and evaluated on **497 resumes the models never saw**.
 
-## Project Structure
+| Model | Type | Test accuracy | Macro-F1 | Top-3 accuracy |
+| --- | --- | --- | --- | --- |
+| **Ensemble (Linear SVM + 1D-CNN)** | **Deployed** | **86.1%** | **80.9%** | **95.2%** |
+| 1D-CNN (word embeddings + convolution) | Deep learning | 81.9% ± 1.0% | 75.8% | 91.5% |
+| Linear SVM (TF-IDF) | Machine learning | 75.6% | 71.0% | 94.4% |
+| Random Forest (TF-IDF) | Machine learning | 73.2% | 65.5% | 92.6% |
+| Logistic Regression (TF-IDF) | Machine learning | 73.0% | 68.2% | 90.3% |
+| MLP (TF-IDF) | Deep learning | 68.1% ± 0.1% | 64.1% | 85.9% |
+| BiLSTM | Deep learning | 66.0% ± 1.8% | 57.1% | 76.7% |
+| Naive Bayes (TF-IDF) | Machine learning | 61.0% | 53.7% | 87.9% |
 
-```
-backend/
-  config/db.js            MongoDB connection
-  models/                 User, Job, Application schemas
-  middleware/              auth (JWT + active-account check), role guard, multer upload, error handler
-  utils/
-    resumeParser.js        PDF/DOCX/TXT -> plain text extraction
-    skillsDictionary.js     curated skill keyword list + extractor
-    skillAliases.js         skill synonym/alias table (js -> javascript, etc.)
-    experienceParser.js     years-of-experience + education level extraction
-    aiMatcher.js             local AI screening/matching engine (skills + text similarity + experience fit)
-    semanticMatcher.js       optional Claude-based semantic scoring layer
-    mailer.js                email notifications (SMTP or console fallback)
-    recommender.js           two-way matching: recommended jobs / matching candidates
-    seed.js                  one-off script to create/promote the first admin account
-    seedDemo.js              populates demo users, jobs and AI-scored applications
-  controllers/, routes/    REST API (auth, users, jobs, applications, admin)
-  tests/
-    unit/                  pure-function + mocked-dependency tests (Jest)
-    integration/            full HTTP API tests against an in-memory MongoDB (Jest + Supertest)
-  server.js                app entrypoint
+Deep models: mean ± std over 3 seeds. The deployed model was chosen on validation data, not the test set.
+For matching, **87%** of each job's top-10 ranked candidates come from the job's own category (CNN
+embeddings 71% vs. TF-IDF 58% on their own). Full details: [`docs/PROJECT_REPORT.md`](docs/PROJECT_REPORT.md).
 
-frontend/
-  src/
-    api/axios.js            API client (attaches JWT)
-    context/AuthContext.jsx auth state
-    components/             Navbar, JobCard, JobForm, MatchScoreBadge, PrivateRoute
-    pages/                   Home, Login, Register, Jobs, JobDetails, PostJob,
-                             EditJob, EmployerJobs, Applicants, CandidateApplications,
-                             Profile, RecommendedJobs, AdminDashboard
-    test/                    Vitest + React Testing Library component/page tests
+![Model comparison](reports/figures/model_comparison.png)
 
-ml-service/                 standalone Python AI matching engine (FastAPI + scikit-learn)
-  matcher/                  core.py, skills.py, experience.py, location.py,
-                             text_similarity.py, resume_parser.py
-  app.py                    REST API (match / rank-candidates / recommend-jobs / parse-resume)
-  cli.py                    command-line interface
-  tests/test_matcher.py     pytest suite
+## Quick start
 
-ml/talent-suitability-classifier/
-  data/                     recruitment/job-matching dataset (CSV)
-  talent_suitability_classifier.py   training + evaluation pipeline
-
-AI_Job_Assistance.ipynb      Colab notebook (data analysis / matching experiments)
-
-docs/
-  PROJECT_REPORT.md          final-year project report (design, algorithm, diagrams, testing, results)
-  VIVA_GUIDE.md              demo script + likely viva questions and answers
-  screenshots/               screenshots of every main screen
-```
-
-## Getting Started
-
-> **New to this project?** Follow the step-by-step
-> [Setup Guide](docs/SETUP_GUIDE.md) (installing Node.js/MongoDB, cloning,
-> running, preparing your submission).
-
-### Quick start (from the project root)
+Needs Python 3.11 or 3.12. Step-by-step instructions for beginners: [`docs/SETUP_GUIDE.md`](docs/SETUP_GUIDE.md).
 
 ```bash
-npm install        # root helper (one time)
-npm run setup      # installs backend + frontend, creates .env files (one time)
-npm run seed       # loads demo data (needs MongoDB running)
-npm run dev        # backend on :5000 + frontend on :5173
-npm test           # all backend + frontend tests
+python -m venv .venv
+.venv\Scripts\activate            # Mac/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py              # opens http://localhost:8501
 ```
 
-The sections below describe each part individually.
-
-### Prerequisites
-
-- Node.js 18+
-- A running MongoDB instance (local or hosted, e.g. MongoDB Atlas)
-
-### Backend
+The trained models are included, and the first start creates a SQLite database with demo data.
+Demo logins (password `demo1234`): candidate `ananya@example.com`, employer `talent@nimbus.example.com`,
+admin `admin@example.com`.
 
 ```bash
-cd backend
-cp .env.example .env   # edit MONGO_URI / JWT_SECRET as needed
-npm install
-npm run dev             # starts on http://localhost:5000
+python train.py                   # retrain all 7 models (~11 min on a laptop CPU; --quick ~4 min)
+python evaluate_matching.py       # evaluate the matching engine
+python docs/build_report.py       # refresh the report with the new numbers
+python -m pytest                  # 39 tests
 ```
 
-Create the first admin account (admin cannot self-register):
+## What the app does
 
-```bash
-ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=change_me npm run seed:admin
-```
-
-### Demo data (recommended for presentations)
-
-```bash
-cd backend
-npm run seed:demo
-```
-
-This creates an admin, 2 employers, 4 candidates with resumes, 5 jobs and 7
-AI-scored applications (re-running replaces only the previous demo data).
-Every demo account uses the password `demo1234`:
-
-| Role | Email |
-| --- | --- |
-| Admin | `admin@demo.jobmatch` |
-| Employer | `techcorp@demo.jobmatch`, `datawise@demo.jobmatch` |
-| Candidate | `ananya@demo.jobmatch`, `rahul@demo.jobmatch`, `sneha@demo.jobmatch`, `karthik@demo.jobmatch` |
-
-### Frontend
-
-```bash
-cd frontend
-cp .env.example .env   # points VITE_API_URL at the backend
-npm install
-npm run dev             # starts on http://localhost:5173
-```
-
-Open `http://localhost:5173`, register as an **employer** to post jobs, and
-register as a **candidate** (in another browser/incognito window) to browse
-jobs and apply with a resume — the AI match score appears immediately after
-applying, and on the employer's ranked applicants page. Log in with the
-seeded admin account and visit `/admin` for the platform dashboard.
-
-### Optional configuration
-
-- **Email**: set `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASS`/`SMTP_FROM`
-  in `backend/.env` to send real emails; otherwise notifications are logged
-  to the console.
-- **LLM-based semantic scoring**: set `ANTHROPIC_API_KEY` in `backend/.env`
-  to blend in a Claude-generated fit score and summary for each
-  application. Leave unset to run fully locally.
-
-## Running Tests
-
-```bash
-cd backend && npm test    # Jest: unit tests + full-API integration tests
-cd frontend && npm test   # Vitest: component/page tests
-```
-
-The integration suite boots a real MongoDB in-memory for the duration of
-the run (via `mongodb-memory-server`), downloading a MongoDB binary on
-first use (cached afterward). In network-restricted environments where that
-download is blocked, the integration tests no-op with a console warning
-instead of failing — unit tests are unaffected either way. To run them with a
-locally installed MongoDB binary instead, set
-`MONGOMS_SYSTEM_BINARY=/path/to/mongod` (and `MONGOMS_VERSION` to its version).
-
-## How the AI Matching Score Is Calculated
-
-See `backend/utils/aiMatcher.js`. For a given resume and job:
-
-- `skillMatchPercent` = (job skills found in resume or candidate profile,
-  after resolving aliases/synonyms) / (total job skills required) × 100
-- `textSimilarityPercent` = cosine similarity (× 100) between the term
-  frequency vectors of the resume text and the job title + description,
-  after lowercasing, tokenizing, and stopword removal
-- `experienceFitPercent` = candidate's detected years of experience vs. the
-  minimum years typically expected for the job's experience level (null/
-  neutral if the resume doesn't mention years)
-- `matchScore` = round(0.5 × skillMatchPercent + 0.25 × textSimilarityPercent
-  + 0.25 × experienceFitPercent), with weights redistributed over the first
-  two signals when experience is unknown
-
-Education level is detected and shown to employers but not weighted into
-the score. If `ANTHROPIC_API_KEY` is configured, the final stored score is
-`round(0.7 × localScore + 0.3 × semanticScore)`, where `semanticScore` comes
-from Claude's read of the resume against the job.
-
-This all runs locally by default (no external AI API calls), so it works
-out of the box without any API keys; the LLM layer is purely additive and
-optional.
-
-## API Overview
-
-| Method | Route | Description |
+| Page | Who | What |
 | --- | --- | --- |
-| POST | `/api/auth/register` | Register as candidate or employer |
-| POST | `/api/auth/login` | Log in |
-| GET | `/api/auth/me` | Current user |
-| PUT | `/api/users/me` | Update own profile |
-| POST | `/api/users/me/resume` | Upload a profile resume (candidate) — powers recommendations |
-| GET | `/api/jobs` | Search/list open jobs |
-| GET | `/api/jobs/:id` | Job details |
-| GET | `/api/jobs/recommended` | Open jobs ranked by AI match for the candidate (candidate) |
-| GET | `/api/jobs/:id/matching-candidates` | All candidates ranked by AI match for a job (employer, owner) |
-| GET | `/api/jobs/employer/mine` | Employer's own postings |
-| POST | `/api/jobs` | Create job (employer) |
-| PUT | `/api/jobs/:id` | Update job (owner) |
-| DELETE | `/api/jobs/:id` | Delete job (owner) |
-| POST | `/api/applications/:jobId` | Apply with resume upload (candidate) — runs AI screening, sends email notifications |
-| GET | `/api/applications/mine` | Candidate's own applications |
-| GET | `/api/applications/job/:jobId` | Ranked applicants for a job (employer, owner) |
-| GET | `/api/applications/:id` | Application details |
-| PUT | `/api/applications/:id/status` | Update applicant status (employer, owner) — notifies the candidate |
-| GET | `/api/admin/stats` | Platform-wide stats (admin) |
-| GET | `/api/admin/users` | List/search all users (admin) |
-| PUT | `/api/admin/users/:id` | Activate/deactivate or change a user's role (admin) |
-| DELETE | `/api/admin/users/:id` | Delete a user and cascade their jobs/applications (admin) |
-| GET | `/api/admin/jobs` | List all jobs platform-wide (admin) |
-| PUT | `/api/admin/jobs/:id` | Force close/reopen a job (admin) |
-| DELETE | `/api/admin/jobs/:id` | Delete any job (admin) |
-| GET | `/api/admin/applications` | List all applications platform-wide (admin) |
+| Resume Analyzer | Anyone | Upload PDF/DOCX/TXT or paste a resume → predicted category with probabilities, ML vs. DL views, detected skills and experience, best-matching jobs |
+| Browse Jobs | Anyone | Search open jobs |
+| Model Performance | Anyone | Every model's metrics and the evaluation charts |
+| My Resume / Recommended Jobs / My Applications | Candidate | Upload a resume once, see all jobs ranked with explanations, apply, track status |
+| Ranked Applicants / Find Candidates / Post a Job | Employer | Applicants sorted by AI score with a breakdown, status updates, search the whole candidate pool |
+| Dashboard | Admin | Platform statistics, activate/deactivate users, job list |
+
+## How it works
+
+1. **Data:** LiveCareer resume dataset (CC0 licence), 2 duplicates removed.
+2. **Preprocessing** (`jobmatch/text.py`): remove personal data, lowercase, strip symbols, repeat the
+   resume headline to emphasise the job title.
+3. **Machine learning** (`train.py`): TF-IDF (1–2 word n-grams) with Logistic Regression, Linear SVM, Naive
+   Bayes and Random Forest, compared by 5-fold cross-validation.
+4. **Deep learning** (`train.py`, Keras/TensorFlow): MLP, 1D-CNN and BiLSTM with early stopping, 3 seeds each.
+5. **Ensemble:** average of the best ML and DL probabilities, deployed because it scored best on validation.
+6. **Matching** (`jobmatch/matcher.py`): score = 40% category probability + 30% required skills found +
+   20% CNN embedding similarity + 10% experience fit, each part shown to the user.
+
+## Project structure
+
+```
+app.py                     Streamlit entry point (role-based navigation)
+ui/                        Streamlit pages: public, candidate, employer, admin
+jobmatch/                  Core package
+  text.py                  preprocessing shared by training and the app
+  models.py                loads the trained ML + DL models, predicts, embeds
+  matcher.py               explainable job <-> candidate match score
+  skills.py                multi-industry skills dictionary and matching
+  experience.py            years-of-experience extraction
+  resume_parser.py         PDF / DOCX / TXT text extraction
+  db.py, auth.py           SQLite storage, salted password hashing
+  seed.py                  demo accounts, jobs and applications
+train.py                   trains and evaluates all models, saves the best
+evaluate_matching.py       ranking evaluation of the matching engine
+data/                      resumes.csv (dataset), jobs.json (24 demo jobs)
+models/                    trained models (SVM pipeline, CNN, vocabulary, labels)
+reports/                   metrics.json, matching_metrics.json, figures/
+notebooks/                 Resume_Screening_ML_DL.ipynb (end-to-end walkthrough with outputs)
+tests/                     pytest suite (text, skills, database, matcher, models, app pages)
+docs/                      PROJECT_REPORT.md, VIVA_GUIDE.md, SETUP_GUIDE.md, screenshots/
+experiments/               first iteration on a synthetic dataset (kept to document why it was dropped)
+```
+
+## Dataset and licence
+
+Resumes: LiveCareer resume dataset, CC0 1.0 (public domain), via
+[Hugging Face `opensporks/resumes`](https://huggingface.co/datasets/opensporks/resumes); the copy in
+`data/` comes from the two-column working copy in
+[MEND777-dev/job-category-classifier](https://github.com/MEND777-dev/job-category-classifier), in which
+email addresses, links and phone numbers were already replaced (one remaining link was replaced here).
+Company names in `data/jobs.json` and all demo users are fictional.
