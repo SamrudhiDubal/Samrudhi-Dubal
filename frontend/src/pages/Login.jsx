@@ -16,7 +16,9 @@ export default function Login() {
     setLoading(true);
     try {
       const user = await login(form.email, form.password);
-      const dest = location.state?.from || (user.role === 'employer' ? '/employer/jobs' : '/jobs');
+      const dest =
+        location.state?.from ||
+        (user.role === 'employer' ? '/employer/jobs' : user.role === 'admin' ? '/admin' : '/jobs');
       navigate(dest, { replace: true });
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
@@ -31,8 +33,11 @@ export default function Login() {
       {error && <p className="mt-3 rounded bg-rose-50 p-2 text-sm text-rose-700">{error}</p>}
       <form onSubmit={handleSubmit} className="mt-4 space-y-4">
         <div>
-          <label className="text-sm font-medium text-slate-700">Email</label>
+          <label htmlFor="email" className="text-sm font-medium text-slate-700">
+            Email
+          </label>
           <input
+            id="email"
             type="email"
             required
             className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
@@ -41,8 +46,11 @@ export default function Login() {
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-slate-700">Password</label>
+          <label htmlFor="password" className="text-sm font-medium text-slate-700">
+            Password
+          </label>
           <input
+            id="password"
             type="password"
             required
             className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"

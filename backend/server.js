@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const jobRoutes = require('./routes/jobRoutes');
 const applicationRoutes = require('./routes/applicationRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/applications', applicationRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Note: resume files are intentionally not served as static assets since they
 // contain PII. Resume content is exposed only via the authenticated
@@ -41,6 +43,10 @@ const start = async () => {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 };
 
-start();
+// Only boot the server (and connect to MongoDB) when run directly; when this
+// module is `require`d by a test file, just export the Express app.
+if (require.main === module) {
+  start();
+}
 
 module.exports = app;

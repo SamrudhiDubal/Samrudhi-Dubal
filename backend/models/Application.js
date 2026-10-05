@@ -13,8 +13,13 @@ const applicationSchema = new mongoose.Schema(
     matchDetails: {
       skillMatchPercent: { type: Number, default: 0 },
       textSimilarityPercent: { type: Number, default: 0 },
+      experienceFitPercent: { type: Number, default: null },
+      candidateYearsOfExperience: { type: Number, default: null },
+      educationLevel: { type: String, default: null },
       matchedSkills: [{ type: String }],
       missingSkills: [{ type: String }],
+      semanticScore: { type: Number, default: null },
+      semanticSummary: { type: String, default: null },
     },
     status: {
       type: String,

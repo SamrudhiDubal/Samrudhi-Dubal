@@ -40,22 +40,44 @@ const SKILLS_DICTIONARY = [
   'cybersecurity', 'penetration testing', 'security', 'oauth', 'jwt',
 ];
 
+const { SKILL_ALIASES, toCanonicalSkill } = require('./skillAliases');
+
 const normalize = (text) => text.toLowerCase();
 
+function textContainsTerm(normalizedText, term) {
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = /^[a-z0-9]/.test(term)
+    ? new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, 'i')
+    : new RegExp(escaped, 'i');
+  return pattern.test(normalizedText);
+}
+
+/**
+ * Detect skills mentioned in free-form resume/job text, against both the
+ * curated skills dictionary and known aliases (e.g. "js" -> "javascript"),
+ * returning canonical skill names.
+ */
 function extractSkills(text) {
   if (!text) return [];
   const normalized = normalize(text);
   const found = new Set();
+
   for (const skill of SKILLS_DICTIONARY) {
-    const escaped = skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const pattern = /^[a-z0-9]/.test(skill)
-      ? new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, 'i')
-      : new RegExp(escaped, 'i');
-    if (pattern.test(normalized)) {
+    if (textContainsTerm(normalized, skill)) {
       found.add(skill);
     }
   }
-  return Array.from(found);
+
+  for (const [canonical, aliases] of Object.entries(SKILL_ALIASES)) {
+    for (const alias of aliases) {
+      if (textContainsTerm(normalized, alias)) {
+        found.add(canonical);
+        break;
+      }
+    }
+  }
+
+  return Array.from(new Set(Array.from(found).map(toCanonicalSkill)));
 }
 
 module.exports = { SKILLS_DICTIONARY, extractSkills };

@@ -4,6 +4,15 @@ const Application = require('../models/Application');
 const Job = require('../models/Job');
 const { extractResumeText } = require('../utils/resumeParser');
 const { computeMatchScore } = require('../utils/aiMatcher');
+const { getSemanticMatch } = require('../utils/semanticMatcher');
+const {
+  notifyNewApplicant,
+  notifyApplicationSubmitted,
+  notifyApplicationStatusChange,
+} = require('../utils/mailer');
+
+const LOCAL_WEIGHT_WITH_SEMANTIC = 0.7;
+const SEMANTIC_WEIGHT = 0.3;
 
 // @desc    Apply to a job with a resume upload; AI engine scores the match
 // @route   POST /api/applications/:jobId
@@ -40,6 +49,16 @@ const applyToJob = async (req, res, next) => {
 
     const matchResult = computeMatchScore(resumeText, job, req.user.skills);
 
+    // Optional secondary signal: if ANTHROPIC_API_KEY is configured, blend in
+    // Claude's qualitative read of the resume/job fit. No-ops (returns null)
+    // when unconfigured, so the local score is used on its own by default.
+    const semanticMatch = await getSemanticMatch(resumeText, job);
+    const finalScore = semanticMatch
+      ? Math.round(
+          LOCAL_WEIGHT_WITH_SEMANTIC * matchResult.score + SEMANTIC_WEIGHT * semanticMatch.score
+        )
+      : matchResult.score;
+
     const application = await Application.create({
       job: job._id,
       candidate: req.user._id,
@@ -48,17 +67,37 @@ const applyToJob = async (req, res, next) => {
       resumeText,
       coverLetter: req.body.coverLetter,
       extractedSkills: matchResult.extractedSkills,
-      matchScore: matchResult.score,
+      matchScore: finalScore,
       matchDetails: {
         skillMatchPercent: matchResult.skillMatchPercent,
         textSimilarityPercent: matchResult.textSimilarityPercent,
+        experienceFitPercent: matchResult.experienceFitPercent,
+        candidateYearsOfExperience: matchResult.candidateYearsOfExperience,
+        educationLevel: matchResult.educationLevel,
         matchedSkills: matchResult.matchedSkills,
         missingSkills: matchResult.missingSkills,
+        semanticScore: semanticMatch?.score ?? null,
+        semanticSummary: semanticMatch?.summary ?? null,
       },
     });
 
     job.applicationsCount = (job.applicationsCount || 0) + 1;
     await job.save();
+
+    await job.populate('employer', 'name email');
+    notifyNewApplicant({
+      employerEmail: job.employer.email,
+      employerName: job.employer.name,
+      job,
+      candidateName: req.user.name,
+      matchScore: finalScore,
+    });
+    notifyApplicationSubmitted({
+      candidateEmail: req.user.email,
+      candidateName: req.user.name,
+      job,
+      matchScore: finalScore,
+    });
 
     res.status(201).json({ application });
   } catch (err) {
@@ -131,7 +170,9 @@ const updateApplicationStatus = async (req, res, next) => {
       return res.status(400).json({ message: `Status must be one of: ${allowed.join(', ')}` });
     }
 
-    const application = await Application.findById(req.params.id).populate('job');
+    const application = await Application.findById(req.params.id)
+      .populate('job')
+      .populate('candidate', 'name email');
     if (!application) return res.status(404).json({ message: 'Application not found' });
     if (application.job.employer.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: 'You do not own this job posting' });
@@ -139,6 +180,14 @@ const updateApplicationStatus = async (req, res, next) => {
 
     application.status = status;
     await application.save();
+
+    notifyApplicationStatusChange({
+      candidateEmail: application.candidate.email,
+      candidateName: application.candidate.name,
+      job: application.job,
+      status,
+    });
+
     res.json({ application });
   } catch (err) {
     next(err);

@@ -105,6 +105,35 @@ export default function Applicants() {
                   <p className="font-medium text-slate-700">
                     Resume/Description Similarity: {app.matchDetails?.textSimilarityPercent}%
                   </p>
+                  <p className="mt-1 font-medium text-slate-700">
+                    Experience Fit:{' '}
+                    {app.matchDetails?.experienceFitPercent ?? 'Unknown'}
+                    {app.matchDetails?.experienceFitPercent !== null &&
+                    app.matchDetails?.experienceFitPercent !== undefined
+                      ? '%'
+                      : ''}{' '}
+                    {app.matchDetails?.candidateYearsOfExperience !== null &&
+                      app.matchDetails?.candidateYearsOfExperience !== undefined && (
+                        <span className="text-slate-500">
+                          ({app.matchDetails.candidateYearsOfExperience} yrs mentioned)
+                        </span>
+                      )}
+                  </p>
+                  {app.matchDetails?.educationLevel && (
+                    <p className="mt-1 text-slate-600">
+                      Education detected:{' '}
+                      <span className="capitalize">
+                        {app.matchDetails.educationLevel.replace('_', ' ')}
+                      </span>
+                    </p>
+                  )}
+                  {app.matchDetails?.semanticScore !== null &&
+                    app.matchDetails?.semanticScore !== undefined && (
+                      <p className="mt-1 rounded bg-brand-50 p-2 text-brand-700">
+                        <span className="font-medium">AI summary ({app.matchDetails.semanticScore}%):</span>{' '}
+                        {app.matchDetails.semanticSummary}
+                      </p>
+                    )}
                   {app.coverLetter && (
                     <p className="mt-1">
                       <span className="font-medium text-slate-700">Cover letter:</span>{' '}

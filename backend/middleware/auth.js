@@ -13,6 +13,9 @@ const protect = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({ message: 'User no longer exists' });
     }
+    if (!user.isActive) {
+      return res.status(403).json({ message: 'This account has been deactivated' });
+    }
     req.user = user;
     next();
   } catch (err) {

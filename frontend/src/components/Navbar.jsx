@@ -35,6 +35,11 @@ export default function Navbar() {
               My Applications
             </Link>
           )}
+          {user?.role === 'admin' && (
+            <Link to="/admin" className="text-slate-600 hover:text-brand-600">
+              Admin
+            </Link>
+          )}
           {user ? (
             <>
               <Link to="/profile" className="text-slate-600 hover:text-brand-600">
