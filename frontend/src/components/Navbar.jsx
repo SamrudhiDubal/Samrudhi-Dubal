@@ -31,9 +31,14 @@ export default function Navbar() {
             </>
           )}
           {user?.role === 'candidate' && (
-            <Link to="/candidate/applications" className="text-slate-600 hover:text-brand-600">
-              My Applications
-            </Link>
+            <>
+              <Link to="/candidate/recommended" className="text-slate-600 hover:text-brand-600">
+                Recommended
+              </Link>
+              <Link to="/candidate/applications" className="text-slate-600 hover:text-brand-600">
+                My Applications
+              </Link>
+            </>
           )}
           {user?.role === 'admin' && (
             <Link to="/admin" className="text-slate-600 hover:text-brand-600">

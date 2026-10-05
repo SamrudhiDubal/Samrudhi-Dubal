@@ -84,6 +84,11 @@ const applyToJob = async (req, res, next) => {
     job.applicationsCount = (job.applicationsCount || 0) + 1;
     await job.save();
 
+    // Keep the candidate's most recent resume on their profile so it powers
+    // job recommendations and employer-side candidate matching.
+    req.user.resumeText = resumeText;
+    await req.user.save();
+
     await job.populate('employer', 'name email');
     notifyNewApplicant({
       employerEmail: job.employer.email,

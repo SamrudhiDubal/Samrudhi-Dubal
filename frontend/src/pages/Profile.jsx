@@ -13,6 +13,30 @@ export default function Profile() {
   });
   const [status, setStatus] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [resumeFile, setResumeFile] = useState(null);
+  const [resumeStatus, setResumeStatus] = useState(null);
+  const [uploading, setUploading] = useState(false);
+
+  const handleResumeUpload = async (e) => {
+    e.preventDefault();
+    if (!resumeFile) return;
+    setUploading(true);
+    setResumeStatus(null);
+    try {
+      const body = new FormData();
+      body.append('resume', resumeFile);
+      const { data } = await api.post('/users/me/resume', body);
+      updateUser(data.user);
+      setResumeStatus({
+        type: 'success',
+        message: `Resume saved. Skills detected: ${data.detectedSkills.join(', ') || 'none'}`,
+      });
+    } catch (err) {
+      setResumeStatus({ type: 'error', message: err.response?.data?.message || 'Upload failed' });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +70,9 @@ export default function Profile() {
         {status && (
           <p
             className={`rounded p-2 text-sm ${
-              status.type === 'success' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+              status.type === 'success'
+                ? 'bg-emerald-50 text-emerald-700'
+                : 'bg-rose-50 text-rose-700'
             }`}
           >
             {status.message}
@@ -80,9 +106,7 @@ export default function Profile() {
         </div>
         {user?.role === 'candidate' && (
           <div>
-            <label className="text-sm font-medium text-slate-700">
-              Skills (comma separated)
-            </label>
+            <label className="text-sm font-medium text-slate-700">Skills (comma separated)</label>
             <input
               className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none"
               value={form.skills}
@@ -110,6 +134,48 @@ export default function Profile() {
           {saving ? 'Saving...' : 'Save Changes'}
         </button>
       </form>
+
+      {user?.role === 'candidate' && (
+        <form
+          onSubmit={handleResumeUpload}
+          className="mt-6 space-y-3 rounded-lg border bg-white p-6 shadow-sm"
+        >
+          <h2 className="text-lg font-semibold text-slate-900">Profile Resume</h2>
+          <p className="text-sm text-slate-500">
+            {user.resumeText
+              ? 'A resume is on file and powers your job recommendations. Upload a new one to replace it.'
+              : 'Upload a resume (PDF, DOCX, DOC or TXT) to get AI job recommendations and appear in employer candidate searches.'}
+          </p>
+          {resumeStatus && (
+            <p
+              className={`rounded p-2 text-sm ${
+                resumeStatus.type === 'success'
+                  ? 'bg-emerald-50 text-emerald-700'
+                  : 'bg-rose-50 text-rose-700'
+              }`}
+            >
+              {resumeStatus.message}
+            </p>
+          )}
+          <label htmlFor="profile-resume" className="sr-only">
+            Resume file
+          </label>
+          <input
+            id="profile-resume"
+            type="file"
+            accept=".pdf,.doc,.docx,.txt"
+            onChange={(e) => setResumeFile(e.target.files[0] || null)}
+            className="block w-full text-sm text-slate-600"
+          />
+          <button
+            type="submit"
+            disabled={!resumeFile || uploading}
+            className="rounded-md bg-brand-600 px-5 py-2 font-medium text-white hover:bg-brand-700 disabled:opacity-60"
+          >
+            {uploading ? 'Uploading...' : 'Upload Resume'}
+          </button>
+        </form>
+      )}
     </div>
   );
 }

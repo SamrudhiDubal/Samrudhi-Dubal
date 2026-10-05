@@ -37,6 +37,13 @@ richer semantic scoring.
   summary from Claude (`backend/utils/semanticMatcher.js`), blended 70/30
   with the local score. Unset by default — the engine runs fully locally
   with zero external calls unless you opt in.
+- **Two-way candidate matching** — The same engine runs in bulk
+  (`backend/utils/recommender.js`): candidates get a **Recommended for You**
+  page ranking every open job against their resume (or profile, if no resume
+  is uploaded) with a "you have / to learn" skill-gap breakdown, and
+  employers get a **Find Matching Candidates** tab ranking every candidate
+  on the platform for a job, including people who haven't applied yet.
+  Candidates can upload a profile resume without applying.
 - **Ranked applicant view** — Employers see every applicant for a job
   sorted by AI match score, with matched/missing skills, experience fit,
   detected education, and (if enabled) the LLM summary, and can update
@@ -81,7 +88,9 @@ backend/
     aiMatcher.js             local AI screening/matching engine (skills + text similarity + experience fit)
     semanticMatcher.js       optional Claude-based semantic scoring layer
     mailer.js                email notifications (SMTP or console fallback)
+    recommender.js           two-way matching: recommended jobs / matching candidates
     seed.js                  one-off script to create/promote the first admin account
+    seedDemo.js              populates demo users, jobs and AI-scored applications
   controllers/, routes/    REST API (auth, users, jobs, applications, admin)
   tests/
     unit/                  pure-function + mocked-dependency tests (Jest)
@@ -95,8 +104,13 @@ frontend/
     components/             Navbar, JobCard, JobForm, MatchScoreBadge, PrivateRoute
     pages/                   Home, Login, Register, Jobs, JobDetails, PostJob,
                              EditJob, EmployerJobs, Applicants, CandidateApplications,
-                             Profile, AdminDashboard
+                             Profile, RecommendedJobs, AdminDashboard
     test/                    Vitest + React Testing Library component/page tests
+
+docs/
+  PROJECT_REPORT.md          final-year project report (design, algorithm, diagrams, testing, results)
+  VIVA_GUIDE.md              demo script + likely viva questions and answers
+  screenshots/               screenshots of every main screen
 ```
 
 ## Getting Started
@@ -120,6 +134,23 @@ Create the first admin account (admin cannot self-register):
 ```bash
 ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=change_me npm run seed:admin
 ```
+
+### Demo data (recommended for presentations)
+
+```bash
+cd backend
+npm run seed:demo
+```
+
+This creates an admin, 2 employers, 4 candidates with resumes, 5 jobs and 7
+AI-scored applications (re-running replaces only the previous demo data).
+Every demo account uses the password `demo1234`:
+
+| Role | Email |
+| --- | --- |
+| Admin | `admin@demo.jobmatch` |
+| Employer | `techcorp@demo.jobmatch`, `datawise@demo.jobmatch` |
+| Candidate | `ananya@demo.jobmatch`, `rahul@demo.jobmatch`, `sneha@demo.jobmatch`, `karthik@demo.jobmatch` |
 
 ### Frontend
 
@@ -156,7 +187,9 @@ The integration suite boots a real MongoDB in-memory for the duration of
 the run (via `mongodb-memory-server`), downloading a MongoDB binary on
 first use (cached afterward). In network-restricted environments where that
 download is blocked, the integration tests no-op with a console warning
-instead of failing — unit tests are unaffected either way.
+instead of failing — unit tests are unaffected either way. To run them with a
+locally installed MongoDB binary instead, set
+`MONGOMS_SYSTEM_BINARY=/path/to/mongod` (and `MONGOMS_VERSION` to its version).
 
 ## How the AI Matching Score Is Calculated
 
@@ -191,8 +224,11 @@ optional.
 | POST | `/api/auth/login` | Log in |
 | GET | `/api/auth/me` | Current user |
 | PUT | `/api/users/me` | Update own profile |
+| POST | `/api/users/me/resume` | Upload a profile resume (candidate) — powers recommendations |
 | GET | `/api/jobs` | Search/list open jobs |
 | GET | `/api/jobs/:id` | Job details |
+| GET | `/api/jobs/recommended` | Open jobs ranked by AI match for the candidate (candidate) |
+| GET | `/api/jobs/:id/matching-candidates` | All candidates ranked by AI match for a job (employer, owner) |
 | GET | `/api/jobs/employer/mine` | Employer's own postings |
 | POST | `/api/jobs` | Create job (employer) |
 | PUT | `/api/jobs/:id` | Update job (owner) |

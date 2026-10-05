@@ -11,6 +11,7 @@ import EditJob from './pages/EditJob';
 import EmployerJobs from './pages/EmployerJobs';
 import Applicants from './pages/Applicants';
 import CandidateApplications from './pages/CandidateApplications';
+import RecommendedJobs from './pages/RecommendedJobs';
 import Profile from './pages/Profile';
 import AdminDashboard from './pages/AdminDashboard';
 import NotFound from './pages/NotFound';
@@ -39,6 +40,14 @@ export default function App() {
             element={
               <PrivateRoute role="candidate">
                 <CandidateApplications />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/candidate/recommended"
+            element={
+              <PrivateRoute role="candidate">
+                <RecommendedJobs />
               </PrivateRoute>
             }
           />

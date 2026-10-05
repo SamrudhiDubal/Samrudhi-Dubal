@@ -1,5 +1,7 @@
 const Job = require('../models/Job');
 const Application = require('../models/Application');
+const User = require('../models/User');
+const { recommendJobsForCandidate, matchCandidatesForJob } = require('../utils/recommender');
 
 // @desc    Create a job posting
 // @route   POST /api/jobs
@@ -160,4 +162,80 @@ const deleteJob = async (req, res, next) => {
   }
 };
 
-module.exports = { createJob, getJobs, getJobById, getMyJobs, updateJob, deleteJob };
+// @desc    Open jobs ranked by AI match against the candidate's profile/resume
+// @route   GET /api/jobs/recommended
+const getRecommendedJobs = async (req, res, next) => {
+  try {
+    const limit = Math.min(50, Math.max(1, parseInt(req.query.limit, 10) || 10));
+    const [jobs, applied] = await Promise.all([
+      Job.find({ status: 'open' }).populate('employer', 'name company'),
+      Application.find({ candidate: req.user._id }).distinct('job'),
+    ]);
+    const appliedIds = new Set(applied.map((id) => id.toString()));
+
+    const recommendations = recommendJobsForCandidate(req.user, jobs, { limit }).map(
+      ({ job, match }) => ({ job, match, alreadyApplied: appliedIds.has(job._id.toString()) })
+    );
+
+    res.json({
+      basedOn: req.user.resumeText ? 'resume' : 'profile',
+      recommendations,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc    Candidates on the platform ranked by AI match for a job (owner only),
+//          including candidates who have not applied yet
+// @route   GET /api/jobs/:id/matching-candidates
+const getMatchingCandidates = async (req, res, next) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job) return res.status(404).json({ message: 'Job not found' });
+    if (job.employer.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'You do not own this job posting' });
+    }
+
+    const limit = Math.min(50, Math.max(1, parseInt(req.query.limit, 10) || 20));
+    const minScore = Math.max(0, parseInt(req.query.minScore, 10) || 0);
+
+    const [candidates, applicants] = await Promise.all([
+      User.find({ role: 'candidate', isActive: true }).select(
+        'name email title bio skills resumeText'
+      ),
+      Application.find({ job: job._id }).distinct('candidate'),
+    ]);
+    const applicantIds = new Set(applicants.map((id) => id.toString()));
+
+    const matches = matchCandidatesForJob(job, candidates, { limit, minScore }).map(
+      ({ candidate, match }) => ({
+        candidate: {
+          _id: candidate._id,
+          name: candidate.name,
+          email: candidate.email,
+          title: candidate.title,
+          skills: candidate.skills,
+          hasResume: Boolean(candidate.resumeText),
+        },
+        match,
+        hasApplied: applicantIds.has(candidate._id.toString()),
+      })
+    );
+
+    res.json({ job: { _id: job._id, title: job.title }, matches });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = {
+  createJob,
+  getJobs,
+  getJobById,
+  getMyJobs,
+  updateJob,
+  deleteJob,
+  getRecommendedJobs,
+  getMatchingCandidates,
+};

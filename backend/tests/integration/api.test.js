@@ -239,6 +239,43 @@ describe('Job portal API (integration)', () => {
     expect(res.status).toBe(400);
   });
 
+  guardedIt('recommends jobs to a candidate based on their saved resume', async () => {
+    const res = await request
+      .get('/api/jobs/recommended')
+      .set('Authorization', `Bearer ${candidateToken}`);
+    expect(res.status).toBe(200);
+    expect(res.body.basedOn).toBe('resume');
+    expect(res.body.recommendations[0].job._id).toBe(jobId);
+    expect(res.body.recommendations[0].alreadyApplied).toBe(true);
+    expect(typeof res.body.recommendations[0].match.matchScore).toBe('number');
+  });
+
+  guardedIt('lets a candidate upload a resume to their profile', async () => {
+    const res = await request
+      .post('/api/users/me/resume')
+      .set('Authorization', `Bearer ${candidateToken}`)
+      .attach('resume', resumeFixture);
+    expect(res.status).toBe(200);
+    expect(res.body.detectedSkills.length).toBeGreaterThan(0);
+  });
+
+  guardedIt('ranks matching candidates for the owning employer, flagging applicants', async () => {
+    const res = await request
+      .get(`/api/jobs/${jobId}/matching-candidates`)
+      .set('Authorization', `Bearer ${employerToken}`);
+    expect(res.status).toBe(200);
+    const jane = res.body.matches.find((m) => m.candidate.name === 'Jane Candidate');
+    expect(jane.hasApplied).toBe(true);
+    expect(jane.candidate.resumeText).toBeUndefined();
+  });
+
+  guardedIt('blocks candidates from the matching-candidates endpoint', async () => {
+    const res = await request
+      .get(`/api/jobs/${jobId}/matching-candidates`)
+      .set('Authorization', `Bearer ${candidateToken}`);
+    expect(res.status).toBe(403);
+  });
+
   describe('admin access', () => {
     let adminToken;
 
