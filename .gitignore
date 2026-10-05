@@ -6,3 +6,6 @@ backend/uploads/resumes/*
 !backend/uploads/resumes/.gitkeep
 *.log
 .DS_Store
+ml/talent-suitability-classifier/*.png
+ml/talent-suitability-classifier/*.joblib
+ml/talent-suitability-classifier/__pycache__/
