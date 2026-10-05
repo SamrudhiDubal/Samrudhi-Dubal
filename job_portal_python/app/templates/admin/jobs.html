@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}All jobs{% endblock %}
+{% block content %}
+<h2 class="mb-3">All jobs</h2>
+<div class="card shadow-sm"><div class="table-responsive"><table class="table align-middle mb-0">
+  <thead class="table-light"><tr><th>Job</th><th>Employer</th><th>Applicants</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
+  <tbody>
+  {% for job in jobs %}
+  <tr>
+    <td><a href="{{ url_for('main.job_detail', job_id=job.id) }}">{{ job.title }}</a><div class="small text-muted">{{ job.company }} · {{ job.location }}</div></td>
+    <td>{{ job.employer.name }}</td>
+    <td><a href="{{ url_for('employer.applicants', job_id=job.id) }}">{{ job.applications|length }}</a></td>
+    <td>{% if job.is_open %}<span class="badge bg-success">Open</span>{% else %}<span class="badge bg-secondary">Closed</span>{% endif %}</td>
+    <td class="text-end text-nowrap">
+      <form class="d-inline" method="post" action="{{ url_for('employer.toggle_job', job_id=job.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-sm btn-outline-warning">{{ 'Close' if job.is_open else 'Reopen' }}</button></form>
+      <form class="d-inline" method="post" action="{{ url_for('employer.delete_job', job_id=job.id) }}" onsubmit="return confirm('Delete this job?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></form>
+    </td>
+  </tr>
+  {% else %}<tr><td colspan="5" class="text-center text-muted py-4">No jobs.</td></tr>{% endfor %}
+  </tbody>
+</table></div></div>
+{% endblock %}

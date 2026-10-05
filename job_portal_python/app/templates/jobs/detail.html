@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% from "_macros.html" import score_badge, screening_breakdown, skill_chips, status_badge %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="card shadow-sm"><div class="card-body p-4">
+      {% if not job.is_open %}<span class="badge bg-secondary mb-2">Closed</span>{% endif %}
+      <h2>{{ job.title }}</h2>
+      <p class="text-muted"><i class="bi bi-building"></i> {{ job.company }} · <i class="bi bi-geo-alt"></i> {{ job.location }} · {{ job.job_type }}
+        {% if job.salary %} · <i class="bi bi-cash"></i> {{ job.salary }}{% endif %}
+        · <i class="bi bi-award"></i> {{ job.min_experience }}+ years</p>
+      <h5>Required skills</h5>
+      <div class="mb-3">{% for s in job.skill_list %}<span class="badge bg-brand-soft me-1">{{ s }}</span>{% endfor %}</div>
+      <h5>Description</h5>
+      <p style="white-space: pre-wrap">{{ job.description }}</p>
+      <small class="text-muted">Posted {{ job.created_at.strftime('%d %b %Y') }}</small>
+    </div></div>
+  </div>
+
+  <div class="col-lg-4">
+    {% if not current_user.is_authenticated %}
+      <div class="card shadow-sm"><div class="card-body">
+        <p>Log in as a candidate to apply and see your AI match score.</p>
+        <a class="btn btn-primary w-100" href="{{ url_for('auth.login', next=request.path) }}">Login to apply</a>
+      </div></div>
+    {% elif current_user.role == 'candidate' %}
+      {% if existing %}
+        <div class="card shadow-sm"><div class="card-body">
+          <h5>You applied</h5>
+          <p>Status: {{ status_badge(existing.status) }}</p>
+          <p>AI match score: {{ score_badge(existing.match_score, existing.recommendation) }}</p>
+          <a class="btn btn-outline-primary w-100" href="{{ url_for('candidate.application_detail', app_id=existing.id) }}">View screening report</a>
+        </div></div>
+      {% elif job.is_open %}
+        {% if preview %}
+        <div class="card shadow-sm mb-3"><div class="card-body">
+          <h6 class="text-muted">Your predicted match (based on profile resume)</h6>
+          <div class="score-big text-{{ preview.score|score_class }}">{{ '%.0f'|format(preview.score) }}%</div>
+          <div class="mb-2">{{ preview.recommendation }}</div>
+          {{ screening_breakdown(preview) }}
+          <div class="small mt-2"><strong>Missing:</strong> {{ skill_chips(preview.missing_skills, 'bg-danger') }}</div>
+        </div></div>
+        {% endif %}
+        <div class="card shadow-sm"><div class="card-body">
+          <h5>Apply now</h5>
+          <form method="post" action="{{ url_for('main.apply', job_id=job.id) }}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="mb-3">
+              <label class="form-label">Resume (PDF, DOCX, TXT)</label>
+              <input type="file" name="resume" class="form-control" accept=".pdf,.docx,.txt" {% if not current_user.resume_text %}required{% endif %}>
+              {% if current_user.resume_text %}<div class="form-text">Leave empty to use your profile resume.</div>{% endif %}
+            </div>
+            <div class="mb-3"><label class="form-label">Cover letter (optional)</label><textarea name="cover_letter" class="form-control" rows="4"></textarea></div>
+            <button class="btn btn-success w-100"><i class="bi bi-send"></i> Submit application</button>
+          </form>
+        </div></div>
+      {% else %}
+        <div class="alert alert-secondary">This job is closed.</div>
+      {% endif %}
+    {% elif current_user.id == job.employer_id or current_user.role == 'admin' %}
+      <div class="card shadow-sm"><div class="card-body d-grid gap-2">
+        <a class="btn btn-primary" href="{{ url_for('employer.applicants', job_id=job.id) }}">Ranked applicants ({{ job.applications|length }})</a>
+        <a class="btn btn-outline-primary" href="{{ url_for('employer.talent_search', job_id=job.id) }}">AI talent search</a>
+        <a class="btn btn-outline-secondary" href="{{ url_for('employer.edit_job', job_id=job.id) }}">Edit job</a>
+      </div></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

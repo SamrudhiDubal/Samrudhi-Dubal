@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Employer Dashboard{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>{{ current_user.company or current_user.name }} — Dashboard</h2>
+  <a class="btn btn-primary" href="{{ url_for('employer.new_job') }}"><i class="bi bi-plus-lg"></i> Post a job</a>
+</div>
+<div class="row g-3 mb-4">
+  <div class="col-md-4"><div class="card stat shadow-sm"><div class="card-body"><div class="text-muted small">Job postings</div><div class="fs-3 fw-bold">{{ jobs|length }}</div></div></div></div>
+  <div class="col-md-4"><div class="card stat shadow-sm"><div class="card-body"><div class="text-muted small">Applications received</div><div class="fs-3 fw-bold">{{ total_apps }}</div></div></div></div>
+  <div class="col-md-4"><div class="card stat shadow-sm"><div class="card-body"><div class="text-muted small">Shortlisted</div><div class="fs-3 fw-bold">{{ shortlisted }}</div></div></div></div>
+</div>
+<div class="card shadow-sm"><div class="table-responsive">
+<table class="table table-hover align-middle mb-0">
+  <thead class="table-light"><tr><th>Job</th><th>Status</th><th>Applicants</th><th>Top score</th><th class="text-end">Actions</th></tr></thead>
+  <tbody>
+  {% for job in jobs %}
+    {% set top = job.applications|map(attribute='match_score')|max if job.applications else None %}
+    <tr>
+      <td><a href="{{ url_for('main.job_detail', job_id=job.id) }}">{{ job.title }}</a><div class="small text-muted">{{ job.location }} · {{ job.created_at.strftime('%d %b %Y') }}</div></td>
+      <td>{% if job.is_open %}<span class="badge bg-success">Open</span>{% else %}<span class="badge bg-secondary">Closed</span>{% endif %}</td>
+      <td>{{ job.applications|length }}</td>
+      <td>{% if top is not none %}<span class="badge bg-{{ top|score_class }}">{{ '%.0f'|format(top) }}%</span>{% else %}—{% endif %}</td>
+      <td class="text-end text-nowrap">
+        <a class="btn btn-sm btn-primary" href="{{ url_for('employer.applicants', job_id=job.id) }}">Applicants</a>
+        <a class="btn btn-sm btn-outline-primary" href="{{ url_for('employer.talent_search', job_id=job.id) }}">Talent search</a>
+        <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('employer.edit_job', job_id=job.id) }}"><i class="bi bi-pencil"></i></a>
+        <form class="d-inline" method="post" action="{{ url_for('employer.toggle_job', job_id=job.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="btn btn-sm btn-outline-warning" title="Close/reopen"><i class="bi bi-{{ 'lock' if job.is_open else 'unlock' }}"></i></button></form>
+        <form class="d-inline" method="post" action="{{ url_for('employer.delete_job', job_id=job.id) }}" onsubmit="return confirm('Delete this job and all its applications?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></form>
+      </td>
+    </tr>
+  {% else %}
+    <tr><td colspan="5" class="text-center text-muted py-4">No jobs yet — post your first job.</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+{% endblock %}

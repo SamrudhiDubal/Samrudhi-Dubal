@@ -1,0 +1,21 @@
+ANANYA IYER
+Final Year Student - B.Tech Computer Science | SRM University | ananya@example.com
+
+OBJECTIVE
+Motivated fresher seeking an entry-level software or data analyst role.
+
+EDUCATION
+B.Tech Computer Science and Engineering, SRM Institute of Science and Technology (2022 - 2026), CGPA 8.9
+Higher Secondary (12th), 2022
+
+SKILLS
+Python, Java, C, C++, HTML, CSS, JavaScript, SQL, MySQL, Excel, Power BI, Git
+Soft skills: Communication, Teamwork, Problem Solving
+
+PROJECTS
+- Student attendance system using Python, Flask and SQLite.
+- Data analysis of Indian crop yields using Pandas and Matplotlib.
+- Personal portfolio website using HTML, CSS and JavaScript.
+
+INTERNSHIP
+Data Analyst Intern, InfoMetrics (2 months) - built Excel and Power BI dashboards.

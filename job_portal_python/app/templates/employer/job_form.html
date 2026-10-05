@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit job' if editing else 'Post a job' }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-lg-8">
+<div class="card shadow-sm"><div class="card-body p-4">
+  <h3 class="mb-3">{{ 'Edit job' if editing else 'Post a new job' }}</h3>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="row g-3">
+      <div class="col-md-8"><label class="form-label">Job title *</label><input name="title" class="form-control" value="{{ job.title or '' }}" required></div>
+      <div class="col-md-4"><label class="form-label">Company *</label><input name="company" class="form-control" value="{{ job.company or '' }}" required></div>
+      <div class="col-md-4"><label class="form-label">Location *</label><input name="location" class="form-control" value="{{ job.location or '' }}" required></div>
+      <div class="col-md-3"><label class="form-label">Type</label><select name="job_type" class="form-select">
+        {% for t in job_types %}<option {% if t == job.job_type %}selected{% endif %}>{{ t }}</option>{% endfor %}</select></div>
+      <div class="col-md-2"><label class="form-label">Min. exp (yrs)</label><input type="number" min="0" name="min_experience" class="form-control" value="{{ job.min_experience or 0 }}"></div>
+      <div class="col-md-3"><label class="form-label">Salary</label><input name="salary" class="form-control" value="{{ job.salary or '' }}" placeholder="e.g. ₹6–10 LPA"></div>
+      <div class="col-12"><label class="form-label">Required skills * <small class="text-muted">(comma-separated — used by AI screening)</small></label>
+        <input name="required_skills" class="form-control" value="{{ job.required_skills or '' }}" placeholder="python, flask, sql, machine learning" required></div>
+      <div class="col-12"><label class="form-label">Description *</label><textarea name="description" class="form-control" rows="8" required>{{ job.description or '' }}</textarea></div>
+    </div>
+    <button class="btn btn-primary mt-3">{{ 'Save & re-screen applicants' if editing else 'Post job' }}</button>
+  </form>
+</div></div>
+</div></div>
+{% endblock %}

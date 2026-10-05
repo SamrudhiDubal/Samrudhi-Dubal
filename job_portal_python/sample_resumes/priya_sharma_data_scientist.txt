@@ -1,0 +1,26 @@
+PRIYA SHARMA
+Data Scientist | Chennai, India | priya@example.com
+
+SUMMARY
+Data scientist with 3 years of experience building machine learning models and
+NLP pipelines for e-commerce analytics. Passionate about turning data into decisions.
+
+EDUCATION
+M.Tech in Computer Science (Artificial Intelligence), SRM Institute of Science and Technology, 2021
+B.Tech in Computer Science and Engineering, 2019
+
+SKILLS
+Languages: Python, SQL, R
+ML / AI: Machine Learning, Deep Learning, NLP, scikit-learn, TensorFlow, PyTorch
+Data: Pandas, NumPy, Matplotlib, Tableau, Statistics, Data Analysis
+Tools: Git, Docker, AWS, Flask
+
+EXPERIENCE
+Data Scientist, ShopKart Analytics (2021 - present)
+- Built a product recommendation engine with collaborative filtering that improved CTR by 18%.
+- Developed a sentiment analysis NLP model on 2M customer reviews using TensorFlow.
+- Deployed models as REST APIs with Flask and Docker on AWS.
+
+PROJECTS
+- Resume classifier using TF-IDF and logistic regression (scikit-learn).
+- Sales forecasting dashboard in Tableau.

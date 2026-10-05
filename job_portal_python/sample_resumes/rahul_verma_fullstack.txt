@@ -1,0 +1,23 @@
+RAHUL VERMA
+Full Stack Developer | Bengaluru | rahul@example.com
+
+PROFILE
+Full stack web developer with 4 years of experience designing scalable web
+applications using React, Node.js and Python.
+
+EDUCATION
+B.E. in Information Technology, 2020
+
+TECHNICAL SKILLS
+JavaScript (ES6), TypeScript, ReactJS, Node.js, Express, HTML5, CSS3, Bootstrap, Tailwind
+Python, Django, Flask, REST APIs, GraphQL
+MongoDB, PostgreSQL, MySQL, Redis
+Docker, Kubernetes, AWS, CI/CD, Jenkins, Git, Linux
+Agile, Scrum, Jira
+
+EXPERIENCE
+Senior Software Engineer, CloudNova (2022 - present)
+- Led a team of 4 building a React + Node.js SaaS dashboard used by 50k users.
+- Migrated monolith to microservices on Kubernetes.
+Software Engineer, WebWorks (2020 - 2022)
+- Built REST APIs with Django and PostgreSQL; wrote unit tests with pytest.

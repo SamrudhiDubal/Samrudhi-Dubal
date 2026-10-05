@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+<h2 class="mb-3">Manage users</h2>
+<form class="row g-2 mb-3">
+  <div class="col-md-4"><input name="q" class="form-control" value="{{ q }}" placeholder="Search name or email"></div>
+  <div class="col-md-3"><select name="role" class="form-select"><option value="">All roles</option>
+    {% for r in ['candidate', 'employer', 'admin'] %}<option value="{{ r }}" {% if r == role %}selected{% endif %}>{{ r|capitalize }}</option>{% endfor %}</select></div>
+  <div class="col-auto"><button class="btn btn-secondary">Filter</button></div>
+</form>
+<div class="card shadow-sm"><div class="table-responsive"><table class="table align-middle mb-0">
+  <thead class="table-light"><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
+  <tbody>
+  {% for u in users %}
+  <tr>
+    <td>{{ u.name }}{% if u.company %}<div class="small text-muted">{{ u.company }}</div>{% endif %}</td>
+    <td>{{ u.email }}</td><td class="text-capitalize">{{ u.role }}</td><td class="small">{{ u.created_at.strftime('%d %b %Y') }}</td>
+    <td>{% if u.is_active_account %}<span class="badge bg-success">Active</span>{% else %}<span class="badge bg-secondary">Deactivated</span>{% endif %}</td>
+    <td class="text-end text-nowrap">{% if u.id != current_user.id %}
+      <form class="d-inline" method="post" action="{{ url_for('admin.toggle_user', user_id=u.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-sm btn-outline-warning">{{ 'Deactivate' if u.is_active_account else 'Activate' }}</button></form>
+      <form class="d-inline" method="post" action="{{ url_for('admin.delete_user', user_id=u.id) }}" onsubmit="return confirm('Delete this user and all their data?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></form>
+    {% endif %}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+{% endblock %}

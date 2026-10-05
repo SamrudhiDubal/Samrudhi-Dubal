@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import score_badge, status_badge %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<h2 class="mb-3">Admin dashboard</h2>
+<div class="row g-3 mb-4">
+  {% for label, value in [('Candidates', stats.candidates), ('Employers', stats.employers), ('Jobs (open)', '%d (%d)'|format(stats.jobs, stats.open_jobs)), ('Applications', stats.applications), ('Avg. AI score', '%.0f%%'|format(stats.avg_score))] %}
+  <div class="col"><div class="card stat shadow-sm"><div class="card-body"><div class="text-muted small">{{ label }}</div><div class="fs-4 fw-bold">{{ value }}</div></div></div></div>
+  {% endfor %}
+</div>
+<div class="row g-4 mb-4">
+  <div class="col-md-6"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5>AI score distribution</h5>
+    {% set total = stats.applications or 1 %}
+    {% for bucket, count in buckets.items() %}
+      <div class="d-flex align-items-center mb-2"><span class="me-2" style="width:4.5rem">{{ bucket }}</span>
+        <div class="progress flex-grow-1" style="height:18px"><div class="progress-bar bg-{{ bucket.split('-')[0]|int|score_class }}" style="width: {{ count / total * 100 }}%">{{ count }}</div></div></div>
+    {% endfor %}
+  </div></div></div>
+  <div class="col-md-6"><div class="card shadow-sm h-100"><div class="card-body">
+    <h5>Applications by status</h5>
+    {% for status, count in by_status.items() %}<div class="d-flex justify-content-between border-bottom py-1">{{ status_badge(status) }}<strong>{{ count }}</strong></div>
+    {% else %}<p class="text-muted">No applications yet.</p>{% endfor %}
+  </div></div></div>
+</div>
+<h5>Recent applications</h5>
+<div class="card shadow-sm"><div class="table-responsive"><table class="table mb-0 align-middle">
+  <thead class="table-light"><tr><th>Candidate</th><th>Job</th><th>Score</th><th>Status</th><th>Date</th></tr></thead>
+  <tbody>{% for a in recent %}<tr><td>{{ a.candidate.name }}</td><td>{{ a.job.title }} <small class="text-muted">· {{ a.job.company }}</small></td><td>{{ score_badge(a.match_score) }}</td><td>{{ status_badge(a.status) }}</td><td class="small">{{ a.created_at.strftime('%d %b %Y') }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endblock %}

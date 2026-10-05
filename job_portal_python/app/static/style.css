@@ -1,0 +1,10 @@
+:root { --brand: #4338ca; }
+.bg-brand { background: linear-gradient(90deg, #4338ca, #6d28d9); }
+.bg-brand-soft { background: #eef2ff; color: #3730a3; }
+.text-brand { color: var(--brand); }
+.hero { background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%); border-radius: 1rem; }
+.job-card { transition: transform .15s, box-shadow .15s; }
+.job-card:hover { transform: translateY(-3px); box-shadow: 0 .5rem 1rem rgba(67,56,202,.15) !important; }
+.stat { border-left: 4px solid var(--brand); }
+.score-big { font-size: 3rem; font-weight: 700; line-height: 1; }
+.resume-text { white-space: pre-wrap; max-height: 400px; overflow-y: auto; font-size: .85rem; background: #f8f9fa; }

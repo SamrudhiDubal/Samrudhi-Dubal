@@ -1,0 +1,17 @@
+ARJUN NAIR
+DevOps / Cloud Engineer | Hyderabad | arjun@example.com
+
+5+ years of experience in cloud infrastructure, automation and site reliability.
+
+SKILLS
+AWS, Azure, GCP, Terraform, Docker, Kubernetes (k8s), Jenkins, CI/CD, Linux, Bash, Python, Git
+Monitoring, networking, cyber security best practices
+
+EXPERIENCE
+Cloud Engineer, InfraScale (2019 - present)
+- Designed multi-region AWS infrastructure with Terraform; cut cloud cost 30%.
+- Built CI/CD pipelines in Jenkins and GitHub Actions for 40 microservices.
+
+EDUCATION
+B.Tech Electronics and Communication, 2019
+Certifications: AWS Solutions Architect Associate, CKA

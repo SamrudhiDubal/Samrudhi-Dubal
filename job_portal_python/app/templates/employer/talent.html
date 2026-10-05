@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_macros.html" import score_badge, skill_chips %}
+{% block title %}Talent search — {{ job.title }}{% endblock %}
+{% block content %}
+<a href="{{ url_for('employer.applicants', job_id=job.id) }}" class="small">&larr; Back to applicants</a>
+<h2 class="mt-2"><i class="bi bi-stars text-brand"></i> AI talent search</h2>
+<p class="text-muted">Every candidate profile on the platform, ranked by AI match against <strong>{{ job.title }}</strong> — including people who haven't applied yet.</p>
+<div class="card shadow-sm"><div class="table-responsive">
+<table class="table align-middle mb-0">
+  <thead class="table-light"><tr><th>#</th><th>Candidate</th><th>AI score</th><th>Matched skills</th><th>Missing</th><th>Exp.</th><th></th></tr></thead>
+  <tbody>
+  {% for c, r in ranked %}
+    <tr>
+      <td class="fw-bold">{{ loop.index }}</td>
+      <td>{{ c.name }}<div class="small text-muted">{{ c.headline or '' }}{% if c.location %} · {{ c.location }}{% endif %}</div></td>
+      <td>{{ score_badge(r.score) }}<div class="small text-muted">{{ r.recommendation }}</div></td>
+      <td>{{ skill_chips(r.matched_skills) }}</td>
+      <td>{{ skill_chips(r.missing_skills, 'bg-danger') }}</td>
+      <td>{{ ('%g yrs'|format(r.years_experience)) if r.years_experience is not none else '—' }}</td>
+      <td>{% if c.id in applied_ids %}<span class="badge bg-info">Applied</span>{% else %}<a class="btn btn-sm btn-outline-primary" href="mailto:{{ c.email }}?subject=Opportunity: {{ job.title }} at {{ job.company }}"><i class="bi bi-envelope"></i> Invite</a>{% endif %}</td>
+    </tr>
+  {% else %}
+    <tr><td colspan="7" class="text-center text-muted py-4">No candidate profiles with resumes yet.</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% from "_macros.html" import job_card %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero p-5 mb-4">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <h1 class="display-5 fw-bold">Find the right job. <span class="text-brand">Find the right talent.</span></h1>
+      <p class="lead text-muted">An AI-powered job portal that automatically screens resumes, scores every candidate against job requirements, and recommends the best matches — for both job seekers and recruiters.</p>
+      <form class="d-flex gap-2 mt-3" action="{{ url_for('main.jobs') }}">
+        <input class="form-control form-control-lg" name="q" placeholder="Job title, skill or company">
+        <button class="btn btn-primary btn-lg"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+    <div class="col-lg-5 mt-4 mt-lg-0">
+      <div class="row g-3">
+        {% for label, value, icon in [('Open jobs', stats.jobs, 'briefcase'), ('Companies', stats.companies, 'building'), ('Candidates', stats.candidates, 'people'), ('AI screenings', stats.applications, 'cpu')] %}
+        <div class="col-6"><div class="card stat shadow-sm"><div class="card-body">
+          <div class="text-muted small"><i class="bi bi-{{ icon }}"></i> {{ label }}</div><div class="fs-3 fw-bold">{{ value }}</div>
+        </div></div></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4 mb-5 text-center">
+  <div class="col-md-4"><i class="bi bi-file-earmark-text fs-1 text-brand"></i><h5 class="mt-2">Resume Parsing</h5><p class="text-muted">Upload PDF, DOCX or TXT — skills, years of experience and education are extracted automatically.</p></div>
+  <div class="col-md-4"><i class="bi bi-graph-up-arrow fs-1 text-brand"></i><h5 class="mt-2">AI Screening Score</h5><p class="text-muted">Each application is scored 0–100 using skill matching, TF-IDF text similarity and experience fit.</p></div>
+  <div class="col-md-4"><i class="bi bi-people fs-1 text-brand"></i><h5 class="mt-2">Smart Matching</h5><p class="text-muted">Candidates get job recommendations; employers get ranked applicants and talent search.</p></div>
+</div>
+
+<h3 class="mb-3">Latest jobs</h3>
+<div class="row g-3">
+  {% for job in jobs %}<div class="col-md-6 col-lg-4">{{ job_card(job) }}</div>
+  {% else %}<p class="text-muted">No jobs posted yet. Run <code>python seed.py</code> to load demo data.</p>{% endfor %}
+</div>
+{% endblock %}

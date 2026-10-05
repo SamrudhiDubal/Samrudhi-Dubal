@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "_macros.html" import screening_breakdown, skill_chips, status_badge %}
+{% block title %}Application report{% endblock %}
+{% block content %}
+<a href="{{ url_for('candidate.dashboard') }}" class="small">&larr; My dashboard</a>
+<h2 class="mt-2">{{ a.job.title }} <small class="text-muted fs-6">at {{ a.job.company }}</small></h2>
+<p>Status: {{ status_badge(a.status) }} · Applied {{ a.created_at.strftime('%d %b %Y') }}</p>
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card shadow-sm"><div class="card-body text-center">
+      <div class="text-muted small">Your AI match score</div>
+      <div class="score-big text-{{ a.match_score|score_class }}">{{ '%.0f'|format(a.match_score) }}%</div>
+      <div class="fw-semibold">{{ a.recommendation }}</div><hr>
+      {{ screening_breakdown(a) }}
+    </div></div>
+  </div>
+  <div class="col-lg-7">
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h5>Skills you matched</h5><div class="mb-3">{{ skill_chips(a.matched_skill_list) }}</div>
+      <h5>Skills to improve</h5><div>{{ skill_chips(a.missing_skill_list, 'bg-danger') }}</div>
+      {% if a.missing_skill_list %}<p class="small text-muted mt-2 mb-0">Tip: adding these skills (and projects using them) to your resume will raise your score for similar roles.</p>{% endif %}
+    </div></div>
+    <div class="d-flex gap-2">
+      {% if a.resume_filename %}<a class="btn btn-outline-secondary" href="{{ url_for('employer.download_resume', app_id=a.id) }}"><i class="bi bi-download"></i> Submitted resume</a>{% endif %}
+      {% if a.status == 'applied' %}
+      <form method="post" action="{{ url_for('candidate.withdraw', app_id=a.id) }}" onsubmit="return confirm('Withdraw this application?')">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-outline-danger">Withdraw</button></form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,5 +1,10 @@
 # JobMatch AI — Full-Stack Job Portal with AI-Based Resume Screening
 
+> **🐍 Python version:** a complete Python implementation (Flask + SQLite +
+> scikit-learn) lives in [`job_portal_python/`](job_portal_python/README.md) —
+> run it with `pip install -r requirements.txt && python seed.py && python run.py`.
+> The rest of this README describes the original Node.js/React version.
+
 A full-stack job portal (MERN-style: MongoDB, Express, React, Node.js) where
 candidates apply to jobs and an AI resume-screening engine automatically
 scores every application against the job's requirements — fully functional

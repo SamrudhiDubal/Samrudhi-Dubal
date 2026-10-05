@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "_macros.html" import job_card %}
+{% block title %}Jobs{% endblock %}
+{% block content %}
+<h2 class="mb-3">Browse jobs</h2>
+<form class="row g-2 mb-4">
+  <div class="col-md-5"><input class="form-control" name="q" value="{{ q }}" placeholder="Title, skill, company..."></div>
+  <div class="col-md-3"><input class="form-control" name="location" value="{{ location }}" placeholder="Location"></div>
+  <div class="col-md-2"><select class="form-select" name="job_type">
+    <option value="">Any type</option>
+    {% for t in job_types %}<option {% if t == job_type %}selected{% endif %}>{{ t }}</option>{% endfor %}
+  </select></div>
+  <div class="col-md-2"><button class="btn btn-primary w-100"><i class="bi bi-search"></i> Search</button></div>
+</form>
+<p class="text-muted">{{ jobs|length }} job(s) found</p>
+<div class="row g-3">
+  {% for job in jobs %}<div class="col-md-6 col-lg-4">{{ job_card(job) }}</div>
+  {% else %}<p class="text-muted">No jobs match your search.</p>{% endfor %}
+</div>
+{% endblock %}

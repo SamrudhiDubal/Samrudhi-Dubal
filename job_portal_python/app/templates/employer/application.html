@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "_macros.html" import screening_breakdown, skill_chips, status_badge %}
+{% block title %}Screening report{% endblock %}
+{% block content %}
+<a href="{{ url_for('employer.applicants', job_id=a.job_id) }}" class="small">&larr; Back to applicants</a>
+<h2 class="mt-2">{{ a.candidate.name }} <small class="text-muted fs-6">for {{ a.job.title }}</small></h2>
+<div class="row g-4 mt-1">
+  <div class="col-lg-4">
+    <div class="card shadow-sm mb-3"><div class="card-body text-center">
+      <div class="text-muted small">AI match score</div>
+      <div class="score-big text-{{ a.match_score|score_class }}">{{ '%.0f'|format(a.match_score) }}%</div>
+      <div class="fw-semibold">{{ a.recommendation }}</div>
+      <hr>{{ screening_breakdown(a) }}
+    </div></div>
+    <div class="card shadow-sm"><div class="card-body">
+      <p class="mb-1"><strong>Email:</strong> {{ a.candidate.email }}</p>
+      <p class="mb-1"><strong>Experience:</strong> {{ ('%g years'|format(a.years_experience)) if a.years_experience is not none else 'Not mentioned' }}</p>
+      <p class="mb-1"><strong>Education:</strong> {{ a.education or 'Not detected' }}</p>
+      <p class="mb-2"><strong>Status:</strong> {{ status_badge(a.status) }}</p>
+      <form method="post" action="{{ url_for('employer.update_status', app_id=a.id) }}" class="d-flex gap-2">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <select name="status" class="form-select">{% for s in statuses %}<option value="{{ s }}" {% if s == a.status %}selected{% endif %}>{{ s|capitalize }}</option>{% endfor %}</select>
+        <button class="btn btn-primary">Update</button>
+      </form>
+      {% if a.resume_filename %}<a class="btn btn-outline-secondary w-100 mt-2" href="{{ url_for('employer.download_resume', app_id=a.id) }}"><i class="bi bi-download"></i> Download resume</a>{% endif %}
+    </div></div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h5>Matched skills</h5><div class="mb-3">{{ skill_chips(a.matched_skill_list) }}</div>
+      <h5>Missing skills</h5><div>{{ skill_chips(a.missing_skill_list, 'bg-danger') }}</div>
+    </div></div>
+    {% if a.cover_letter %}<div class="card shadow-sm mb-3"><div class="card-body"><h5>Cover letter</h5><p style="white-space: pre-wrap" class="mb-0">{{ a.cover_letter }}</p></div></div>{% endif %}
+    <div class="card shadow-sm"><div class="card-body"><h5>Extracted resume text</h5><div class="resume-text p-3 rounded">{{ a.resume_text }}</div></div></div>
+  </div>
+</div>
+{% endblock %}

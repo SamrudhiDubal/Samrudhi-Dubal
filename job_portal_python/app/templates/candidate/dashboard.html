@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_macros.html" import score_badge, skill_chips, status_badge %}
+{% block title %}My Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-3">Hi, {{ current_user.name }} 👋</h2>
+{% if not current_user.resume_text %}
+  <div class="alert alert-info"><i class="bi bi-info-circle"></i> <a href="{{ url_for('candidate.profile') }}">Upload your resume</a> to get AI job recommendations and instant match scores.</div>
+{% endif %}
+
+<div class="row g-4">
+  <div class="col-lg-7">
+    <h4>My applications</h4>
+    <div class="card shadow-sm"><div class="table-responsive">
+    <table class="table align-middle mb-0">
+      <thead class="table-light"><tr><th>Job</th><th>Applied</th><th>AI score</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+      {% for a in applications %}
+        <tr>
+          <td><a href="{{ url_for('main.job_detail', job_id=a.job_id) }}">{{ a.job.title }}</a><div class="small text-muted">{{ a.job.company }}</div></td>
+          <td class="small">{{ a.created_at.strftime('%d %b %Y') }}</td>
+          <td>{{ score_badge(a.match_score) }}</td>
+          <td>{{ status_badge(a.status) }}</td>
+          <td><a class="btn btn-sm btn-outline-primary" href="{{ url_for('candidate.application_detail', app_id=a.id) }}">Report</a></td>
+        </tr>
+      {% else %}
+        <tr><td colspan="5" class="text-center text-muted py-4">No applications yet. <a href="{{ url_for('main.jobs') }}">Browse jobs</a></td></tr>
+      {% endfor %}
+      </tbody>
+    </table></div></div>
+  </div>
+
+  <div class="col-lg-5">
+    <h4><i class="bi bi-stars text-brand"></i> Recommended for you</h4>
+    {% for job, r in recommendations %}
+      <div class="card shadow-sm mb-2 job-card"><div class="card-body py-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <div><a class="fw-semibold stretched-link text-decoration-none" href="{{ url_for('main.job_detail', job_id=job.id) }}">{{ job.title }}</a>
+            <div class="small text-muted">{{ job.company }} · {{ job.location }}</div></div>
+          {{ score_badge(r.score) }}
+        </div>
+        {% if r.missing_skills %}<div class="small mt-1 text-muted">Skills to learn: {{ r.missing_skills[:4]|join(', ') }}</div>{% endif %}
+      </div></div>
+    {% else %}
+      <p class="text-muted">Recommendations appear once you add skills or a resume to your profile.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

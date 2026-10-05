@@ -1,0 +1,42 @@
+{% macro score_badge(score, label=None) -%}
+  <span class="badge rounded-pill bg-{{ score|score_class }} fs-6">{{ '%.0f'|format(score or 0) }}%</span>
+  {% if label %}<small class="text-muted ms-1">{{ label }}</small>{% endif %}
+{%- endmacro %}
+
+{% macro bar(label, value, note=None) -%}
+  <div class="mb-2">
+    <div class="d-flex justify-content-between small"><span>{{ label }}</span>
+      <span>{% if value is none %}<em class="text-muted">{{ note or 'not detected' }}</em>{% else %}{{ '%.0f'|format(value) }}%{% endif %}</span></div>
+    <div class="progress" style="height: 8px">
+      <div class="progress-bar bg-{{ value|score_class }}" style="width: {{ value or 0 }}%"></div>
+    </div>
+  </div>
+{%- endmacro %}
+
+{% macro skill_chips(skills, cls='bg-success') -%}
+  {% for s in skills %}<span class="badge {{ cls }} me-1 mb-1">{{ s }}</span>{% else %}<span class="text-muted small">none</span>{% endfor %}
+{%- endmacro %}
+
+{% macro status_badge(status) -%}
+  {% set colors = {'applied': 'secondary', 'shortlisted': 'info', 'interview': 'primary', 'rejected': 'danger', 'hired': 'success'} %}
+  <span class="badge bg-{{ colors.get(status, 'secondary') }} text-capitalize">{{ status }}</span>
+{%- endmacro %}
+
+{% macro screening_breakdown(r) -%}
+  {{ bar('Skill match (50%)', r.skill_score) }}
+  {{ bar('Resume ↔ job text similarity, TF-IDF (30%)', r.text_score) }}
+  {{ bar('Experience fit (20%)', r.experience_score, 'not mentioned – weight redistributed') }}
+{%- endmacro %}
+
+{% macro job_card(job) -%}
+  <div class="card h-100 shadow-sm job-card">
+    <div class="card-body">
+      <h5 class="card-title mb-1"><a href="{{ url_for('main.job_detail', job_id=job.id) }}" class="stretched-link text-decoration-none">{{ job.title }}</a></h5>
+      <div class="text-muted small mb-2"><i class="bi bi-building"></i> {{ job.company }} · <i class="bi bi-geo-alt"></i> {{ job.location }}</div>
+      <span class="badge bg-light text-dark border">{{ job.job_type }}</span>
+      {% if job.min_experience %}<span class="badge bg-light text-dark border">{{ job.min_experience }}+ yrs</span>{% endif %}
+      {% if job.salary %}<span class="badge bg-light text-dark border">{{ job.salary }}</span>{% endif %}
+      <div class="mt-2">{% for s in job.skill_list[:6] %}<span class="badge bg-brand-soft me-1">{{ s }}</span>{% endfor %}</div>
+    </div>
+  </div>
+{%- endmacro %}
