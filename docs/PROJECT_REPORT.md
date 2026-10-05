@@ -353,6 +353,33 @@ all five skills and "6 years of experience".
 
 ---
 
+### 5.9 Supplementary Python ML Components
+Two Python components extend the project for AI/data-science evaluation:
+
+- **`ml-service/`: Python matching microservice (FastAPI + scikit-learn).**
+  An independent implementation of the matching engine with five signals:
+  required skills 40%, preferred skills 10%, experience 15%, location 10%
+  and **TF-IDF** cosine similarity 25%. Every score comes with a
+  plain-English explanation list. It exposes `/api/match`,
+  `/api/rank-candidates`, `/api/recommend-jobs` and `/api/parse-resume`,
+  plus a CLI. It is covered by 18 pytest tests and could replace or
+  complement the JavaScript engine through an HTTP call.
+- **`ml/talent-suitability-classifier/`: supervised learning experiment.**
+  Trains Logistic Regression, Random Forest and Gradient Boosting (5-fold
+  cross-validation) on a 12,000-candidate recruitment dataset to predict
+  *Highly / Moderately / Less Suitable*. Features include multi-hot skills
+  and certifications, counts, salary gap, one-hot categoricals and scaled
+  numerics.
+
+  **Finding:** all models reach about 33% accuracy, which is chance level
+  for three balanced classes, and the feature distributions are nearly
+  identical across classes. The dataset's labels therefore carry no
+  learnable signal; it appears to be synthetic. This negative result
+  supports the project's design choice: without trustworthy labelled hiring
+  data, a transparent rule-plus-similarity engine is more reliable than a
+  trained classifier. The pipeline is reusable as-is on a real labelled
+  dataset (for example, past shortlisting decisions).
+
 ## 6. Implementation
 
 ### 6.1 Technology Stack
@@ -365,6 +392,7 @@ all five skills and "6 years of experience".
 | File upload / parsing | Multer (5 MB limit, extension whitelist), pdf-parse, mammoth |
 | Email | Nodemailer (SMTP or console fallback) |
 | Optional AI | Anthropic Claude via `@anthropic-ai/sdk` |
+| Python ML | FastAPI, scikit-learn (TF-IDF, Logistic Regression, Random Forest, Gradient Boosting), pandas, matplotlib/seaborn |
 | Testing | Jest, Supertest, mongodb-memory-server, Vitest, React Testing Library |
 
 ### 6.2 Modules
@@ -405,8 +433,10 @@ See the API Overview table in the root `README.md` for every endpoint, its metho
 | Backend unit | Jest | 44 | Matching engine, skill aliasing, experience/education parsing, recommender, auth middleware, mailer, LLM layer (mocked) |
 | Backend integration | Jest + Supertest + in-memory MongoDB | 25 | Full HTTP API: register/login, role guards, job CRUD, apply + scoring, duplicate prevention, ranking, status updates, recommendations, candidate matching, profile resume upload, admin actions |
 | Frontend | Vitest + React Testing Library | 22 | MatchScoreBadge, JobCard, PrivateRoute, AuthContext, Login, RecommendedJobs |
+| Python ML service | pytest | 18 | Skill extraction, experience parsing, location fit, score bounds and explanations, ranking and recommendation |
 
-Run with `cd backend && npm test` and `cd frontend && npm test`.
+Run with `npm test` from the project root (backend + frontend) and
+`python -m pytest` inside `ml-service/`.
 
 ### Sample Test Cases
 | # | Test case | Input | Expected | Result |

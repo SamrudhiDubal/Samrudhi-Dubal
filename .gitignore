@@ -9,3 +9,7 @@ backend/uploads/resumes/*
 ml/talent-suitability-classifier/*.png
 ml/talent-suitability-classifier/*.joblib
 ml/talent-suitability-classifier/__pycache__/
+ml-service/.venv/
+ml-service/__pycache__/
+ml-service/**/__pycache__/
+ml-service/.pytest_cache/

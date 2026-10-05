@@ -16,7 +16,7 @@ password **demo1234**.
 | 6 | `techcorp@demo.jobmatch` | Change a status to *shortlisted* | Candidate gets an email (printed in backend console) |
 | 7 | `techcorp@demo.jobmatch` | **Find Matching Candidates** tab | Proactive sourcing: whole candidate pool ranked, applied/not applied |
 | 8 | `admin@demo.jobmatch` | Admin dashboard: stats, Users (deactivate one), Jobs | RBAC, moderation, cascading deletes |
-| 9 | terminal | `npm test` in backend and frontend | 44 unit + 25 integration + 22 UI tests |
+| 9 | terminal | `npm test` at the project root; `python -m pytest` in `ml-service/` | 44 unit + 25 integration + 22 UI + 18 Python tests |
 
 ## 2. Explaining the score in one breath
 
@@ -78,30 +78,43 @@ password **demo1234**.
     synonyms outside the alias table, scanned PDFs, and per-request bulk
     scoring at very large scale.
 
+13. **Your classifier only gets 33% accuracy. Why?** That is chance level
+    for 3 balanced classes. I checked the feature distributions per class
+    and they are nearly identical, so the labels in this dataset don't
+    depend on the features; it looks synthetic. Tuning a model can't fix
+    data with no signal. It is a negative result that justifies using an
+    explainable engine for the live portal, and the pipeline can be retrained
+    on real shortlisting data.
+14. **Why two matching engines (JavaScript and Python)?** The JavaScript
+    engine runs inside the web API with no extra service. The Python
+    service shows the same idea with scikit-learn's TF-IDF plus
+    preferred-skill and location signals, and can be plugged in as a
+    microservice over HTTP.
+
 **Security**
 
-13. **How are passwords stored?** bcrypt hash with a salt (10 rounds),
+15. **How are passwords stored?** bcrypt hash with a salt (10 rounds),
     excluded from queries by default.
-14. **How does authentication work?** On login the server signs a JWT
+16. **How does authentication work?** On login the server signs a JWT
     containing the user id. The client sends it as `Authorization: Bearer`.
     The `protect` middleware verifies it and reloads the user (so
     deactivated or deleted users are rejected immediately), and `authorize`
     checks the role.
-15. **How do you stop an employer editing someone else's job?** Every
+17. **How do you stop an employer editing someone else's job?** Every
     mutation compares `job.employer` with `req.user._id` and returns 403 on
     mismatch.
-16. **File-upload risks?** Extension whitelist, 5 MB limit, sanitised
+18. **File-upload risks?** Extension whitelist, 5 MB limit, sanitised
     filenames, and resumes are not served as static files.
-17. **Can someone register as admin?** No. Registration rejects the admin
+19. **Can someone register as admin?** No. Registration rejects the admin
     role; the first admin is created with `npm run seed:admin`.
 
 **Testing**
 
-18. **How did you test?** Jest unit tests for the engine and middleware,
+20. **How did you test?** Jest unit tests for the engine and middleware,
     Supertest integration tests that drive the real HTTP API against an
     in-memory MongoDB, and Vitest + React Testing Library for UI
     components.
-19. **Give one integration test.** "Prevents a different employer from
+21. **Give one integration test.** "Prevents a different employer from
     viewing applicants": register a second employer, call
     `GET /api/applications/job/:id`, expect 403.
 

@@ -72,6 +72,13 @@ richer semantic scoring.
 - **Frontend**: React (Vite), React Router, Tailwind CSS, Axios.
 - **Testing**: Jest + Supertest + mongodb-memory-server (backend), Vitest +
   React Testing Library (frontend).
+- **ML service** (`ml-service/`): a standalone Python AI matching engine
+  (FastAPI + scikit-learn) — see [`ml-service/README.md`](ml-service/README.md).
+- **ML classifier** (`ml/talent-suitability-classifier/`): a supervised
+  talent-suitability model trained on a 12,000-row recruitment dataset — see
+  [its README](ml/talent-suitability-classifier/README.md).
+- **Data analysis notebook** (`AI_Job_Assistance.ipynb`): Colab notebook
+  exploring job assistance and candidate matching.
 
 ## Project Structure
 
@@ -107,6 +114,19 @@ frontend/
                              Profile, RecommendedJobs, AdminDashboard
     test/                    Vitest + React Testing Library component/page tests
 
+ml-service/                 standalone Python AI matching engine (FastAPI + scikit-learn)
+  matcher/                  core.py, skills.py, experience.py, location.py,
+                             text_similarity.py, resume_parser.py
+  app.py                    REST API (match / rank-candidates / recommend-jobs / parse-resume)
+  cli.py                    command-line interface
+  tests/test_matcher.py     pytest suite
+
+ml/talent-suitability-classifier/
+  data/                     recruitment/job-matching dataset (CSV)
+  talent_suitability_classifier.py   training + evaluation pipeline
+
+AI_Job_Assistance.ipynb      Colab notebook (data analysis / matching experiments)
+
 docs/
   PROJECT_REPORT.md          final-year project report (design, algorithm, diagrams, testing, results)
   VIVA_GUIDE.md              demo script + likely viva questions and answers
@@ -114,6 +134,22 @@ docs/
 ```
 
 ## Getting Started
+
+> **New to this project?** Follow the step-by-step
+> [Setup Guide](docs/SETUP_GUIDE.md) (installing Node.js/MongoDB, cloning,
+> running, preparing your submission).
+
+### Quick start (from the project root)
+
+```bash
+npm install        # root helper (one time)
+npm run setup      # installs backend + frontend, creates .env files (one time)
+npm run seed       # loads demo data (needs MongoDB running)
+npm run dev        # backend on :5000 + frontend on :5173
+npm test           # all backend + frontend tests
+```
+
+The sections below describe each part individually.
 
 ### Prerequisites
 

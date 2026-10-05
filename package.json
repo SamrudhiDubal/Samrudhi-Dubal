@@ -1,0 +1,16 @@
+{
+  "name": "jobmatch-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack job portal with AI-based resume screening and candidate matching",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "start": "concurrently -n backend,frontend -c blue,green \"npm start --prefix backend\" \"npm run dev --prefix frontend\"",
+    "seed": "npm run seed:demo --prefix backend",
+    "test": "npm test --prefix backend && npm test --prefix frontend -- --run"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
