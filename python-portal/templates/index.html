@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import job_card %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+  <h1 class="display-6 fw-bold">Find the right job &mdash; or the right candidate &mdash; with AI</h1>
+  <p class="lead">Every resume is screened automatically and scored against the job's skills, description and experience level.</p>
+  <a class="btn btn-primary" href="{{ url_for('jobs') }}">Browse jobs</a>
+  {% if not current_user.is_authenticated %}<a class="btn btn-outline-primary" href="{{ url_for('register') }}">Get started</a>{% endif %}
+</div>
+<h4>Latest jobs</h4>
+{% for job in jobs %}{{ job_card(job) }}{% else %}<p class="text-muted">No jobs posted yet.</p>{% endfor %}
+{% endblock %}

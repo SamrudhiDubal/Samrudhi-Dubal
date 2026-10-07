@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-md-5">
+<h3>Create an account</h3>
+<form method="post" class="card card-body shadow-sm">
+  <input class="form-control mb-2" name="name" placeholder="Full name" required>
+  <input class="form-control mb-2" type="email" name="email" placeholder="Email" required>
+  <input class="form-control mb-2" type="password" name="password" placeholder="Password (min 6 chars)" required minlength="6">
+  <select class="form-select mb-3" name="role">
+    <option value="candidate">I'm looking for a job (Candidate)</option>
+    <option value="employer">I'm hiring (Employer)</option>
+  </select>
+  <button class="btn btn-primary">Register</button>
+</form>
+</div></div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ 'Edit job' if job else 'Post a job' }}</h3>
+<form method="post" class="card card-body shadow-sm">
+  <input class="form-control mb-2" name="title" placeholder="Job title" value="{{ job.title if job }}" required>
+  <input class="form-control mb-2" name="company" placeholder="Company" value="{{ job.company if job }}" required>
+  <input class="form-control mb-2" name="location" placeholder="Location (default Remote)" value="{{ job.location if job }}">
+  <div class="row g-2 mb-2">
+    <div class="col"><select class="form-select" name="job_type">
+      {% for t in job_types %}<option {{ 'selected' if job and job.job_type==t }}>{{ t }}</option>{% endfor %}</select></div>
+    <div class="col"><select class="form-select" name="experience_level">
+      {% for l in levels %}<option {{ 'selected' if job and job.experience_level==l }}>{{ l }}</option>{% endfor %}</select></div>
+  </div>
+  <input class="form-control mb-2" name="skills_required" placeholder="Required skills, comma-separated (e.g. python, flask, sql)" value="{{ job.skills_required if job }}">
+  <textarea class="form-control mb-3" name="description" rows="8" placeholder="Job description" required>{{ job.description if job }}</textarea>
+  <button class="btn btn-primary">{{ 'Save changes' if job else 'Post job' }}</button>
+</form>
+{% endblock %}

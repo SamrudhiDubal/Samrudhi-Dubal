@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import score_badge, match_breakdown %}
+{% block content %}
+<h3>AI job recommendations</h3>
+<p class="text-muted">Open jobs ranked by how well your resume and skills match them.</p>
+{% for job, result in ranked %}
+<div class="card mb-3 shadow-sm"><div class="card-body">
+  <div class="d-flex justify-content-between">
+    <div><a class="fw-bold" href="{{ url_for('job_detail', job_id=job.id) }}">{{ job.title }}</a>
+      <span class="text-muted">&middot; {{ job.company }} &middot; {{ job.location }}</span></div>
+    <div>{{ score_badge(result.score) }}</div>
+  </div>
+  {{ match_breakdown(result) }}
+</div></div>
+{% else %}<p class="text-muted">No open jobs right now.</p>{% endfor %}
+{% endblock %}

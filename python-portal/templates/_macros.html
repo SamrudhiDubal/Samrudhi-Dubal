@@ -1,0 +1,25 @@
+{% macro score_badge(score) -%}
+  {% set color = 'success' if score >= 70 else ('warning' if score >= 40 else 'danger') %}
+  <span class="badge bg-{{ color }} fs-6">{{ score }}/100</span>
+{%- endmacro %}
+
+{% macro match_breakdown(d) -%}
+  <div class="small">
+    Skills {{ d.skill_match_percent }}% &middot; Text similarity {{ d.text_similarity_percent }}% &middot;
+    Experience {{ d.experience_fit_percent if d.experience_fit_percent is not none else 'n/a' }}{{ '%' if d.experience_fit_percent is not none }}
+    {% if d.candidate_years is not none %}({{ d.candidate_years }} yrs){% endif %}
+    {% if d.education_level %}&middot; Education: {{ d.education_level|replace('_', ' ')|title }}{% endif %}
+  </div>
+  <div class="small mt-1">
+    {% for s in d.matched_skills %}<span class="badge bg-success-subtle text-success-emphasis me-1">{{ s }}</span>{% endfor %}
+    {% for s in d.missing_skills %}<span class="badge bg-danger-subtle text-danger-emphasis me-1">missing: {{ s }}</span>{% endfor %}
+  </div>
+{%- endmacro %}
+
+{% macro job_card(job) -%}
+  <div class="card mb-3 shadow-sm"><div class="card-body">
+    <h5 class="card-title mb-1"><a href="{{ url_for('job_detail', job_id=job.id) }}">{{ job.title }}</a></h5>
+    <div class="text-muted small mb-2">{{ job.company }} &middot; {{ job.location }} &middot; {{ job.job_type }} &middot; {{ job.experience_level }}</div>
+    {% for s in job.skill_list %}<span class="badge bg-secondary me-1">{{ s }}</span>{% endfor %}
+  </div></div>
+{%- endmacro %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import score_badge, match_breakdown %}
+{% block content %}
+<h3>Applicants for {{ job.title }} <small class="text-muted">(ranked by AI match score)</small></h3>
+<form class="row g-2 mb-3">
+  <div class="col-auto"><label class="col-form-label">Minimum score</label></div>
+  <div class="col-auto"><input class="form-control" type="number" min="0" max="100" name="min_score" value="{{ min_score }}"></div>
+  <div class="col-auto"><button class="btn btn-outline-primary">Filter</button></div>
+</form>
+{% for a in applications %}
+<div class="card mb-3 shadow-sm"><div class="card-body">
+  <div class="d-flex justify-content-between">
+    <div><strong>#{{ loop.index }} {{ a.candidate.name }}</strong> <span class="text-muted">{{ a.candidate.email }}</span></div>
+    <div>{{ score_badge(a.match_score) }}</div>
+  </div>
+  {{ match_breakdown(a.details) }}
+  {% if a.cover_letter %}<p class="small mt-2 mb-1"><em>{{ a.cover_letter }}</em></p>{% endif %}
+  <form method="post" action="{{ url_for('update_status', app_id=a.id) }}" class="d-flex gap-2 mt-2">
+    <select class="form-select form-select-sm w-auto" name="status">
+      {% for s in statuses %}<option {{ 'selected' if a.status==s }}>{{ s }}</option>{% endfor %}
+    </select>
+    <button class="btn btn-sm btn-primary">Update status</button>
+  </form>
+</div></div>
+{% else %}<p class="text-muted">No applicants yet.</p>{% endfor %}
+{% endblock %}

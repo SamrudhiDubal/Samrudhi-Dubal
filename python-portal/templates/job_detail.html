@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import score_badge, match_breakdown %}
+{% block content %}
+<div class="card shadow-sm mb-3"><div class="card-body">
+  <h3>{{ job.title }} {% if job.status == 'closed' %}<span class="badge bg-secondary">closed</span>{% endif %}</h3>
+  <div class="text-muted mb-3">{{ job.company }} &middot; {{ job.location }} &middot; {{ job.job_type }} &middot; {{ job.experience_level }} level</div>
+  <p style="white-space: pre-line">{{ job.description }}</p>
+  <strong>Required skills:</strong>
+  {% for s in job.skill_list %}<span class="badge bg-secondary me-1">{{ s }}</span>{% endfor %}
+</div></div>
+
+{% if current_user.is_authenticated and current_user.role == 'candidate' %}
+  {% if preview %}
+  <div class="card shadow-sm mb-3"><div class="card-body">
+    <h5>Your AI match preview {{ score_badge(preview.score) }}</h5>
+    {{ match_breakdown(preview) }}
+  </div></div>
+  {% endif %}
+  {% if existing %}
+    <div class="alert alert-info">You applied to this job &mdash; status: <strong>{{ existing.status }}</strong>, score {{ existing.match_score }}/100.</div>
+  {% elif job.status == 'open' %}
+  <form method="post" action="{{ url_for('apply', job_id=job.id) }}" enctype="multipart/form-data" class="card card-body shadow-sm">
+    <h5>Apply</h5>
+    <label class="form-label">Resume {% if current_user.resume_text %}(optional &mdash; your profile resume is used if you skip this){% endif %}</label>
+    <input class="form-control mb-2" type="file" name="resume" accept=".pdf,.docx,.txt" {{ 'required' if not current_user.resume_text }}>
+    <textarea class="form-control mb-2" name="cover_letter" rows="3" placeholder="Cover letter (optional)"></textarea>
+    <button class="btn btn-success">Submit application</button>
+  </form>
+  {% endif %}
+{% elif not current_user.is_authenticated %}
+  <a class="btn btn-primary" href="{{ url_for('login', next=request.path) }}">Log in as a candidate to apply</a>
+{% endif %}
+{% endblock %}

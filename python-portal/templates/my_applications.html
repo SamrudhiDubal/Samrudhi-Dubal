@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import score_badge, match_breakdown %}
+{% block content %}
+<h3>My applications</h3>
+{% for a in applications %}
+<div class="card mb-3 shadow-sm"><div class="card-body">
+  <div class="d-flex justify-content-between">
+    <div><a class="fw-bold" href="{{ url_for('job_detail', job_id=a.job.id) }}">{{ a.job.title }}</a>
+      <span class="text-muted">&middot; {{ a.job.company }}</span>
+      <span class="badge bg-info text-dark ms-2">{{ a.status }}</span></div>
+    <div>{{ score_badge(a.match_score) }}</div>
+  </div>
+  {{ match_breakdown(a.details) }}
+</div></div>
+{% else %}<p class="text-muted">You haven't applied to any jobs yet.</p>{% endfor %}
+{% endblock %}

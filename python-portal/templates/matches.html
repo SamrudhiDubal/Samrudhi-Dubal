@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import score_badge, match_breakdown %}
+{% block content %}
+<h3>AI candidate matches for {{ job.title }}</h3>
+<p class="text-muted">Every candidate with a resume on file, ranked by fit &mdash; including people who haven't applied yet.</p>
+{% for candidate, result in ranked %}
+<div class="card mb-3 shadow-sm"><div class="card-body">
+  <div class="d-flex justify-content-between">
+    <div><strong>{{ candidate.name }}</strong> <span class="text-muted">{{ candidate.email }}</span>
+      {% if candidate.id in applied_ids %}<span class="badge bg-primary">applied</span>{% endif %}</div>
+    <div>{{ score_badge(result.score) }}</div>
+  </div>
+  {{ match_breakdown(result) }}
+</div></div>
+{% else %}<p class="text-muted">No candidates with resumes yet.</p>{% endfor %}
+{% endblock %}

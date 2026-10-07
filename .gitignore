@@ -6,3 +6,8 @@ backend/uploads/resumes/*
 !backend/uploads/resumes/.gitkeep
 *.log
 .DS_Store
+__pycache__/
+.pytest_cache/
+*.db
+python-portal/uploads/*
+!python-portal/uploads/.gitkeep
