@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Recruiter dashboard · AI Job Portal{% endblock %}
+{% block content %}
+<h2>My job postings</h2>
+<p><a class="btn" href="{{ url_for('new_job') }}">Post a new job</a></p>
+<table>
+  <tr><th>Job</th><th>Location</th><th>Applicants</th><th>Score ≥ {{ threshold }}</th><th></th></tr>
+  {% for j in jobs %}
+  <tr>
+    <td><a href="{{ url_for('job_detail', job_id=j.id) }}">{{ j.title }}</a></td>
+    <td>{{ j.location }}</td>
+    <td>{{ j.applicants }}</td>
+    <td>{{ j.above_threshold or 0 }}</td>
+    <td><a href="{{ url_for('candidates', job_id=j.id) }}">Ranked candidates</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="5" class="muted">You have not posted any jobs yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

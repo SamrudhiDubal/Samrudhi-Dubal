@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Candidates · {{ job.title }}{% endblock %}
+{% block content %}
+<h2>Ranked candidates — {{ job.title }}</h2>
+<p class="muted">
+  Sorted by AI match score (35% text similarity, 40% skills, 15% experience, 10% education).
+  {% if only_shortlist %}
+    Showing scores ≥ {{ threshold }}. <a href="{{ url_for('candidates', job_id=job.id) }}">Show all</a>
+  {% else %}
+    <a href="{{ url_for('candidates', job_id=job.id, filter='shortlist') }}">Show only scores ≥ {{ threshold }}</a>
+  {% endif %}
+</p>
+<table>
+  <tr><th>#</th><th>Candidate</th><th>Score</th><th>Breakdown</th><th>Matched skills</th><th>Missing skills</th><th>Status</th></tr>
+  {% for r in rows %}
+  {% set b = r.breakdown|fromjson %}
+  <tr class="{% if r.score >= threshold %}above{% endif %}">
+    <td>{{ loop.index }}</td>
+    <td>{{ r.name }}<br><span class="muted">{{ r.email }}</span><br>
+        <a href="{{ url_for('view_resume', app_id=r.id) }}">Resume</a></td>
+    <td><strong>{{ r.score|round|int }}</strong></td>
+    <td class="small">
+      Text {{ (b.text * 100)|round|int }}% · Skills {{ (b.skills * 100)|round|int }}%<br>
+      Exp {{ b.experience_years }} yrs ({{ (b.experience * 100)|round|int }}%) ·
+      {{ education_names[b.education_level] }}
+    </td>
+    <td>{{ b.matched|join(', ') }}</td>
+    <td class="missing">{{ b.missing|join(', ') }}</td>
+    <td>
+      <form method="post" action="{{ url_for('update_status', app_id=r.id) }}">
+        <select name="status" onchange="this.form.submit()">
+          {% for s in statuses %}<option {% if s == r.status %}selected{% endif %}>{{ s }}</option>{% endfor %}
+        </select>
+        <noscript><button>Save</button></noscript>
+      </form>
+    </td>
+  </tr>
+  {% else %}
+  <tr><td colspan="7" class="muted">No applications yet.</td></tr>
+  {% endfor %}
+</table>
+<p class="muted small">The AI score is a first-level filter. Final hiring decisions should always be made by a human recruiter.</p>
+{% endblock %}

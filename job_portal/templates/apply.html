@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Apply · {{ job.title }}{% endblock %}
+{% block content %}
+<h2>Apply — {{ job.title }}</h2>
+<p class="pre">{{ job.description }}</p>
+<form class="form" method="post" enctype="multipart/form-data">
+  <label>Resume (PDF, DOCX or TXT, max 5 MB)
+    <input type="file" name="resume" accept=".pdf,.docx,.txt" required>
+  </label>
+  <button>Submit application</button>
+</form>
+{% endblock %}

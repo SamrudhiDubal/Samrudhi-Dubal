@@ -1,0 +1,4083 @@
+[
+  {
+    "id": "R001",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Neha Pawar\nEmail: neha.r001@example.com | Phone: +91 93983 62082\n\nSummary: Python Backend Developer with 2.9 years of experience.\n\nSkills: RESTful services, Django REST Framework, Docker, Python, SQL, Flask, GitHub, AWS\n\nExperience:\n- Built and maintained backend services and apis.\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "neha.r001@example.com",
+      "phone": "9398362082",
+      "experience_years": 2.9,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R002",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Meera Rao\nEmail: meera.r002@example.com | Phone: +91 97749 96843\n\nSummary: Python Backend Developer with 3.3 years of experience.\n\nSkills: Django, Python, REST API, Docker, Flask, AWS\n\nExperience:\n- Deployed microservices to the cloud.\n- Built and maintained backend services and apis.\n- Wrote unit tests and reviewed code.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "meera.r002@example.com",
+      "phone": "9774996843",
+      "experience_years": 3.3,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "python",
+        "rest api"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R003",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Isha Iyer\nEmail: isha.r003@example.com | Phone: +91 95963 48124\n\nSummary: Python Backend Developer with 5.6 years of experience.\n\nSkills: REST API, GitHub, Python, containerization, Django REST Framework, AWS, SQL, Flask\n\nExperience:\n- Built and maintained backend services and apis.\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "isha.r003@example.com",
+      "phone": "9596348124",
+      "experience_years": 5.6,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R004",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Aditya Pawar\nEmail: aditya.r004@example.com | Phone: +91 93354 93870\n\nSummary: Python Backend Developer with 3.4 years of experience.\n\nSkills: RESTful services, GitHub, Flask, Python3, Django REST Framework, PostgreSQL, Amazon Web Services\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Deployed microservices to the cloud.\n- Wrote unit tests and reviewed code.\n\nEducation: MBA in Computer Science",
+    "truth": {
+      "email": "aditya.r004@example.com",
+      "phone": "9335493870",
+      "experience_years": 3.4,
+      "education_level": 3,
+      "skills": [
+        "aws",
+        "django",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R005",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Tanvi Kapoor\nEmail: tanvi.r005@example.com | Phone: +91 93865 01362\n\nSummary: Python Backend Developer with 4.3 years of experience.\n\nSkills: Python3, containerization, AWS, Django, SQL, Flask\n\nExperience:\n- Built and maintained backend services and apis.\n- Integrated third-party payment and messaging services.\n- Wrote unit tests and reviewed code.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "tanvi.r005@example.com",
+      "phone": "9386501362",
+      "experience_years": 4.3,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "python",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R006",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Aarav Patil\nEmail: aarav.r006@example.com | Phone: +91 94897 47629\n\nSummary: Python Backend Developer with 3.7 years of experience.\n\nSkills: Flask, REST API, Python, Amazon Web Services, Django, SQL, Git, Docker\n\nExperience:\n- Built and maintained backend services and apis.\n- Wrote unit tests and reviewed code.\n- Designed database schemas and wrote optimised queries.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "aarav.r006@example.com",
+      "phone": "9489747629",
+      "experience_years": 3.7,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R007",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Priya Kulkarni\nEmail: priya.r007@example.com | Phone: +91 96557 42829\n\nSummary: Python Backend Developer with 3.3 years of experience.\n\nSkills: Django REST Framework, Python, GitHub, REST API, Docker, Flask, SQL\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n- Integrated third-party payment and messaging services.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "priya.r007@example.com",
+      "phone": "9655742829",
+      "experience_years": 3.3,
+      "education_level": 2,
+      "skills": [
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R008",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Pooja Kapoor\nEmail: pooja.r008@example.com | Phone: +91 95370 77308\n\nSummary: Python Backend Developer with 2.9 years of experience.\n\nSkills: GitHub, Python3, SQL, Amazon Web Services, Django REST Framework, Flask, containerization\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Deployed microservices to the cloud.\n- Built and maintained backend services and apis.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "pooja.r008@example.com",
+      "phone": "9537077308",
+      "experience_years": 2.9,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R009",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Neha Iyer\nEmail: neha.r009@example.com | Phone: +91 93990 85574\n\nSummary: Python Backend Developer with 2.8 years of experience.\n\nSkills: Git, REST API, containerization, AWS, Python3, Flask\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Deployed microservices to the cloud.\n- Built and maintained backend services and apis.\n\nEducation: B.Tech in Computer Science",
+    "truth": {
+      "email": "neha.r009@example.com",
+      "phone": "9399085574",
+      "experience_years": 2.8,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R010",
+    "family": "Python Backend Developer",
+    "kind": "strong",
+    "text": "Aditya Deshmukh\nEmail: aditya.r010@example.com | Phone: +91 99418 89393\n\nSummary: Python Backend Developer with 3.4 years of experience.\n\nSkills: AWS, Docker, SQL, Python3, GitHub, Flask, REST API\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Deployed microservices to the cloud.\n- Built and maintained backend services and apis.\n\nEducation: MBA in Computer Science",
+    "truth": {
+      "email": "aditya.r010@example.com",
+      "phone": "9941889393",
+      "experience_years": 3.4,
+      "education_level": 3,
+      "skills": [
+        "aws",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R011",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Yash Kulkarni\nEmail: yash.r011@example.com | Phone: +91 96399 31481\n\nSummary: Python Backend Developer with 0.5 years of experience.\n\nSkills: Amazon Web Services, Django, Docker\n\nExperience:\n- Wrote unit tests and reviewed code.\n- Built and maintained backend services and apis.\n- Deployed microservices to the cloud.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "yash.r011@example.com",
+      "phone": "9639931481",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "django",
+        "docker"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R012",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Riya Sharma\nEmail: riya.r012@example.com | Phone: +91 97650 55833\n\nSummary: Python Backend Developer with 0.4 years of experience.\n\nSkills: Django, Docker, Amazon Web Services, Python\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "riya.r012@example.com",
+      "phone": "9765055833",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "python"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R013",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Vivaan Reddy\nEmail: vivaan.r013@example.com | Phone: +91 97931 01194\n\nSummary: Python Backend Developer with 0.6 years of experience.\n\nSkills: GitHub, Flask\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n- Integrated third-party payment and messaging services.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "vivaan.r013@example.com",
+      "phone": "9793101194",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "flask",
+        "git"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R014",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Priya Jain\nEmail: priya.r014@example.com | Phone: +91 91738 64104\n\nSummary: Python Backend Developer with 0.7 years of experience.\n\nSkills: Django, Python, RESTful services\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Wrote unit tests and reviewed code.\n- Built and maintained backend services and apis.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "priya.r014@example.com",
+      "phone": "9173864104",
+      "experience_years": 0.7,
+      "education_level": 1,
+      "skills": [
+        "django",
+        "python",
+        "rest api"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R015",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Tanvi Deshmukh\nEmail: tanvi.r015@example.com | Phone: +91 98123 08209\n\nSummary: Python Backend Developer with 0.6 years of experience.\n\nSkills: SQL, AWS\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Built and maintained backend services and apis.\n- Wrote unit tests and reviewed code.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "tanvi.r015@example.com",
+      "phone": "9812308209",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R016",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Siddharth Nair\nEmail: siddharth.r016@example.com | Phone: +91 98381 94420\n\nSummary: Python Backend Developer with 1.1 years of experience.\n\nSkills: Django, Python3\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "siddharth.r016@example.com",
+      "phone": "9838194420",
+      "experience_years": 1.1,
+      "education_level": 1,
+      "skills": [
+        "django",
+        "python"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R017",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Kunal Joshi\nEmail: kunal.r017@example.com | Phone: +91 98577 04655\n\nSummary: Python Backend Developer with 1.1 years of experience.\n\nSkills: SQL, Docker, Python3, Git\n\nExperience:\n- Wrote unit tests and reviewed code.\n- Designed database schemas and wrote optimised queries.\n- Integrated third-party payment and messaging services.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "kunal.r017@example.com",
+      "phone": "9857704655",
+      "experience_years": 1.1,
+      "education_level": 1,
+      "skills": [
+        "docker",
+        "git",
+        "python",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R018",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Diya Deshmukh\nEmail: diya.r018@example.com | Phone: +91 94915 41578\n\nSummary: Python Backend Developer with 0.8 years of experience.\n\nSkills: Flask, SQL, Python\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Deployed microservices to the cloud.\n- Built and maintained backend services and apis.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "diya.r018@example.com",
+      "phone": "9491541578",
+      "experience_years": 0.8,
+      "education_level": 1,
+      "skills": [
+        "flask",
+        "python",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R019",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Ananya Jain\nEmail: ananya.r019@example.com | Phone: +91 95426 97755\n\nSummary: Python Backend Developer with 1.1 years of experience.\n\nSkills: RESTful services, Git\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Integrated third-party payment and messaging services.\n- Built and maintained backend services and apis.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "ananya.r019@example.com",
+      "phone": "9542697755",
+      "experience_years": 1.1,
+      "education_level": 1,
+      "skills": [
+        "git",
+        "rest api"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R020",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Sneha Shinde\nEmail: sneha.r020@example.com | Phone: +91 91415 80226\n\nSummary: Python Backend Developer with 0.4 years of experience.\n\nSkills: Docker, AWS\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Wrote unit tests and reviewed code.\n- Built and maintained backend services and apis.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "sneha.r020@example.com",
+      "phone": "9141580226",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "docker"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R021",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Kabir Shinde\nEmail: kabir.r021@example.com | Phone: +91 94524 68587\n\nSummary: Python Backend Developer with 0.4 years of experience.\n\nSkills: AWS, Flask, Docker\n\nExperience:\n- Designed database schemas and wrote optimised queries.\n- Built and maintained backend services and apis.\n- Wrote unit tests and reviewed code.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "kabir.r021@example.com",
+      "phone": "9452468587",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "docker",
+        "flask"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R022",
+    "family": "Python Backend Developer",
+    "kind": "partial",
+    "text": "Sneha Jain\nEmail: sneha.r022@example.com | Phone: +91 93804 77683\n\nSummary: Python Backend Developer with 1.1 years of experience.\n\nSkills: SQL, Flask, Git\n\nExperience:\n- Integrated third-party payment and messaging services.\n- Wrote unit tests and reviewed code.\n- Built and maintained backend services and apis.\n\nEducation: Diploma in Computer Science",
+    "truth": {
+      "email": "sneha.r022@example.com",
+      "phone": "9380477683",
+      "experience_years": 1.1,
+      "education_level": 1,
+      "skills": [
+        "flask",
+        "git",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R023",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Neha Sharma\nEmail: neha.r023@example.com | Phone: +91 96582 60221\n\nSummary: Data Analyst with 3.5 years of experience.\n\nSkills: SQL, Tableau, PowerBI, pandas, Python, statistical analysis\n\nExperience:\n- Presented insights to managers.\n- Prepared weekly business dashboards.\n- Performed cohort and trend analysis.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "neha.r023@example.com",
+      "phone": "9658260221",
+      "experience_years": 3.5,
+      "education_level": 3,
+      "skills": [
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R024",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Aditya Reddy\nEmail: aditya.r024@example.com | Phone: +91 99033 03363\n\nSummary: Data Analyst with 3.9 years of experience.\n\nSkills: pandas, Python, Tableau, SQL, data visualisation, statistics, Advanced Excel, Power BI\n\nExperience:\n- Cleaned and analysed sales data.\n- Automated mis reports.\n- Presented insights to managers.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "aditya.r024@example.com",
+      "phone": "9903303363",
+      "experience_years": 3.9,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R025",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Rahul Reddy\nEmail: rahul.r025@example.com | Phone: +91 97796 15069\n\nSummary: Data Analyst with 3.7 years of experience.\n\nSkills: SQL, Python, data visualisation, Advanced Excel, pandas, statistics\n\nExperience:\n- Cleaned and analysed sales data.\n- Prepared weekly business dashboards.\n- Performed cohort and trend analysis.\n\nEducation: B.Tech in Statistics",
+    "truth": {
+      "email": "rahul.r025@example.com",
+      "phone": "9779615069",
+      "experience_years": 3.7,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "python",
+        "sql",
+        "statistics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R026",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Isha Iyer\nEmail: isha.r026@example.com | Phone: +91 98044 36922\n\nSummary: Data Analyst with 2.7 years of experience.\n\nSkills: pandas, statistical analysis, Python, Excel, Power BI, MySQL, data visualization, Tableau\n\nExperience:\n- Automated mis reports.\n- Performed cohort and trend analysis.\n- Cleaned and analysed sales data.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "isha.r026@example.com",
+      "phone": "9804436922",
+      "experience_years": 2.7,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R027",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Riya Rao\nEmail: riya.r027@example.com | Phone: +91 98723 14530\n\nSummary: Data Analyst with 1.5 years of experience.\n\nSkills: Excel, data visualization, pandas, Tableau, PowerBI, Python, statistics, SQL\n\nExperience:\n- Performed cohort and trend analysis.\n- Presented insights to managers.\n- Cleaned and analysed sales data.\n\nEducation: B.Tech in Statistics",
+    "truth": {
+      "email": "riya.r027@example.com",
+      "phone": "9872314530",
+      "experience_years": 1.5,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R028",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Siddharth Jain\nEmail: siddharth.r028@example.com | Phone: +91 96799 84033\n\nSummary: Data Analyst with 3.0 years of experience.\n\nSkills: Tableau, Excel, statistics, pandas, Power BI, data visualisation, SQL, Python\n\nExperience:\n- Cleaned and analysed sales data.\n- Presented insights to managers.\n- Performed cohort and trend analysis.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "siddharth.r028@example.com",
+      "phone": "9679984033",
+      "experience_years": 3.0,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R029",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Aarav Pawar\nEmail: aarav.r029@example.com | Phone: +91 94206 32895\n\nSummary: Data Analyst with 2.0 years of experience.\n\nSkills: Python, statistical analysis, Advanced Excel, SQL, pandas, data visualisation\n\nExperience:\n- Performed cohort and trend analysis.\n- Automated mis reports.\n- Cleaned and analysed sales data.\n\nEducation: B.Tech in Statistics",
+    "truth": {
+      "email": "aarav.r029@example.com",
+      "phone": "9420632895",
+      "experience_years": 2.0,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "python",
+        "sql",
+        "statistics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R030",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Tanvi Sharma\nEmail: tanvi.r030@example.com | Phone: +91 95230 76025\n\nSummary: Data Analyst with 4.5 years of experience.\n\nSkills: data visualisation, PowerBI, statistics, Tableau, Excel, pandas, SQL\n\nExperience:\n- Automated mis reports.\n- Cleaned and analysed sales data.\n- Presented insights to managers.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "tanvi.r030@example.com",
+      "phone": "9523076025",
+      "experience_years": 4.5,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R031",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Rohan Kapoor\nEmail: rohan.r031@example.com | Phone: +91 97998 16232\n\nSummary: Data Analyst with 3.5 years of experience.\n\nSkills: data visualisation, Advanced Excel, pandas, Tableau, T-SQL, PowerBI, Python, statistical analysis\n\nExperience:\n- Presented insights to managers.\n- Cleaned and analysed sales data.\n- Performed cohort and trend analysis.\n\nEducation: B.Tech in Statistics",
+    "truth": {
+      "email": "rohan.r031@example.com",
+      "phone": "9799816232",
+      "experience_years": 3.5,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R032",
+    "family": "Data Analyst",
+    "kind": "strong",
+    "text": "Yash Sharma\nEmail: yash.r032@example.com | Phone: +91 94349 61542\n\nSummary: Data Analyst with 4.1 years of experience.\n\nSkills: pandas, data visualisation, SQL, PowerBI, Excel, statistical analysis\n\nExperience:\n- Cleaned and analysed sales data.\n- Presented insights to managers.\n- Prepared weekly business dashboards.\n\nEducation: MBA in Statistics",
+    "truth": {
+      "email": "yash.r032@example.com",
+      "phone": "9434961542",
+      "experience_years": 4.1,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "sql",
+        "statistics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R033",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Diya Pawar\nEmail: diya.r033@example.com | Phone: +91 96720 30854\n\nSummary: Data Analyst with 0.5 years of experience.\n\nSkills: data visualization, statistics, Advanced Excel, SQL\n\nExperience:\n- Performed cohort and trend analysis.\n- Prepared weekly business dashboards.\n- Presented insights to managers.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "diya.r033@example.com",
+      "phone": "9672030854",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "excel",
+        "sql",
+        "statistics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R034",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Ananya Gupta\nEmail: ananya.r034@example.com | Phone: +91 96602 21300\n\nSummary: Data Analyst with 0.5 years of experience.\n\nSkills: statistics, T-SQL, pandas\n\nExperience:\n- Automated mis reports.\n- Cleaned and analysed sales data.\n- Performed cohort and trend analysis.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "ananya.r034@example.com",
+      "phone": "9660221300",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "pandas",
+        "sql",
+        "statistics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R035",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Isha Kapoor\nEmail: isha.r035@example.com | Phone: +91 95989 76917\n\nSummary: Data Analyst with 0.3 years of experience.\n\nSkills: Tableau, pandas, data visualisation, Power BI\n\nExperience:\n- Prepared weekly business dashboards.\n- Presented insights to managers.\n- Cleaned and analysed sales data.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "isha.r035@example.com",
+      "phone": "9598976917",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "pandas",
+        "power bi",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R036",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Arjun Joshi\nEmail: arjun.r036@example.com | Phone: +91 91108 99674\n\nSummary: Data Analyst with 0.4 years of experience.\n\nSkills: T-SQL, pandas, Python, Excel\n\nExperience:\n- Presented insights to managers.\n- Performed cohort and trend analysis.\n- Automated mis reports.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "arjun.r036@example.com",
+      "phone": "9110899674",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "pandas",
+        "python",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R037",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Aditya Gupta\nEmail: aditya.r037@example.com | Phone: +91 93612 46928\n\nSummary: Data Analyst with 0.6 years of experience.\n\nSkills: data visualization, pandas, Power BI, Advanced Excel\n\nExperience:\n- Prepared weekly business dashboards.\n- Presented insights to managers.\n- Performed cohort and trend analysis.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "aditya.r037@example.com",
+      "phone": "9361246928",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R038",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Meera Deshmukh\nEmail: meera.r038@example.com | Phone: +91 93475 38338\n\nSummary: Data Analyst with 0.5 years of experience.\n\nSkills: statistics, pandas, Tableau\n\nExperience:\n- Presented insights to managers.\n- Automated mis reports.\n- Cleaned and analysed sales data.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "meera.r038@example.com",
+      "phone": "9347538338",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "pandas",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R039",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Kabir Deshmukh\nEmail: kabir.r039@example.com | Phone: +91 93442 58191\n\nSummary: Data Analyst with 0.5 years of experience.\n\nSkills: Python, Advanced Excel\n\nExperience:\n- Presented insights to managers.\n- Performed cohort and trend analysis.\n- Prepared weekly business dashboards.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "kabir.r039@example.com",
+      "phone": "9344258191",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "python"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R040",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Vivaan Reddy\nEmail: vivaan.r040@example.com | Phone: +91 99083 04440\n\nSummary: Data Analyst with 0.3 years of experience.\n\nSkills: Python, Tableau, SQL\n\nExperience:\n- Performed cohort and trend analysis.\n- Presented insights to managers.\n- Automated mis reports.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "vivaan.r040@example.com",
+      "phone": "9908304440",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "python",
+        "sql",
+        "tableau"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R041",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Rohan Shinde\nEmail: rohan.r041@example.com | Phone: +91 96280 08852\n\nSummary: Data Analyst with 0.2 years of experience.\n\nSkills: PowerBI, pandas, data visualization\n\nExperience:\n- Presented insights to managers.\n- Automated mis reports.\n- Prepared weekly business dashboards.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "rohan.r041@example.com",
+      "phone": "9628008852",
+      "experience_years": 0.2,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "pandas",
+        "power bi"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R042",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Sneha Joshi\nEmail: sneha.r042@example.com | Phone: +91 99208 14900\n\nSummary: Data Analyst with 0.4 years of experience.\n\nSkills: Python, Excel\n\nExperience:\n- Presented insights to managers.\n- Prepared weekly business dashboards.\n- Automated mis reports.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "sneha.r042@example.com",
+      "phone": "9920814900",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "python"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R043",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Sneha Kapoor\nEmail: sneha.r043@example.com | Phone: +91 93231 10563\n\nSummary: Data Analyst with 0.4 years of experience.\n\nSkills: pandas, data visualisation, PowerBI\n\nExperience:\n- Presented insights to managers.\n- Prepared weekly business dashboards.\n- Performed cohort and trend analysis.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "sneha.r043@example.com",
+      "phone": "9323110563",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "pandas",
+        "power bi"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R044",
+    "family": "Data Analyst",
+    "kind": "partial",
+    "text": "Kunal Patil\nEmail: kunal.r044@example.com | Phone: +91 98380 73939\n\nSummary: Data Analyst with 0.3 years of experience.\n\nSkills: Python, Advanced Excel, data visualisation, PowerBI\n\nExperience:\n- Presented insights to managers.\n- Performed cohort and trend analysis.\n- Automated mis reports.\n\nEducation: Diploma in Statistics",
+    "truth": {
+      "email": "kunal.r044@example.com",
+      "phone": "9838073939",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "data visualization",
+        "excel",
+        "power bi",
+        "python"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 1,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R045",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Sneha Kulkarni\nEmail: sneha.r045@example.com | Phone: +91 98394 62365\n\nSummary: DevOps Engineer with 6.7 years of experience.\n\nSkills: GitHub Actions, monitoring, EC2, Terraform, Docker, Kubernetes\n\nExperience:\n- Hardened servers and managed access policies.\n- Maintained production clusters with high availability.\n- Reduced release time by automating builds.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "sneha.r045@example.com",
+      "phone": "9839462365",
+      "experience_years": 6.7,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "monitoring",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R046",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Pooja Joshi\nEmail: pooja.r046@example.com | Phone: +91 97995 52991\n\nSummary: DevOps Engineer with 5.9 years of experience.\n\nSkills: monitoring, Jenkins, AWS, Terraform, Linux, Docker, Kubernetes\n\nExperience:\n- Maintained production clusters with high availability.\n- Managed cloud infrastructure and deployment pipelines.\n- Handled incident response and on-call.\n\nEducation: MBA in Information Technology",
+    "truth": {
+      "email": "pooja.r046@example.com",
+      "phone": "9799552991",
+      "experience_years": 5.9,
+      "education_level": 3,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R047",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Arjun Pawar\nEmail: arjun.r047@example.com | Phone: +91 92244 69868\n\nSummary: DevOps Engineer with 6.7 years of experience.\n\nSkills: Bash, Linux, GitHub Actions, EC2, monitoring, Docker, Kubernetes\n\nExperience:\n- Handled incident response and on-call.\n- Managed cloud infrastructure and deployment pipelines.\n- Reduced release time by automating builds.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "arjun.r047@example.com",
+      "phone": "9224469868",
+      "experience_years": 6.7,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R048",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Riya Kapoor\nEmail: riya.r048@example.com | Phone: +91 93569 43695\n\nSummary: DevOps Engineer with 6.5 years of experience.\n\nSkills: AWS, Linux, infrastructure as code, CI/CD, Bash, monitoring, EKS\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Hardened servers and managed access policies.\n- Maintained production clusters with high availability.\n\nEducation: MBA in Information Technology",
+    "truth": {
+      "email": "riya.r048@example.com",
+      "phone": "9356943695",
+      "experience_years": 6.5,
+      "education_level": 3,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R049",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Rahul Deshmukh\nEmail: rahul.r049@example.com | Phone: +91 99810 58292\n\nSummary: DevOps Engineer with 4.1 years of experience.\n\nSkills: shell scripting, EC2, Docker, Grafana, CI/CD, infrastructure as code, k8s, Linux\n\nExperience:\n- Maintained production clusters with high availability.\n- Handled incident response and on-call.\n- Reduced release time by automating builds.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "rahul.r049@example.com",
+      "phone": "9981058292",
+      "experience_years": 4.1,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R050",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Siddharth Gupta\nEmail: siddharth.r050@example.com | Phone: +91 96078 54378\n\nSummary: DevOps Engineer with 4.5 years of experience.\n\nSkills: Grafana, Bash, Docker, CI/CD, Terraform, Ubuntu\n\nExperience:\n- Reduced release time by automating builds.\n- Handled incident response and on-call.\n- Managed cloud infrastructure and deployment pipelines.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "siddharth.r050@example.com",
+      "phone": "9607854378",
+      "experience_years": 4.5,
+      "education_level": 2,
+      "skills": [
+        "ci/cd",
+        "docker",
+        "linux",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R051",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Pooja Rao\nEmail: pooja.r051@example.com | Phone: +91 96809 11523\n\nSummary: DevOps Engineer with 6.7 years of experience.\n\nSkills: Kubernetes, Jenkins, EC2, Docker, Grafana, Ubuntu, Terraform, shell scripting\n\nExperience:\n- Hardened servers and managed access policies.\n- Handled incident response and on-call.\n- Reduced release time by automating builds.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "pooja.r051@example.com",
+      "phone": "9680911523",
+      "experience_years": 6.7,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R052",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Meera Pawar\nEmail: meera.r052@example.com | Phone: +91 95024 82554\n\nSummary: DevOps Engineer with 5.7 years of experience.\n\nSkills: Terraform, Docker, Linux, EC2, CI/CD, monitoring\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Maintained production clusters with high availability.\n- Hardened servers and managed access policies.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "meera.r052@example.com",
+      "phone": "9502482554",
+      "experience_years": 5.7,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "linux",
+        "monitoring",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R053",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Priya Mehta\nEmail: priya.r053@example.com | Phone: +91 94212 14426\n\nSummary: DevOps Engineer with 4.0 years of experience.\n\nSkills: k8s, Docker, Bash, EC2, CI/CD, Grafana, Terraform\n\nExperience:\n- Reduced release time by automating builds.\n- Managed cloud infrastructure and deployment pipelines.\n- Hardened servers and managed access policies.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "priya.r053@example.com",
+      "phone": "9421214426",
+      "experience_years": 4.0,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R054",
+    "family": "DevOps Engineer",
+    "kind": "strong",
+    "text": "Priya Nair\nEmail: priya.r054@example.com | Phone: +91 97835 63240\n\nSummary: DevOps Engineer with 6.9 years of experience.\n\nSkills: Grafana, shell scripting, Kubernetes, Docker, GitHub Actions, infrastructure as code, AWS, Linux\n\nExperience:\n- Maintained production clusters with high availability.\n- Reduced release time by automating builds.\n- Hardened servers and managed access policies.\n\nEducation: B.Tech in Information Technology",
+    "truth": {
+      "email": "priya.r054@example.com",
+      "phone": "9783563240",
+      "experience_years": 6.9,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "ci/cd",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R055",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Vivaan Patil\nEmail: vivaan.r055@example.com | Phone: +91 94168 72439\n\nSummary: DevOps Engineer with 1.2 years of experience.\n\nSkills: k8s, Ubuntu\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Maintained production clusters with high availability.\n- Handled incident response and on-call.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "vivaan.r055@example.com",
+      "phone": "9416872439",
+      "experience_years": 1.2,
+      "education_level": 1,
+      "skills": [
+        "kubernetes",
+        "linux"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R056",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Siddharth Kapoor\nEmail: siddharth.r056@example.com | Phone: +91 92236 62532\n\nSummary: DevOps Engineer with 1.4 years of experience.\n\nSkills: Kubernetes, Bash, Terraform\n\nExperience:\n- Maintained production clusters with high availability.\n- Handled incident response and on-call.\n- Reduced release time by automating builds.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "siddharth.r056@example.com",
+      "phone": "9223662532",
+      "experience_years": 1.4,
+      "education_level": 1,
+      "skills": [
+        "kubernetes",
+        "shell scripting",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R057",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Aditya Sharma\nEmail: aditya.r057@example.com | Phone: +91 93839 60237\n\nSummary: DevOps Engineer with 1.7 years of experience.\n\nSkills: CI/CD, shell scripting, Linux\n\nExperience:\n- Hardened servers and managed access policies.\n- Maintained production clusters with high availability.\n- Managed cloud infrastructure and deployment pipelines.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "aditya.r057@example.com",
+      "phone": "9383960237",
+      "experience_years": 1.7,
+      "education_level": 1,
+      "skills": [
+        "ci/cd",
+        "linux",
+        "shell scripting"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R058",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Neha Patil\nEmail: neha.r058@example.com | Phone: +91 92500 84428\n\nSummary: DevOps Engineer with 0.4 years of experience.\n\nSkills: infrastructure as code, Grafana, CI/CD, k8s\n\nExperience:\n- Handled incident response and on-call.\n- Maintained production clusters with high availability.\n- Hardened servers and managed access policies.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "neha.r058@example.com",
+      "phone": "9250084428",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "ci/cd",
+        "kubernetes",
+        "monitoring",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R059",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Vivaan Jain\nEmail: vivaan.r059@example.com | Phone: +91 95454 78870\n\nSummary: DevOps Engineer with 1.7 years of experience.\n\nSkills: Prometheus, EC2\n\nExperience:\n- Hardened servers and managed access policies.\n- Handled incident response and on-call.\n- Maintained production clusters with high availability.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "vivaan.r059@example.com",
+      "phone": "9545478870",
+      "experience_years": 1.7,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "monitoring"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R060",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Aditya Deshmukh\nEmail: aditya.r060@example.com | Phone: +91 93038 05386\n\nSummary: DevOps Engineer with 0.4 years of experience.\n\nSkills: Bash, Kubernetes, AWS, Grafana\n\nExperience:\n- Hardened servers and managed access policies.\n- Maintained production clusters with high availability.\n- Managed cloud infrastructure and deployment pipelines.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "aditya.r060@example.com",
+      "phone": "9303805386",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "kubernetes",
+        "monitoring",
+        "shell scripting"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R061",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Vivaan Kapoor\nEmail: vivaan.r061@example.com | Phone: +91 97062 10987\n\nSummary: DevOps Engineer with 1.7 years of experience.\n\nSkills: Docker, Ubuntu\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Maintained production clusters with high availability.\n- Hardened servers and managed access policies.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "vivaan.r061@example.com",
+      "phone": "9706210987",
+      "experience_years": 1.7,
+      "education_level": 1,
+      "skills": [
+        "docker",
+        "linux"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R062",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Vivaan Iyer\nEmail: vivaan.r062@example.com | Phone: +91 96800 51935\n\nSummary: DevOps Engineer with 0.3 years of experience.\n\nSkills: Jenkins, infrastructure as code\n\nExperience:\n- Hardened servers and managed access policies.\n- Managed cloud infrastructure and deployment pipelines.\n- Reduced release time by automating builds.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "vivaan.r062@example.com",
+      "phone": "9680051935",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "ci/cd",
+        "terraform"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R063",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Diya Iyer\nEmail: diya.r063@example.com | Phone: +91 98964 13702\n\nSummary: DevOps Engineer with 1.5 years of experience.\n\nSkills: EC2, Docker, monitoring\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Reduced release time by automating builds.\n- Handled incident response and on-call.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "diya.r063@example.com",
+      "phone": "9896413702",
+      "experience_years": 1.5,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "docker",
+        "monitoring"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R064",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Aarav Sharma\nEmail: aarav.r064@example.com | Phone: +91 96143 02907\n\nSummary: DevOps Engineer with 1.0 years of experience.\n\nSkills: monitoring, Jenkins, Kubernetes\n\nExperience:\n- Managed cloud infrastructure and deployment pipelines.\n- Maintained production clusters with high availability.\n- Reduced release time by automating builds.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "aarav.r064@example.com",
+      "phone": "9614302907",
+      "experience_years": 1.0,
+      "education_level": 1,
+      "skills": [
+        "ci/cd",
+        "kubernetes",
+        "monitoring"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R065",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Riya Joshi\nEmail: riya.r065@example.com | Phone: +91 94166 44047\n\nSummary: DevOps Engineer with 0.9 years of experience.\n\nSkills: Prometheus, EC2, shell scripting\n\nExperience:\n- Hardened servers and managed access policies.\n- Maintained production clusters with high availability.\n- Reduced release time by automating builds.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "riya.r065@example.com",
+      "phone": "9416644047",
+      "experience_years": 0.9,
+      "education_level": 1,
+      "skills": [
+        "aws",
+        "monitoring",
+        "shell scripting"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R066",
+    "family": "DevOps Engineer",
+    "kind": "partial",
+    "text": "Isha Shinde\nEmail: isha.r066@example.com | Phone: +91 94639 25049\n\nSummary: DevOps Engineer with 1.0 years of experience.\n\nSkills: Docker, shell scripting, Linux\n\nExperience:\n- Reduced release time by automating builds.\n- Handled incident response and on-call.\n- Hardened servers and managed access policies.\n\nEducation: Diploma in Information Technology",
+    "truth": {
+      "email": "isha.r066@example.com",
+      "phone": "9463925049",
+      "experience_years": 1.0,
+      "education_level": 1,
+      "skills": [
+        "docker",
+        "linux",
+        "shell scripting"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R067",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Priya Rao\nEmail: priya.r067@example.com | Phone: +91 98144 03943\n\nSummary: QA Engineer with 3.9 years of experience.\n\nSkills: MySQL, defect tracking, automation testing, Scrum, API testing, Selenium, manual testing\n\nExperience:\n- Built regression suites for every sprint.\n- Wrote and executed test plans for web releases.\n- Logged and tracked defects to closure.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "priya.r067@example.com",
+      "phone": "9814403943",
+      "experience_years": 3.9,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R068",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Arjun Sharma\nEmail: arjun.r068@example.com | Phone: +91 92937 20285\n\nSummary: QA Engineer with 5.5 years of experience.\n\nSkills: Postman, Scrum, test automation, MySQL, Selenium, pytest, JIRA\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n- Built regression suites for every sprint.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "arjun.r068@example.com",
+      "phone": "9293720285",
+      "experience_years": 5.5,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R069",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Ananya Kapoor\nEmail: ananya.r069@example.com | Phone: +91 97633 98699\n\nSummary: QA Engineer with 5.0 years of experience.\n\nSkills: MySQL, test automation, Selenium WebDriver, functional testing, Postman, pytest, JIRA\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Worked with developers to reproduce production issues.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "ananya.r069@example.com",
+      "phone": "9763398699",
+      "experience_years": 5.0,
+      "education_level": 2,
+      "skills": [
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R070",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Kabir Kapoor\nEmail: kabir.r070@example.com | Phone: +91 92473 54744\n\nSummary: QA Engineer with 4.9 years of experience.\n\nSkills: TestNG, defect tracking, Postman, Agile, MySQL, functional testing\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Logged and tracked defects to closure.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "kabir.r070@example.com",
+      "phone": "9247354744",
+      "experience_years": 4.9,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R071",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Aditya Gupta\nEmail: aditya.r071@example.com | Phone: +91 97873 46882\n\nSummary: QA Engineer with 3.5 years of experience.\n\nSkills: Agile, SQL, JIRA, functional testing, Postman, pytest, Selenium\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Validated backend data with queries.\n- Built regression suites for every sprint.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "aditya.r071@example.com",
+      "phone": "9787346882",
+      "experience_years": 3.5,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R072",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Priya Gupta\nEmail: priya.r072@example.com | Phone: +91 99793 39361\n\nSummary: QA Engineer with 3.5 years of experience.\n\nSkills: SQL, functional testing, API testing, defect tracking, automation testing, Selenium WebDriver, TestNG\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Logged and tracked defects to closure.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "priya.r072@example.com",
+      "phone": "9979339361",
+      "experience_years": 3.5,
+      "education_level": 2,
+      "skills": [
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R073",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Pooja Kulkarni\nEmail: pooja.r073@example.com | Phone: +91 97779 44609\n\nSummary: QA Engineer with 5.4 years of experience.\n\nSkills: automation testing, Agile, functional testing, SQL, API testing, pytest, Selenium, defect tracking\n\nExperience:\n- Logged and tracked defects to closure.\n- Validated backend data with queries.\n- Wrote and executed test plans for web releases.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "pooja.r073@example.com",
+      "phone": "9777944609",
+      "experience_years": 5.4,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R074",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Kunal Patil\nEmail: kunal.r074@example.com | Phone: +91 99707 68982\n\nSummary: QA Engineer with 5.3 years of experience.\n\nSkills: MySQL, Postman, Selenium, automation testing, defect tracking, functional testing, Scrum\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Logged and tracked defects to closure.\n- Wrote and executed test plans for web releases.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "kunal.r074@example.com",
+      "phone": "9970768982",
+      "experience_years": 5.3,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R075",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Rohan Mehta\nEmail: rohan.r075@example.com | Phone: +91 98125 48074\n\nSummary: QA Engineer with 5.9 years of experience.\n\nSkills: test automation, Selenium WebDriver, manual testing, defect tracking, Postman, Agile, TestNG\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Logged and tracked defects to closure.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "rohan.r075@example.com",
+      "phone": "9812548074",
+      "experience_years": 5.9,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R076",
+    "family": "QA Engineer",
+    "kind": "strong",
+    "text": "Neha Joshi\nEmail: neha.r076@example.com | Phone: +91 94885 09962\n\nSummary: QA Engineer with 5.7 years of experience.\n\nSkills: TestNG, manual testing, API testing, Selenium, automation testing, JIRA\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n- Built regression suites for every sprint.\n\nEducation: B.Tech in Computer Engineering",
+    "truth": {
+      "email": "neha.r076@example.com",
+      "phone": "9488509962",
+      "experience_years": 5.7,
+      "education_level": 2,
+      "skills": [
+        "api testing",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium"
+      ]
+    },
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R077",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Meera Rao\nEmail: meera.r077@example.com | Phone: +91 99462 37594\n\nSummary: QA Engineer with 0.6 years of experience.\n\nSkills: JIRA, test automation\n\nExperience:\n- Logged and tracked defects to closure.\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "meera.r077@example.com",
+      "phone": "9946237594",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "automation testing",
+        "jira"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R078",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Riya Kapoor\nEmail: riya.r078@example.com | Phone: +91 92777 46324\n\nSummary: QA Engineer with 0.7 years of experience.\n\nSkills: Selenium WebDriver, SQL\n\nExperience:\n- Logged and tracked defects to closure.\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "riya.r078@example.com",
+      "phone": "9277746324",
+      "experience_years": 0.7,
+      "education_level": 1,
+      "skills": [
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R079",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Yash Kulkarni\nEmail: yash.r079@example.com | Phone: +91 95957 25097\n\nSummary: QA Engineer with 0.6 years of experience.\n\nSkills: JIRA, Agile, Postman, test automation\n\nExperience:\n- Logged and tracked defects to closure.\n- Built regression suites for every sprint.\n- Validated backend data with queries.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "yash.r079@example.com",
+      "phone": "9595725097",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R080",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Rahul Rao\nEmail: rahul.r080@example.com | Phone: +91 92338 71736\n\nSummary: QA Engineer with 1.0 years of experience.\n\nSkills: pytest, functional testing, Scrum\n\nExperience:\n- Built regression suites for every sprint.\n- Wrote and executed test plans for web releases.\n- Worked with developers to reproduce production issues.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "rahul.r080@example.com",
+      "phone": "9233871736",
+      "experience_years": 1.0,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "manual testing",
+        "pytest"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R081",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Diya Shinde\nEmail: diya.r081@example.com | Phone: +91 96390 26034\n\nSummary: QA Engineer with 0.3 years of experience.\n\nSkills: Agile, Postman, manual testing\n\nExperience:\n- Built regression suites for every sprint.\n- Wrote and executed test plans for web releases.\n- Logged and tracked defects to closure.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "diya.r081@example.com",
+      "phone": "9639026034",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "api testing",
+        "manual testing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R082",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Meera Jain\nEmail: meera.r082@example.com | Phone: +91 99909 49719\n\nSummary: QA Engineer with 0.4 years of experience.\n\nSkills: MySQL, manual testing, Selenium\n\nExperience:\n- Logged and tracked defects to closure.\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "meera.r082@example.com",
+      "phone": "9990949719",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "manual testing",
+        "selenium",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R083",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Meera Nair\nEmail: meera.r083@example.com | Phone: +91 94233 58638\n\nSummary: QA Engineer with 0.9 years of experience.\n\nSkills: Scrum, defect tracking, API testing\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Validated backend data with queries.\n- Wrote and executed test plans for web releases.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "meera.r083@example.com",
+      "phone": "9423358638",
+      "experience_years": 0.9,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "api testing",
+        "jira"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R084",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Vivaan Deshmukh\nEmail: vivaan.r084@example.com | Phone: +91 95608 91752\n\nSummary: QA Engineer with 0.2 years of experience.\n\nSkills: Scrum, Selenium\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Logged and tracked defects to closure.\n- Built regression suites for every sprint.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "vivaan.r084@example.com",
+      "phone": "9560891752",
+      "experience_years": 0.2,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "selenium"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R085",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Pooja Sharma\nEmail: pooja.r085@example.com | Phone: +91 97825 46314\n\nSummary: QA Engineer with 0.8 years of experience.\n\nSkills: pytest, functional testing\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Worked with developers to reproduce production issues.\n- Logged and tracked defects to closure.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "pooja.r085@example.com",
+      "phone": "9782546314",
+      "experience_years": 0.8,
+      "education_level": 1,
+      "skills": [
+        "manual testing",
+        "pytest"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R086",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Priya Joshi\nEmail: priya.r086@example.com | Phone: +91 94635 12350\n\nSummary: QA Engineer with 1.2 years of experience.\n\nSkills: Selenium WebDriver, automation testing, Agile\n\nExperience:\n- Built regression suites for every sprint.\n- Logged and tracked defects to closure.\n- Wrote and executed test plans for web releases.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "priya.r086@example.com",
+      "phone": "9463512350",
+      "experience_years": 1.2,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "automation testing",
+        "selenium"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R087",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Rahul Shinde\nEmail: rahul.r087@example.com | Phone: +91 99755 35611\n\nSummary: QA Engineer with 0.4 years of experience.\n\nSkills: Agile, MySQL, defect tracking, functional testing\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Built regression suites for every sprint.\n- Logged and tracked defects to closure.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "rahul.r087@example.com",
+      "phone": "9975535611",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "agile",
+        "jira",
+        "manual testing",
+        "sql"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R088",
+    "family": "QA Engineer",
+    "kind": "partial",
+    "text": "Ananya Kulkarni\nEmail: ananya.r088@example.com | Phone: +91 98431 02880\n\nSummary: QA Engineer with 0.7 years of experience.\n\nSkills: JIRA, test automation, pytest, Selenium WebDriver\n\nExperience:\n- Validated backend data with queries.\n- Worked with developers to reproduce production issues.\n- Logged and tracked defects to closure.\n\nEducation: Diploma in Computer Engineering",
+    "truth": {
+      "email": "ananya.r088@example.com",
+      "phone": "9843102880",
+      "experience_years": 0.7,
+      "education_level": 1,
+      "skills": [
+        "automation testing",
+        "jira",
+        "pytest",
+        "selenium"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 1,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R089",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Diya Patil\nEmail: diya.r089@example.com | Phone: +91 98206 78212\n\nSummary: HR Executive with 3.8 years of experience.\n\nSkills: HRMS, appraisals, Talent Acquisition, employee relations, statutory compliance, induction, MS Excel\n\nExperience:\n- Maintained employee records and attendance.\n- Organised engagement and wellness activities.\n- Coordinated joining formalities for new employees.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "diya.r089@example.com",
+      "phone": "9820678212",
+      "experience_years": 3.8,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R090",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Arjun Nair\nEmail: arjun.r090@example.com | Phone: +91 92218 14525\n\nSummary: HR Executive with 3.9 years of experience.\n\nSkills: payroll processing, Talent Acquisition, onboarding, HRMS, employee engagement, appraisals, MS Excel, labour law\n\nExperience:\n- Organised engagement and wellness activities.\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "arjun.r090@example.com",
+      "phone": "9221814525",
+      "experience_years": 3.9,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R091",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Priya Gupta\nEmail: priya.r091@example.com | Phone: +91 91697 27803\n\nSummary: HR Executive with 5.1 years of experience.\n\nSkills: appraisals, HRMS, recruitment, payroll processing, MS Excel, employee relations\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Organised engagement and wellness activities.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "priya.r091@example.com",
+      "phone": "9169727803",
+      "experience_years": 5.1,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R092",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Yash Patil\nEmail: yash.r092@example.com | Phone: +91 92345 68604\n\nSummary: HR Executive with 4.4 years of experience.\n\nSkills: payroll, labour law, appraisals, induction, Excel, employee engagement, Talent Acquisition, Workday\n\nExperience:\n- Handled employee queries and exit formalities.\n- Organised engagement and wellness activities.\n- Coordinated joining formalities for new employees.\n\nEducation: PhD in Human Resources",
+    "truth": {
+      "email": "yash.r092@example.com",
+      "phone": "9234568604",
+      "experience_years": 4.4,
+      "education_level": 4,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R093",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Tanvi Deshmukh\nEmail: tanvi.r093@example.com | Phone: +91 92344 00576\n\nSummary: HR Executive with 4.7 years of experience.\n\nSkills: labour law, onboarding, HRMS, MS Excel, appraisals, Talent Acquisition, employee relations\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "tanvi.r093@example.com",
+      "phone": "9234400576",
+      "experience_years": 4.7,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R094",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Aditya Deshmukh\nEmail: aditya.r094@example.com | Phone: +91 95869 89309\n\nSummary: HR Executive with 3.6 years of experience.\n\nSkills: payroll, Workday, performance management, onboarding, statutory compliance, MS Excel, employee relations, Talent Acquisition\n\nExperience:\n- Maintained employee records and attendance.\n- Organised engagement and wellness activities.\n- Managed end-to-end hiring for business teams.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "aditya.r094@example.com",
+      "phone": "9586989309",
+      "experience_years": 3.6,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R095",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Kunal Patil\nEmail: kunal.r095@example.com | Phone: +91 93871 95524\n\nSummary: HR Executive with 4.9 years of experience.\n\nSkills: appraisals, employee engagement, MS Excel, onboarding, payroll processing, labour law\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "kunal.r095@example.com",
+      "phone": "9387195524",
+      "experience_years": 4.9,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R096",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Kabir Mehta\nEmail: kabir.r096@example.com | Phone: +91 94789 18222\n\nSummary: HR Executive with 3.4 years of experience.\n\nSkills: HRMS, employee engagement, Excel, appraisals, induction, Talent Acquisition, labour law\n\nExperience:\n- Handled employee queries and exit formalities.\n- Organised engagement and wellness activities.\n- Managed end-to-end hiring for business teams.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "kabir.r096@example.com",
+      "phone": "9478918222",
+      "experience_years": 3.4,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R097",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Kunal Kapoor\nEmail: kunal.r097@example.com | Phone: +91 96904 04558\n\nSummary: HR Executive with 2.7 years of experience.\n\nSkills: Excel, payroll, HRMS, Talent Acquisition, statutory compliance, induction\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Organised engagement and wellness activities.\n- Maintained employee records and attendance.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "kunal.r097@example.com",
+      "phone": "9690404558",
+      "experience_years": 2.7,
+      "education_level": 3,
+      "skills": [
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R098",
+    "family": "HR Executive",
+    "kind": "strong",
+    "text": "Riya Pawar\nEmail: riya.r098@example.com | Phone: +91 92744 85243\n\nSummary: HR Executive with 5.4 years of experience.\n\nSkills: onboarding, Excel, recruitment, employee relations, payroll, performance management, HRMS\n\nExperience:\n- Coordinated joining formalities for new employees.\n- Handled employee queries and exit formalities.\n- Organised engagement and wellness activities.\n\nEducation: MBA in Human Resources",
+    "truth": {
+      "email": "riya.r098@example.com",
+      "phone": "9274485243",
+      "experience_years": 5.4,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "onboarding",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R099",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Siddharth Reddy\nEmail: siddharth.r099@example.com | Phone: +91 92176 87031\n\nSummary: HR Executive with 1.2 years of experience.\n\nSkills: HRMS, MS Excel, payroll processing\n\nExperience:\n- Organised engagement and wellness activities.\n- Managed end-to-end hiring for business teams.\n- Coordinated joining formalities for new employees.\n\nEducation: B.Tech in Human Resources",
+    "truth": {
+      "email": "siddharth.r099@example.com",
+      "phone": "9217687031",
+      "experience_years": 1.2,
+      "education_level": 2,
+      "skills": [
+        "excel",
+        "hrms",
+        "payroll"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R100",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Isha Sharma\nEmail: isha.r100@example.com | Phone: +91 97147 92641\n\nSummary: HR Executive with 0.8 years of experience.\n\nSkills: Talent Acquisition, HRMS, employee engagement\n\nExperience:\n- Coordinated joining formalities for new employees.\n- Organised engagement and wellness activities.\n- Managed end-to-end hiring for business teams.\n\nEducation: B.Tech in Human Resources",
+    "truth": {
+      "email": "isha.r100@example.com",
+      "phone": "9714792641",
+      "experience_years": 0.8,
+      "education_level": 2,
+      "skills": [
+        "employee engagement",
+        "hrms",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R101",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Kabir Joshi\nEmail: kabir.r101@example.com | Phone: +91 94490 19278\n\nSummary: HR Executive with 0.3 years of experience.\n\nSkills: labour law, employee relations, onboarding, performance management\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Coordinated joining formalities for new employees.\n- Maintained employee records and attendance.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "kabir.r101@example.com",
+      "phone": "9449019278",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "employee engagement",
+        "labour law",
+        "onboarding",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R102",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Isha Deshmukh\nEmail: isha.r102@example.com | Phone: +91 96992 40979\n\nSummary: HR Executive with 0.7 years of experience.\n\nSkills: payroll, employee engagement, HRMS, MS Excel\n\nExperience:\n- Maintained employee records and attendance.\n- Organised engagement and wellness activities.\n- Managed end-to-end hiring for business teams.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "isha.r102@example.com",
+      "phone": "9699240979",
+      "experience_years": 0.7,
+      "education_level": 1,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "payroll"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R103",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Sneha Mehta\nEmail: sneha.r103@example.com | Phone: +91 98265 17607\n\nSummary: HR Executive with 0.4 years of experience.\n\nSkills: HRMS, performance management, payroll processing\n\nExperience:\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n- Coordinated joining formalities for new employees.\n\nEducation: B.Tech in Human Resources",
+    "truth": {
+      "email": "sneha.r103@example.com",
+      "phone": "9826517607",
+      "experience_years": 0.4,
+      "education_level": 2,
+      "skills": [
+        "hrms",
+        "payroll",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R104",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Arjun Jain\nEmail: arjun.r104@example.com | Phone: +91 97034 62253\n\nSummary: HR Executive with 0.6 years of experience.\n\nSkills: statutory compliance, appraisals, onboarding, payroll\n\nExperience:\n- Coordinated joining formalities for new employees.\n- Handled employee queries and exit formalities.\n- Maintained employee records and attendance.\n\nEducation: B.Tech in Human Resources",
+    "truth": {
+      "email": "arjun.r104@example.com",
+      "phone": "9703462253",
+      "experience_years": 0.6,
+      "education_level": 2,
+      "skills": [
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R105",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Pooja Kulkarni\nEmail: pooja.r105@example.com | Phone: +91 97985 10601\n\nSummary: HR Executive with 0.5 years of experience.\n\nSkills: employee relations, induction, Talent Acquisition, Workday\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Coordinated joining formalities for new employees.\n- Organised engagement and wellness activities.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "pooja.r105@example.com",
+      "phone": "9798510601",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "employee engagement",
+        "hrms",
+        "onboarding",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R106",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Neha Jain\nEmail: neha.r106@example.com | Phone: +91 99993 71401\n\nSummary: HR Executive with 1.0 years of experience.\n\nSkills: Workday, labour law\n\nExperience:\n- Coordinated joining formalities for new employees.\n- Managed end-to-end hiring for business teams.\n- Organised engagement and wellness activities.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "neha.r106@example.com",
+      "phone": "9999371401",
+      "experience_years": 1.0,
+      "education_level": 1,
+      "skills": [
+        "hrms",
+        "labour law"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R107",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Riya Patil\nEmail: riya.r107@example.com | Phone: +91 94597 48735\n\nSummary: HR Executive with 1.1 years of experience.\n\nSkills: appraisals, MS Excel\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Organised engagement and wellness activities.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "riya.r107@example.com",
+      "phone": "9459748735",
+      "experience_years": 1.1,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R108",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Siddharth Kapoor\nEmail: siddharth.r108@example.com | Phone: +91 94167 79880\n\nSummary: HR Executive with 0.7 years of experience.\n\nSkills: Excel, onboarding, Workday\n\nExperience:\n- Maintained employee records and attendance.\n- Coordinated joining formalities for new employees.\n- Managed end-to-end hiring for business teams.\n\nEducation: B.Tech in Human Resources",
+    "truth": {
+      "email": "siddharth.r108@example.com",
+      "phone": "9416779880",
+      "experience_years": 0.7,
+      "education_level": 2,
+      "skills": [
+        "excel",
+        "hrms",
+        "onboarding"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R109",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Isha Kulkarni\nEmail: isha.r109@example.com | Phone: +91 99093 40042\n\nSummary: HR Executive with 0.9 years of experience.\n\nSkills: appraisals, MS Excel, employee relations, Workday\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Coordinated joining formalities for new employees.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "isha.r109@example.com",
+      "phone": "9909340042",
+      "experience_years": 0.9,
+      "education_level": 1,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "performance management"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R110",
+    "family": "HR Executive",
+    "kind": "partial",
+    "text": "Sneha Reddy\nEmail: sneha.r110@example.com | Phone: +91 94167 94215\n\nSummary: HR Executive with 1.2 years of experience.\n\nSkills: Talent Acquisition, payroll processing, statutory compliance\n\nExperience:\n- Organised engagement and wellness activities.\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n\nEducation: Diploma in Human Resources",
+    "truth": {
+      "email": "sneha.r110@example.com",
+      "phone": "9416794215",
+      "experience_years": 1.2,
+      "education_level": 1,
+      "skills": [
+        "labour law",
+        "payroll",
+        "recruitment"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 1,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R111",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Priya Patil\nEmail: priya.r111@example.com | Phone: +91 97057 71555\n\nSummary: Digital Marketing Executive with 3.7 years of experience.\n\nSkills: social media marketing, content marketing, SEM, Excel, communication skills, email marketing, Google Analytics\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Wrote blogs and landing page copy.\n- Managed brand pages and posting calendars.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "priya.r111@example.com",
+      "phone": "9705771555",
+      "experience_years": 3.7,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R112",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Neha Kulkarni\nEmail: neha.r112@example.com | Phone: +91 97054 95031\n\nSummary: Digital Marketing Executive with 1.7 years of experience.\n\nSkills: content marketing, GA4, Excel, SEM, Mailchimp, communication skills\n\nExperience:\n- Wrote blogs and landing page copy.\n- Grew organic website traffic.\n- Managed brand pages and posting calendars.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "neha.r112@example.com",
+      "phone": "9705495031",
+      "experience_years": 1.7,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R113",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Diya Deshmukh\nEmail: diya.r113@example.com | Phone: +91 95390 17530\n\nSummary: Digital Marketing Executive with 3.5 years of experience.\n\nSkills: Google Analytics, email marketing, search engine optimization, content marketing, social media marketing, Excel\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Reported campaign performance to stakeholders.\n- Grew organic website traffic.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "diya.r113@example.com",
+      "phone": "9539017530",
+      "experience_years": 3.5,
+      "education_level": 2,
+      "skills": [
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R114",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Meera Kulkarni\nEmail: meera.r114@example.com | Phone: +91 98231 64961\n\nSummary: Digital Marketing Executive with 4.2 years of experience.\n\nSkills: Excel, Meta Ads, content marketing, Mailchimp, Google Analytics, Google Ads\n\nExperience:\n- Grew organic website traffic.\n- Planned and ran paid campaigns for product launches.\n- Wrote blogs and landing page copy.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "meera.r114@example.com",
+      "phone": "9823164961",
+      "experience_years": 4.2,
+      "education_level": 2,
+      "skills": [
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R115",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Kunal Nair\nEmail: kunal.r115@example.com | Phone: +91 96795 62681\n\nSummary: Digital Marketing Executive with 3.4 years of experience.\n\nSkills: copywriting, SEM, communication skills, social media marketing, Excel, Mailchimp, search engine optimization, GA4\n\nExperience:\n- Grew organic website traffic.\n- Planned and ran paid campaigns for product launches.\n- Reported campaign performance to stakeholders.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "kunal.r115@example.com",
+      "phone": "9679562681",
+      "experience_years": 3.4,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R116",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Diya Joshi\nEmail: diya.r116@example.com | Phone: +91 97352 97732\n\nSummary: Digital Marketing Executive with 4.1 years of experience.\n\nSkills: social media marketing, Google Analytics, communication, SEM, email marketing, content marketing\n\nExperience:\n- Wrote blogs and landing page copy.\n- Managed brand pages and posting calendars.\n- Grew organic website traffic.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "diya.r116@example.com",
+      "phone": "9735297732",
+      "experience_years": 4.1,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "google analytics",
+        "sem",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R117",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Tanvi Joshi\nEmail: tanvi.r117@example.com | Phone: +91 92439 80993\n\nSummary: Digital Marketing Executive with 4.7 years of experience.\n\nSkills: Excel, Google Analytics, copywriting, search engine optimization, Meta Ads, Mailchimp, SEM, communication skills\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Wrote blogs and landing page copy.\n- Grew organic website traffic.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "tanvi.r117@example.com",
+      "phone": "9243980993",
+      "experience_years": 4.7,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R118",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Riya Gupta\nEmail: riya.r118@example.com | Phone: +91 93195 94317\n\nSummary: Digital Marketing Executive with 2.4 years of experience.\n\nSkills: Google Ads, content marketing, Meta Ads, search engine optimization, communication, GA4, Excel\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Wrote blogs and landing page copy.\n- Reported campaign performance to stakeholders.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "riya.r118@example.com",
+      "phone": "9319594317",
+      "experience_years": 2.4,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R119",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Tanvi Jain\nEmail: tanvi.r119@example.com | Phone: +91 97270 99478\n\nSummary: Digital Marketing Executive with 4.7 years of experience.\n\nSkills: GA4, copywriting, Excel, communication skills, Meta Ads, Google Ads, Mailchimp\n\nExperience:\n- Grew organic website traffic.\n- Planned and ran paid campaigns for product launches.\n- Reported campaign performance to stakeholders.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "tanvi.r119@example.com",
+      "phone": "9727099478",
+      "experience_years": 4.7,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R120",
+    "family": "Digital Marketing Executive",
+    "kind": "strong",
+    "text": "Neha Iyer\nEmail: neha.r120@example.com | Phone: +91 97772 10736\n\nSummary: Digital Marketing Executive with 4.0 years of experience.\n\nSkills: content marketing, Meta Ads, Google Ads, communication, Mailchimp, Google Analytics, Excel, SEO\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Reported campaign performance to stakeholders.\n- Wrote blogs and landing page copy.\n\nEducation: B.Tech in Marketing",
+    "truth": {
+      "email": "neha.r120@example.com",
+      "phone": "9777210736",
+      "experience_years": 4.0,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R121",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Pooja Sharma\nEmail: pooja.r121@example.com | Phone: +91 91070 99962\n\nSummary: Digital Marketing Executive with 0.2 years of experience.\n\nSkills: copywriting, Google Analytics\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Wrote blogs and landing page copy.\n- Managed brand pages and posting calendars.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "pooja.r121@example.com",
+      "phone": "9107099962",
+      "experience_years": 0.2,
+      "education_level": 1,
+      "skills": [
+        "content marketing",
+        "google analytics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R122",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Kabir Mehta\nEmail: kabir.r122@example.com | Phone: +91 96652 77813\n\nSummary: Digital Marketing Executive with 0.4 years of experience.\n\nSkills: Google Analytics, communication skills, Meta Ads, search engine optimization\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Grew organic website traffic.\n- Planned and ran paid campaigns for product launches.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "kabir.r122@example.com",
+      "phone": "9665277813",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "communication",
+        "google analytics",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R123",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Rohan Reddy\nEmail: rohan.r123@example.com | Phone: +91 97978 18850\n\nSummary: Digital Marketing Executive with 0.5 years of experience.\n\nSkills: Excel, SEO, Meta Ads\n\nExperience:\n- Grew organic website traffic.\n- Managed brand pages and posting calendars.\n- Wrote blogs and landing page copy.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "rohan.r123@example.com",
+      "phone": "9797818850",
+      "experience_years": 0.5,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R124",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Siddharth Mehta\nEmail: siddharth.r124@example.com | Phone: +91 92023 93989\n\nSummary: Digital Marketing Executive with 0.2 years of experience.\n\nSkills: communication skills, SEO\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Wrote blogs and landing page copy.\n- Grew organic website traffic.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "siddharth.r124@example.com",
+      "phone": "9202393989",
+      "experience_years": 0.2,
+      "education_level": 1,
+      "skills": [
+        "communication",
+        "seo"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R125",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Aditya Jain\nEmail: aditya.r125@example.com | Phone: +91 91826 11003\n\nSummary: Digital Marketing Executive with 0.6 years of experience.\n\nSkills: communication skills, Meta Ads, search engine optimization, Mailchimp\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Grew organic website traffic.\n- Managed brand pages and posting calendars.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "aditya.r125@example.com",
+      "phone": "9182611003",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "communication",
+        "email marketing",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R126",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Sneha Shinde\nEmail: sneha.r126@example.com | Phone: +91 93492 62723\n\nSummary: Digital Marketing Executive with 0.3 years of experience.\n\nSkills: Excel, Mailchimp, Google Analytics\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Managed brand pages and posting calendars.\n- Reported campaign performance to stakeholders.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "sneha.r126@example.com",
+      "phone": "9349262723",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "email marketing",
+        "excel",
+        "google analytics"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R127",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Priya Joshi\nEmail: priya.r127@example.com | Phone: +91 95031 11666\n\nSummary: Digital Marketing Executive with 0.3 years of experience.\n\nSkills: Excel, communication\n\nExperience:\n- Wrote blogs and landing page copy.\n- Reported campaign performance to stakeholders.\n- Planned and ran paid campaigns for product launches.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "priya.r127@example.com",
+      "phone": "9503111666",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "communication",
+        "excel"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R128",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Aditya Gupta\nEmail: aditya.r128@example.com | Phone: +91 99416 95782\n\nSummary: Digital Marketing Executive with 0.3 years of experience.\n\nSkills: Excel, search engine optimization, Google Analytics\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Managed brand pages and posting calendars.\n- Reported campaign performance to stakeholders.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "aditya.r128@example.com",
+      "phone": "9941695782",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "google analytics",
+        "seo"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R129",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Tanvi Joshi\nEmail: tanvi.r129@example.com | Phone: +91 96502 29169\n\nSummary: Digital Marketing Executive with 0.3 years of experience.\n\nSkills: email marketing, search engine optimization, Excel, communication\n\nExperience:\n- Grew organic website traffic.\n- Wrote blogs and landing page copy.\n- Reported campaign performance to stakeholders.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "tanvi.r129@example.com",
+      "phone": "9650229169",
+      "experience_years": 0.3,
+      "education_level": 1,
+      "skills": [
+        "communication",
+        "email marketing",
+        "excel",
+        "seo"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R130",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Aditya Kapoor\nEmail: aditya.r130@example.com | Phone: +91 91909 45411\n\nSummary: Digital Marketing Executive with 0.2 years of experience.\n\nSkills: SEM, Google Analytics, Excel\n\nExperience:\n- Planned and ran paid campaigns for product launches.\n- Managed brand pages and posting calendars.\n- Grew organic website traffic.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "aditya.r130@example.com",
+      "phone": "9190945411",
+      "experience_years": 0.2,
+      "education_level": 1,
+      "skills": [
+        "excel",
+        "google analytics",
+        "sem"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R131",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Neha Deshmukh\nEmail: neha.r131@example.com | Phone: +91 95521 55193\n\nSummary: Digital Marketing Executive with 0.6 years of experience.\n\nSkills: content marketing, GA4, Excel, Google Ads\n\nExperience:\n- Grew organic website traffic.\n- Planned and ran paid campaigns for product launches.\n- Wrote blogs and landing page copy.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "neha.r131@example.com",
+      "phone": "9552155193",
+      "experience_years": 0.6,
+      "education_level": 1,
+      "skills": [
+        "content marketing",
+        "excel",
+        "google analytics",
+        "sem"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R132",
+    "family": "Digital Marketing Executive",
+    "kind": "partial",
+    "text": "Aditya Pawar\nEmail: aditya.r132@example.com | Phone: +91 97659 26290\n\nSummary: Digital Marketing Executive with 0.4 years of experience.\n\nSkills: Google Analytics, SEM, Mailchimp\n\nExperience:\n- Grew organic website traffic.\n- Managed brand pages and posting calendars.\n- Planned and ran paid campaigns for product launches.\n\nEducation: Diploma in Marketing",
+    "truth": {
+      "email": "aditya.r132@example.com",
+      "phone": "9765926290",
+      "experience_years": 0.4,
+      "education_level": 1,
+      "skills": [
+        "email marketing",
+        "google analytics",
+        "sem"
+      ]
+    },
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 1
+    }
+  },
+  {
+    "id": "R133",
+    "family": "HR Executive",
+    "kind": "stuffed",
+    "text": "Yash Nair\nEmail: yash.r133@example.com | Phone: +91 97358 98931\n\nSummary: HR Executive with 4.0 years of experience.\n\nSkills: payroll processing, MS Excel, appraisals, HRMS, onboarding, employee relations, labour law\n\nExperience:\n- Organised engagement and wellness activities.\n- Maintained employee records and attendance.\n- Managed end-to-end hiring for business teams.\n\nEducation: PhD in Human Resources\n\nKeywords: python, django, flask, rest api, sql, git, docker, aws",
+    "truth": {
+      "email": "yash.r133@example.com",
+      "phone": "9735898931",
+      "experience_years": 4.0,
+      "education_level": 4,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management"
+      ]
+    },
+    "target": "Python Backend Developer",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R134",
+    "family": "Digital Marketing Executive",
+    "kind": "stuffed",
+    "text": "Diya Kapoor\nEmail: diya.r134@example.com | Phone: +91 94860 41850\n\nSummary: Digital Marketing Executive with 2.1 years of experience.\n\nSkills: SEO, Mailchimp, copywriting, SEM, Excel, Google Analytics, communication, social media marketing\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Wrote blogs and landing page copy.\n- Managed brand pages and posting calendars.\n\nEducation: B.Tech in Marketing\n\nKeywords: python, django, flask, rest api, sql, git, docker, aws",
+    "truth": {
+      "email": "diya.r134@example.com",
+      "phone": "9486041850",
+      "experience_years": 2.1,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "target": "Python Backend Developer",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R135",
+    "family": "Data Analyst",
+    "kind": "stuffed",
+    "text": "Aarav Kulkarni\nEmail: aarav.r135@example.com | Phone: +91 92122 59020\n\nSummary: Data Analyst with 4.6 years of experience.\n\nSkills: Excel, T-SQL, Tableau, Python, statistical analysis, PowerBI, data visualisation, pandas\n\nExperience:\n- Automated mis reports.\n- Cleaned and analysed sales data.\n- Performed cohort and trend analysis.\n\nEducation: B.Tech in Statistics\n\nKeywords: python, django, flask, rest api, sql, git, docker, aws",
+    "truth": {
+      "email": "aarav.r135@example.com",
+      "phone": "9212259020",
+      "experience_years": 4.6,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "target": "Python Backend Developer",
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R136",
+    "family": "QA Engineer",
+    "kind": "stuffed",
+    "text": "Ananya Joshi\nEmail: ananya.r136@example.com | Phone: +91 92719 44408\n\nSummary: QA Engineer with 5.4 years of experience.\n\nSkills: MySQL, test automation, TestNG, defect tracking, functional testing, Agile\n\nExperience:\n- Logged and tracked defects to closure.\n- Worked with developers to reproduce production issues.\n- Built regression suites for every sprint.\n\nEducation: B.Tech in Computer Engineering\n\nKeywords: sql, excel, python, pandas, power bi, statistics, data visualization, tableau",
+    "truth": {
+      "email": "ananya.r136@example.com",
+      "phone": "9271944408",
+      "experience_years": 5.4,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "sql"
+      ]
+    },
+    "target": "Data Analyst",
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R137",
+    "family": "HR Executive",
+    "kind": "stuffed",
+    "text": "Kunal Patil\nEmail: kunal.r137@example.com | Phone: +91 93816 99808\n\nSummary: HR Executive with 4.5 years of experience.\n\nSkills: employee relations, appraisals, Excel, induction, HRMS, payroll, labour law\n\nExperience:\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n- Managed end-to-end hiring for business teams.\n\nEducation: PhD in Human Resources\n\nKeywords: sql, excel, python, pandas, power bi, statistics, data visualization, tableau",
+    "truth": {
+      "email": "kunal.r137@example.com",
+      "phone": "9381699808",
+      "experience_years": 4.5,
+      "education_level": 4,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management"
+      ]
+    },
+    "target": "Data Analyst",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R138",
+    "family": "Python Backend Developer",
+    "kind": "stuffed",
+    "text": "Priya Gupta\nEmail: priya.r138@example.com | Phone: +91 92517 82582\n\nSummary: Python Backend Developer with 5.5 years of experience.\n\nSkills: GitHub, SQL, REST API, Docker, Amazon Web Services, Flask, Python, Django REST Framework\n\nExperience:\n- Wrote unit tests and reviewed code.\n- Built and maintained backend services and apis.\n- Deployed microservices to the cloud.\n\nEducation: B.Tech in Computer Science\n\nKeywords: sql, excel, python, pandas, power bi, statistics, data visualization, tableau",
+    "truth": {
+      "email": "priya.r138@example.com",
+      "phone": "9251782582",
+      "experience_years": 5.5,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "python",
+        "rest api",
+        "sql"
+      ]
+    },
+    "target": "Data Analyst",
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R139",
+    "family": "Digital Marketing Executive",
+    "kind": "stuffed",
+    "text": "Pooja Shinde\nEmail: pooja.r139@example.com | Phone: +91 98625 09565\n\nSummary: Digital Marketing Executive with 2.8 years of experience.\n\nSkills: social media marketing, Google Analytics, SEM, content marketing, communication, SEO, Excel, email marketing\n\nExperience:\n- Reported campaign performance to stakeholders.\n- Wrote blogs and landing page copy.\n- Grew organic website traffic.\n\nEducation: B.Tech in Marketing\n\nKeywords: aws, docker, kubernetes, ci/cd, terraform, linux, shell scripting, monitoring",
+    "truth": {
+      "email": "pooja.r139@example.com",
+      "phone": "9862509565",
+      "experience_years": 2.8,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "target": "DevOps Engineer",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R140",
+    "family": "QA Engineer",
+    "kind": "stuffed",
+    "text": "Kunal Joshi\nEmail: kunal.r140@example.com | Phone: +91 93346 57613\n\nSummary: QA Engineer with 4.2 years of experience.\n\nSkills: Selenium, TestNG, manual testing, automation testing, Scrum, SQL, defect tracking\n\nExperience:\n- Worked with developers to reproduce production issues.\n- Wrote and executed test plans for web releases.\n- Built regression suites for every sprint.\n\nEducation: B.Tech in Computer Engineering\n\nKeywords: aws, docker, kubernetes, ci/cd, terraform, linux, shell scripting, monitoring",
+    "truth": {
+      "email": "kunal.r140@example.com",
+      "phone": "9334657613",
+      "experience_years": 4.2,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "automation testing",
+        "jira",
+        "manual testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "target": "DevOps Engineer",
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R141",
+    "family": "Data Analyst",
+    "kind": "stuffed",
+    "text": "Riya Iyer\nEmail: riya.r141@example.com | Phone: +91 99427 25534\n\nSummary: Data Analyst with 1.9 years of experience.\n\nSkills: pandas, Python, MySQL, Tableau, data visualization, Advanced Excel, statistics\n\nExperience:\n- Performed cohort and trend analysis.\n- Automated mis reports.\n- Prepared weekly business dashboards.\n\nEducation: MBA in Statistics\n\nKeywords: aws, docker, kubernetes, ci/cd, terraform, linux, shell scripting, monitoring",
+    "truth": {
+      "email": "riya.r141@example.com",
+      "phone": "9942725534",
+      "experience_years": 1.9,
+      "education_level": 3,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "target": "DevOps Engineer",
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R142",
+    "family": "Data Analyst",
+    "kind": "stuffed",
+    "text": "Siddharth Rao\nEmail: siddharth.r142@example.com | Phone: +91 93658 09875\n\nSummary: Data Analyst with 2.7 years of experience.\n\nSkills: Python, Tableau, statistical analysis, data visualization, Power BI, pandas, Excel, MySQL\n\nExperience:\n- Cleaned and analysed sales data.\n- Performed cohort and trend analysis.\n- Presented insights to managers.\n\nEducation: B.Tech in Statistics\n\nKeywords: selenium, manual testing, automation testing, jira, api testing, sql, pytest, agile",
+    "truth": {
+      "email": "siddharth.r142@example.com",
+      "phone": "9365809875",
+      "experience_years": 2.7,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "excel",
+        "pandas",
+        "power bi",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "target": "QA Engineer",
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R143",
+    "family": "Digital Marketing Executive",
+    "kind": "stuffed",
+    "text": "Aditya Nair\nEmail: aditya.r143@example.com | Phone: +91 95613 25766\n\nSummary: Digital Marketing Executive with 2.9 years of experience.\n\nSkills: Google Analytics, Mailchimp, copywriting, Excel, communication, SEO, social media marketing, Google Ads\n\nExperience:\n- Managed brand pages and posting calendars.\n- Planned and ran paid campaigns for product launches.\n- Reported campaign performance to stakeholders.\n\nEducation: B.Tech in Marketing\n\nKeywords: selenium, manual testing, automation testing, jira, api testing, sql, pytest, agile",
+    "truth": {
+      "email": "aditya.r143@example.com",
+      "phone": "9561325766",
+      "experience_years": 2.9,
+      "education_level": 2,
+      "skills": [
+        "communication",
+        "content marketing",
+        "email marketing",
+        "excel",
+        "google analytics",
+        "sem",
+        "seo",
+        "social media marketing"
+      ]
+    },
+    "target": "QA Engineer",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 2
+    }
+  },
+  {
+    "id": "R144",
+    "family": "Python Backend Developer",
+    "kind": "stuffed",
+    "text": "Kunal Kulkarni\nEmail: kunal.r144@example.com | Phone: +91 91007 25768\n\nSummary: Python Backend Developer with 4.2 years of experience.\n\nSkills: SQL, Flask, AWS, Git, Django, containerization\n\nExperience:\n- Built and maintained backend services and apis.\n- Integrated third-party payment and messaging services.\n- Deployed microservices to the cloud.\n\nEducation: B.Tech in Computer Science\n\nKeywords: selenium, manual testing, automation testing, jira, api testing, sql, pytest, agile",
+    "truth": {
+      "email": "kunal.r144@example.com",
+      "phone": "9100725768",
+      "experience_years": 4.2,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "sql"
+      ]
+    },
+    "target": "QA Engineer",
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R145",
+    "family": "QA Engineer",
+    "kind": "stuffed",
+    "text": "Rohan Iyer\nEmail: rohan.r145@example.com | Phone: +91 97374 58510\n\nSummary: QA Engineer with 5.6 years of experience.\n\nSkills: Postman, Selenium WebDriver, SQL, automation testing, Scrum, pytest\n\nExperience:\n- Wrote and executed test plans for web releases.\n- Logged and tracked defects to closure.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering\n\nKeywords: recruitment, onboarding, payroll, employee engagement, hrms, labour law, performance management, excel",
+    "truth": {
+      "email": "rohan.r145@example.com",
+      "phone": "9737458510",
+      "experience_years": 5.6,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "target": "HR Executive",
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R146",
+    "family": "Data Analyst",
+    "kind": "stuffed",
+    "text": "Priya Jain\nEmail: priya.r146@example.com | Phone: +91 94213 22967\n\nSummary: Data Analyst with 3.3 years of experience.\n\nSkills: MySQL, statistical analysis, Python, Tableau, pandas, data visualization\n\nExperience:\n- Prepared weekly business dashboards.\n- Performed cohort and trend analysis.\n- Cleaned and analysed sales data.\n\nEducation: B.Tech in Statistics\n\nKeywords: recruitment, onboarding, payroll, employee engagement, hrms, labour law, performance management, excel",
+    "truth": {
+      "email": "priya.r146@example.com",
+      "phone": "9421322967",
+      "experience_years": 3.3,
+      "education_level": 2,
+      "skills": [
+        "data visualization",
+        "pandas",
+        "python",
+        "sql",
+        "statistics",
+        "tableau"
+      ]
+    },
+    "target": "HR Executive",
+    "labels": {
+      "J1": 0,
+      "J2": 2,
+      "J3": 0,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R147",
+    "family": "DevOps Engineer",
+    "kind": "stuffed",
+    "text": "Kunal Rao\nEmail: kunal.r147@example.com | Phone: +91 93332 64702\n\nSummary: DevOps Engineer with 4.8 years of experience.\n\nSkills: Kubernetes, Linux, Bash, Docker, AWS, monitoring\n\nExperience:\n- Reduced release time by automating builds.\n- Handled incident response and on-call.\n- Maintained production clusters with high availability.\n\nEducation: MBA in Information Technology\n\nKeywords: recruitment, onboarding, payroll, employee engagement, hrms, labour law, performance management, excel",
+    "truth": {
+      "email": "kunal.r147@example.com",
+      "phone": "9333264702",
+      "experience_years": 4.8,
+      "education_level": 3,
+      "skills": [
+        "aws",
+        "docker",
+        "kubernetes",
+        "linux",
+        "monitoring",
+        "shell scripting"
+      ]
+    },
+    "target": "HR Executive",
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 2,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R148",
+    "family": "Python Backend Developer",
+    "kind": "stuffed",
+    "text": "Riya Joshi\nEmail: riya.r148@example.com | Phone: +91 93025 57660\n\nSummary: Python Backend Developer with 4.6 years of experience.\n\nSkills: containerization, Flask, Django, Git, AWS, REST API\n\nExperience:\n- Wrote unit tests and reviewed code.\n- Designed database schemas and wrote optimised queries.\n- Integrated third-party payment and messaging services.\n\nEducation: B.Tech in Computer Science\n\nKeywords: seo, sem, social media marketing, content marketing, google analytics, email marketing, excel, communication",
+    "truth": {
+      "email": "riya.r148@example.com",
+      "phone": "9302557660",
+      "experience_years": 4.6,
+      "education_level": 2,
+      "skills": [
+        "aws",
+        "django",
+        "docker",
+        "flask",
+        "git",
+        "rest api"
+      ]
+    },
+    "target": "Digital Marketing Executive",
+    "labels": {
+      "J1": 2,
+      "J2": 0,
+      "J3": 1,
+      "J4": 0,
+      "J5": 0,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R149",
+    "family": "HR Executive",
+    "kind": "stuffed",
+    "text": "Diya Jain\nEmail: diya.r149@example.com | Phone: +91 91649 27936\n\nSummary: HR Executive with 3.9 years of experience.\n\nSkills: employee engagement, MS Excel, appraisals, Talent Acquisition, onboarding, labour law, HRMS, payroll processing\n\nExperience:\n- Managed end-to-end hiring for business teams.\n- Maintained employee records and attendance.\n- Handled employee queries and exit formalities.\n\nEducation: MBA in Human Resources\n\nKeywords: seo, sem, social media marketing, content marketing, google analytics, email marketing, excel, communication",
+    "truth": {
+      "email": "diya.r149@example.com",
+      "phone": "9164927936",
+      "experience_years": 3.9,
+      "education_level": 3,
+      "skills": [
+        "employee engagement",
+        "excel",
+        "hrms",
+        "labour law",
+        "onboarding",
+        "payroll",
+        "performance management",
+        "recruitment"
+      ]
+    },
+    "target": "Digital Marketing Executive",
+    "labels": {
+      "J1": 0,
+      "J2": 0,
+      "J3": 0,
+      "J4": 0,
+      "J5": 2,
+      "J6": 0
+    }
+  },
+  {
+    "id": "R150",
+    "family": "QA Engineer",
+    "kind": "stuffed",
+    "text": "Rohan Jain\nEmail: rohan.r150@example.com | Phone: +91 95665 23205\n\nSummary: QA Engineer with 4.3 years of experience.\n\nSkills: TestNG, defect tracking, SQL, Scrum, Selenium WebDriver, test automation, API testing\n\nExperience:\n- Logged and tracked defects to closure.\n- Wrote and executed test plans for web releases.\n- Validated backend data with queries.\n\nEducation: B.Tech in Computer Engineering\n\nKeywords: seo, sem, social media marketing, content marketing, google analytics, email marketing, excel, communication",
+    "truth": {
+      "email": "rohan.r150@example.com",
+      "phone": "9566523205",
+      "experience_years": 4.3,
+      "education_level": 2,
+      "skills": [
+        "agile",
+        "api testing",
+        "automation testing",
+        "jira",
+        "pytest",
+        "selenium",
+        "sql"
+      ]
+    },
+    "target": "Digital Marketing Executive",
+    "labels": {
+      "J1": 1,
+      "J2": 0,
+      "J3": 0,
+      "J4": 2,
+      "J5": 0,
+      "J6": 0
+    }
+  }
+]

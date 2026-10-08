@@ -1,0 +1,7 @@
+__pycache__/
+*.db
+uploads/*
+!uploads/.gitkeep
+eval/results.json
+eval/charts/
+.venv/

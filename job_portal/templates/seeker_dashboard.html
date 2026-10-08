@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}My applications · AI Job Portal{% endblock %}
+{% block content %}
+<h2>My applications</h2>
+<table>
+  <tr><th>Job</th><th>Match score</th><th>Missing skills</th><th>Status</th><th>Applied</th></tr>
+  {% for a in apps %}
+  {% set b = a.breakdown|fromjson %}
+  <tr>
+    <td><a href="{{ url_for('job_detail', job_id=a.job_id) }}">{{ a.title }}</a></td>
+    <td><strong>{{ a.score|round|int }}</strong></td>
+    <td>{{ b.missing|join(', ') or '—' }}</td>
+    <td><span class="status s-{{ a.status|lower }}">{{ a.status }}</span></td>
+    <td>{{ a.created_at }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="5" class="muted">No applications yet. <a href="{{ url_for('index') }}">Browse jobs</a></td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

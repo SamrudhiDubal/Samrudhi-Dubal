@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Post a job · AI Job Portal{% endblock %}
+{% block content %}
+<h2>Post a job</h2>
+<form class="form" method="post">
+  <label>Job title <input name="title" value="{{ request.form.title }}" required></label>
+  <label>Location <input name="location" value="{{ request.form.location }}" placeholder="e.g. Pune (Hybrid)"></label>
+  <label>Minimum experience (years) <input name="min_experience" type="number" step="0.5" min="0" value="{{ request.form.min_experience or 0 }}"></label>
+  <label>Job description
+    <textarea name="description" rows="10" required placeholder="Describe the role. Mention required skills (e.g. python, django, sql, docker) and qualification (e.g. B.Tech or equivalent).">{{ request.form.description }}</textarea>
+  </label>
+  <p class="muted">Required skills and qualification are read automatically from the description by the AI screening engine.</p>
+  <button>Post job</button>
+</form>
+{% endblock %}

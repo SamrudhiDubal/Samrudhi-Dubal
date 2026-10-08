@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="search" method="get">
+  <input name="q" value="{{ q }}" placeholder="Search jobs by title, skill or location">
+  <button>Search</button>
+</form>
+{% for job in jobs %}
+  <a class="card" href="{{ url_for('job_detail', job_id=job.id) }}">
+    <h3>{{ job.title }}</h3>
+    <p class="muted">{{ job.company }} · {{ job.location or 'Not specified' }} · Min {{ job.min_experience }} yrs</p>
+    <p>{{ job.description[:220] }}{% if job.description|length > 220 %}…{% endif %}</p>
+  </a>
+{% else %}
+  <p class="muted">No jobs found.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ job.title }} · AI Job Portal{% endblock %}
+{% block content %}
+<h2>{{ job.title }}</h2>
+<p class="muted">{{ job.company }} · {{ job.location or 'Not specified' }} · Min {{ job.min_experience }} yrs</p>
+<p class="pre">{{ job.description }}</p>
+{% if current_role == 'seeker' %}
+  {% if applied %}
+    <p>You applied — match score <strong>{{ applied.score|round|int }}</strong>, status <strong>{{ applied.status }}</strong>.
+       <a href="{{ url_for('apply', job_id=job.id) }}">Re-apply with a new resume</a></p>
+  {% else %}
+    <a class="btn" href="{{ url_for('apply', job_id=job.id) }}">Apply now</a>
+  {% endif %}
+{% elif not current_role %}
+  <a class="btn" href="{{ url_for('login', next=url_for('apply', job_id=job.id)) }}">Log in to apply</a>
+{% endif %}
+{% endblock %}

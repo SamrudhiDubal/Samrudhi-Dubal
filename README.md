@@ -1,5 +1,11 @@
 # JobMatch AI — Full-Stack Job Portal with AI-Based Resume Screening
 
+> **Two implementations live in this repository.**
+> - [`job_portal/`](job_portal/) — the **Python / Flask / SQLite** portal described in the project
+>   report (TF-IDF hybrid screening engine, evaluation scripts, tests). Start there for the report.
+> - `backend/` + `frontend/` — an alternative MERN (Node / React / MongoDB) version, documented below.
+
+
 A full-stack job portal (MERN-style: MongoDB, Express, React, Node.js) where
 candidates apply to jobs and an AI resume-screening engine automatically
 scores every application against the job's requirements — fully functional

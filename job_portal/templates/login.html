@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login · AI Job Portal{% endblock %}
+{% block content %}
+<h2>Log in</h2>
+<form class="form" method="post">
+  <label>Email <input name="email" type="email" required></label>
+  <label>Password <input name="password" type="password" required></label>
+  <button>Log in</button>
+</form>
+<p class="muted">No account? <a href="{{ url_for('register') }}">Register</a></p>
+{% endblock %}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "J1",
+    "title": "Python Backend Developer",
+    "location": "Pune (Hybrid)",
+    "description": "We are hiring a Python Backend Developer. Minimum 2 years of experience. Required skills: python, django, flask, rest api, sql, git, docker, aws. Responsibilities: built and maintained backend services and APIs; designed database schemas and wrote optimised queries; wrote unit tests and reviewed code; deployed microservices to the cloud; integrated third-party payment and messaging services. Qualification: B.Tech or equivalent.",
+    "min_experience": 2,
+    "min_education": 2,
+    "skills": [
+      "python",
+      "django",
+      "flask",
+      "rest api",
+      "sql",
+      "git",
+      "docker",
+      "aws"
+    ]
+  },
+  {
+    "id": "J2",
+    "title": "Data Analyst",
+    "location": "Remote",
+    "description": "We are hiring a Data Analyst. Minimum 1 years of experience. Required skills: sql, excel, python, pandas, power bi, statistics, data visualization, tableau. Responsibilities: prepared weekly business dashboards; cleaned and analysed sales data; presented insights to managers; automated MIS reports; performed cohort and trend analysis. Qualification: B.Sc or equivalent.",
+    "min_experience": 1,
+    "min_education": 2,
+    "skills": [
+      "sql",
+      "excel",
+      "python",
+      "pandas",
+      "power bi",
+      "statistics",
+      "data visualization",
+      "tableau"
+    ]
+  },
+  {
+    "id": "J3",
+    "title": "DevOps Engineer",
+    "location": "Bengaluru",
+    "description": "We are hiring a DevOps Engineer. Minimum 3 years of experience. Required skills: aws, docker, kubernetes, ci/cd, terraform, linux, shell scripting, monitoring. Responsibilities: managed cloud infrastructure and deployment pipelines; reduced release time by automating builds; maintained production clusters with high availability; handled incident response and on-call; hardened servers and managed access policies. Qualification: B.E. or equivalent.",
+    "min_experience": 3,
+    "min_education": 2,
+    "skills": [
+      "aws",
+      "docker",
+      "kubernetes",
+      "ci/cd",
+      "terraform",
+      "linux",
+      "shell scripting",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "J4",
+    "title": "QA Engineer",
+    "location": "Hyderabad",
+    "description": "We are hiring a QA Engineer. Minimum 2 years of experience. Required skills: selenium, manual testing, automation testing, jira, api testing, sql, pytest, agile. Responsibilities: wrote and executed test plans for web releases; logged and tracked defects to closure; built regression suites for every sprint; validated backend data with queries; worked with developers to reproduce production issues. Qualification: B.Tech or equivalent.",
+    "min_experience": 2,
+    "min_education": 2,
+    "skills": [
+      "selenium",
+      "manual testing",
+      "automation testing",
+      "jira",
+      "api testing",
+      "sql",
+      "pytest",
+      "agile"
+    ]
+  },
+  {
+    "id": "J5",
+    "title": "HR Executive",
+    "location": "Mumbai",
+    "description": "We are hiring a HR Executive. Minimum 2 years of experience. Required skills: recruitment, onboarding, payroll, employee engagement, hrms, labour law, performance management, excel. Responsibilities: managed end-to-end hiring for business teams; coordinated joining formalities for new employees; maintained employee records and attendance; organised engagement and wellness activities; handled employee queries and exit formalities. Qualification: MBA in HR or equivalent.",
+    "min_experience": 2,
+    "min_education": 3,
+    "skills": [
+      "recruitment",
+      "onboarding",
+      "payroll",
+      "employee engagement",
+      "hrms",
+      "labour law",
+      "performance management",
+      "excel"
+    ]
+  },
+  {
+    "id": "J6",
+    "title": "Digital Marketing Executive",
+    "location": "Pune",
+    "description": "We are hiring a Digital Marketing Executive. Minimum 1 years of experience. Required skills: seo, sem, social media marketing, content marketing, google analytics, email marketing, excel, communication. Responsibilities: planned and ran paid campaigns for product launches; grew organic website traffic; managed brand pages and posting calendars; wrote blogs and landing page copy; reported campaign performance to stakeholders. Qualification: BBA or any graduate.",
+    "min_experience": 1,
+    "min_education": 2,
+    "skills": [
+      "seo",
+      "sem",
+      "social media marketing",
+      "content marketing",
+      "google analytics",
+      "email marketing",
+      "excel",
+      "communication"
+    ]
+  }
+]
